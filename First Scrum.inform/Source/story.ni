@@ -27,23 +27,8 @@ Product Owner is a lesserknown subject.
 
 Understand "PO" as Product Owner.
 
-[Understand "ask [someone] about [any unknown thing]" as blindquizzing it about.
-
-Blindquizzing it about is an action applying to two visible things.
-
-The specification of the blindquizzing it about action is "This action responds to commands like ASK FRED ABOUT BOAT, where BOAT is an unknown thing defined in the game, rather than a topic."
-
-[The block asking about something unknown rule is not listed in the check quizzing it about rulebook.]
-
-Report blindquizzing someone about something (this is the block blindquizzing rule):
-  say "You are not really familiar with [second noun], so you don't know what to ask. Maybe you get more acquinted with the subject of [second noun] somehow?"]
-
 After quizzing someone about something lesserknown,
   say "You are not really familiar with [second noun], so you don't know what to ask. Maybe you get more acquinted with the subject of [second noun] somehow?"
-
-[Check blindquizzing someone about something unknown (this is the block asking about something unknown mark 2 rule):
-  say "You are not really familiar with [second noun], so you don't know what to ask. Maybe you get more acquinted with the subject of [second noun] somehow?";
-  stop the action.]
 
 
 Section 2 - Kinds of Persons
