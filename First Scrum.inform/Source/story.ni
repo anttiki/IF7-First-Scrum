@@ -4,6 +4,7 @@ Include Epistemology by Eric Eve.
 
 Include Conversation Package by Eric Eve.
 
+[This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. http://creativecommons.org/licenses/by-nc-sa/3.0/]
 
 Chapter 1 - Subjects and Kinds
 
@@ -11,6 +12,8 @@ Chapter 1 - Subjects and Kinds
 Section 1 - Subjects
 
 Scrum is a subject. 
+
+A thing can be wellknown or lesserknown. a thing is usually wellknown.
 
 Scrum Master is a subject. 
 
@@ -20,17 +23,27 @@ Scrum Master's duties is a subject.
 
 Understand "SM's responsibilities" or "Scrum Master's responsibilities" as Scrum Master's duties.
 
-Product Owner is an unfamiliar subject. 
+Product Owner is a lesserknown subject. 
 
 Understand "PO" as Product Owner.
 
-Understand "ask [someone] about [any thing]" as quizzing it about.
+[Understand "ask [someone] about [any unknown thing]" as blindquizzing it about.
 
-The block asking about something unknown rule is not listed in the check quizzing it about rulebook.
+Blindquizzing it about is an action applying to two visible things.
 
-Check quizzing someone about something unknown (this is the block asking about something unknown mark 2 rule):
+The specification of the blindquizzing it about action is "This action responds to commands like ASK FRED ABOUT BOAT, where BOAT is an unknown thing defined in the game, rather than a topic."
+
+[The block asking about something unknown rule is not listed in the check quizzing it about rulebook.]
+
+Report blindquizzing someone about something (this is the block blindquizzing rule):
+  say "You are not really familiar with [second noun], so you don't know what to ask. Maybe you get more acquinted with the subject of [second noun] somehow?"]
+
+After quizzing someone about something lesserknown,
+  say "You are not really familiar with [second noun], so you don't know what to ask. Maybe you get more acquinted with the subject of [second noun] somehow?"
+
+[Check blindquizzing someone about something unknown (this is the block asking about something unknown mark 2 rule):
   say "You are not really familiar with [second noun], so you don't know what to ask. Maybe you get more acquinted with the subject of [second noun] somehow?";
-  stop the action.
+  stop the action.]
 
 
 Section 2 - Kinds of Persons
