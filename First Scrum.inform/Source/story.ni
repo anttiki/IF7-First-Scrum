@@ -31,7 +31,7 @@ quizzing report rule in the report quizzing it about rulebook.
      
 Book 2 The Game itself
 
-Volume 1 Problem: Missed Deadlines
+Volume 1 Problem Missed Deadlines
 
 Chapter 1 The Symptom
 
