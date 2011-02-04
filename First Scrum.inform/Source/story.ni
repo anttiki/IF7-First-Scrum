@@ -18,12 +18,12 @@ Report quizzing someone about something known (this is the bugfix quizzing repor
 				let sug be the suggest entry;
 				decrease sug by 1;
 				now the suggest entry is sug;
-				stop the action.
+			stop the action.
 
 The bugfix quizzing report rule is listed instead of the standard
 quizzing report rule in the report quizzing it about rulebook.
 
- Instead of asking someone about something:
+Instead of asking someone about something:
      consider the unknown quizzing rule of the noun.
 
     Instead of telling someone about something:
@@ -65,9 +65,9 @@ After saying hello to Markku:
 Table of Markku's Answers
 subject	response rule	response table	suggest
 Markku	markku2 rule	--	1
-status	--	Table of Markku's Status Responses	2
-team board	a rule	Table of Markku's board 	1
-tests	a rule	Table of Markku's tests	3
+status	a rule	Table of Markku's Status Responses	3
+team board	a rule	Table of Markku's board 	2
+tests	a rule	Table of Markku's tests	
 unfinished items	items rule	--	1
 
 This is the markku2 rule:
@@ -87,11 +87,12 @@ Table of Markku's Status Responses
 response
 "'What does the status look like?' you ask.[paragraph break] 'Great on paper, as usual', [Name] responds, slowly and nods at the team board[make team board familiar]." 
 "So you do think that everything is at it stands on the team board?'', you inquire.[paragraph break]'I just hope that nothing comes up in the next 3 days. Like it did in the previous sprint. Or the one before that. Or the one before that. Or... You get my point.' [Name] remarks, with a dry smile."
-
+"Anything else come to your mind about the status?'', you inquire.[paragraph break]'I think that about covers it, sir', [Name] reports."
 
 Table of Markku's board
 response
 "'What are your thoughts about the team board?' you ask.[paragraph break] 'I don't know. There are a lot of items marked done that I haven't heard that they have been tested at all. [Make tests familiar]Seems a bit strange, although I may be mistaken about that ...' [Name] answers."
+"Anything else come to your mind about the team board?'', you inquire.[paragraph break]'I think that about covers it, sir', [Name] reports."
 
 
 Table of Markku's tests
@@ -100,6 +101,7 @@ response
 "'Don't you do a report on test results?' you ask.[paragraph break]'Yes, and the tests always pass 100%', [Name] answers, with a wry smile."
 "'So, what's wrong about the tests then?', you ask. [paragraph break]'It's just that we don't have a dedicated test team here and everything seems to go to hell at the moment we start to integrate.' [Name] answers."
 "Nothing more to add."
+"Anything else come to your mind about the tests?'', you inquire.[paragraph break]'Not at the moment, no', [Name] reports."
 
 This is the items rule:
 say "'Anything still on the to-do list?' you ask.[paragraph break] 'I have to run the tests again. And then there's the integration. That will be a pain in the ass, AGAIN.' [Name] answers."
