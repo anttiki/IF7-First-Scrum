@@ -1,78 +1,117 @@
+
 "First Scrum" by Antti Kirjavainen
 
-Include Epistemology by Eric Eve.
+[This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+http://creativecommons.org/licenses/by-nc-sa/3.0/]
 
-Include Conversation Package by Eric Eve.
+Include Conversation Rules by Eric Eve.
 
-[This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. http://creativecommons.org/licenses/by-nc-sa/3.0/]
+Book 1 Bug Fix
 
-Chapter 1 - Subjects and Kinds
+Report quizzing someone about something known (this is the bugfix quizzing report rule):
+	repeat through the quizzing table of the noun:
+		if the subject entry is the second noun:
+			if there is a suggest entry and the suggest entry is -1, continue the action;
+			if there is a response rule entry, consider the response rule entry;
+			if there is a response table entry, show the next response from the response table entry;
+			if there is a suggest entry and the suggest entry > 0:
+				let sug be the suggest entry;
+				decrease sug by 1;
+				now the suggest entry is sug;
+				stop the action.
 
+The bugfix quizzing report rule is listed instead of the standard
+quizzing report rule in the report quizzing it about rulebook.
 
-Section 1 - Subjects
+ Instead of asking someone about something:
+     consider the unknown quizzing rule of the noun.
 
-Scrum is a subject. 
+    Instead of telling someone about something:
+     consider the unknown informing rule of the noun.
+     
+Book 2 The Game itself
 
-A thing can be wellknown or lesserknown. a thing is usually wellknown.
+Volume 1 Problem: Missed Deadlines
 
-Scrum Master is a subject. 
+Chapter 1 The Symptom
 
-Understand "SM" as Scrum Master.
+status is a familiar subject.
+Understand "sprint status" or "project status" or "status report" or "report" as status.
 
-Scrum Master's duties is a subject.
+team board is an unfamiliar subject.
+Understand "board" or "scrum board" or "team wall" or "wall" as team board.
 
-Understand "SM's responsibilities" or "Scrum Master's responsibilities" as Scrum Master's duties.
+tests is an unfamiliar subject.
+Understand "testing" or "test" or "system test" as tests.
 
-Product Owner is a lesserknown subject. 
+unfinished items is an unfamiliar subject.
 
-Understand "PO" as Product Owner.
+team member is a kind of person. Team member has some text called Name. Name is usually "That guy".
 
-After quizzing someone about something lesserknown,
-  say "You are not really familiar with [second noun], so you don't know what to ask. Maybe you get more acquinted with the subject of [second noun] somehow?"
+[Markku-start-node is a convnode. The next-node is Markku-start-node. Ask-suggestions are {status, team board, tests, unfinished items}.]
 
+Markku is a male team member. The quizzing table is the Table of Markku's Answers. The Name is "Markku". The unknown quizzing rule is the Markku-no-quiz rule.
 
-Section 2 - Kinds of Persons
+This is the Markku-no-quiz rule: 
+	show the next response from the Table of Markku's Default Quiz Responses.
 
-A Team member is a kind of person.
-	Team member has some text called Name. Name is usually "That guy".
-	Team member has some text called The Product owner knowledge. The Product owner knowledge is usually "[one of]That would be Hank. His job is to tell us what to do[or]He can be a little annoying at times, Hank[or]Hank's office is on the 8th floor[stopping]."
-	Team member has some text called The Scrum master knowledge. The Scrum master knowledge is usually "[one of]That's your post now, isn't it?[or]Helen was the one before you, but no she has moved on[or]Yeah, you'd better get started on your work, shouldn't you?[stopping]".
+After saying hello to Markku:
+     say "'Good morning, your excellency,' you greet him.
 
-	After saying hello to a Team member when the greeting type is explicit:
-	say "'Greetings, [Name]' you say.
-	
-	'Hello, sir!' [Name] answers."
-	After saying hello to a Team member when the greeting type is implicit:
-	say "[Name] looks up when you speak."	
-	After saying goodbye to a Team member when the farewell type is explicit:
-	say "'Well you take care now, [Name]!' you exclaim.
-	
-	'Goodbye, sir!' [Name] answers."
-	After saying goodbye to a Team member when the farewell type is implicit:
-	say "[Name] nods vaguely and goes back to work."	
-	
-	Team member has some text called idunnoresponse. Idunnoresponse is usually "[one of]'I dunno much about that'  [Name] says.[or]'Whazzat?'  [Name] asks.[or]'How do you mean?'  [Name] asks.[purely at random]".
-	default ask response for Team member: say "[idunnoresponse]".
-
-	[default ask response for Team member when the second noun is unknown:
-	say "You are not familiar with this subject".]
-	
-	default ask response for Team member when asked about Team member:
-	say "'What about me, sir?' [Name] asks, puzzled."
-	
-	default ask response for Team member when asked about Scrum Master:
-	say "[Name] says: '[Scrum master knowledge]'".
-
-	default ask response for Team member when asked about Product Owner:
-	say "[Name] says: '[Product Owner knowledge]'".
-
-	default ask response for Team member when asked about Scrum Master's duties:
-	say "'The responsibilities of a SM? Shouldn't you be the one who knows about that?', [Name] asks, half smiling."
-
-Chapter 2 - The Team
-
-The Team room is a room.
-		
-Ted is a male team member in the Team room. Name of Ted is "Ted".
+    'I don't know what's good about it, boss,' [Name] grunts in reply.";
+    if the greeting type is explicit, consider the standard list suggested topics rule.
 
 
+Table of Markku's Answers
+subject	response rule	response table	suggest
+Markku	markku2 rule	--	1
+status	--	Table of Markku's Status Responses	2
+team board	a rule	Table of Markku's board 	1
+tests	a rule	Table of Markku's tests	3
+unfinished items	items rule	--	1
+
+This is the markku2 rule:
+say "'How are you?' you ask.[paragraph break]'Well, a little, hmm, tired... I played Gran Turismo X until 2 am.' [Name] answers."
+
+
+
+Table of Markku's Default Quiz Responses
+response
+"'Yeah, I think I know what you are talking about... Sorry, I don't know anything about that', [Name] replies apologetically."
+"'One cannot know everything, especially at this particular project', [Name] replies with a sly smile."
+"'Sorry, I cannot help you with that', [Name] answers frankly."
+"'Sorry, but what has that got to do with anything?' [Name] quips back."
+
+
+Table of Markku's Status Responses
+response
+"'What does the status look like?' you ask.[paragraph break] 'Great on paper, as usual', [Name] responds, slowly and nods at the team board[make team board familiar]." 
+"So you do think that everything is at it stands on the team board?'', you inquire.[paragraph break]'I just hope that nothing comes up in the next 3 days. Like it did in the previous sprint. Or the one before that. Or the one before that. Or... You get my point.' [Name] remarks, with a dry smile."
+
+
+Table of Markku's board
+response
+"'What are your thoughts about the team board?' you ask.[paragraph break] 'I don't know. There are a lot of items marked done that I haven't heard that they have been tested at all. [Make tests familiar]Seems a bit strange, although I may be mistaken about that ...' [Name] answers."
+
+
+Table of Markku's tests
+response
+"'So, there are items that have been implemented but not tested at all, is that right?' you ask.[paragraph break]'Well, I'm not sure. There's no way to tell, is there.', [Name] retorts." 
+"'Don't you do a report on test results?' you ask.[paragraph break]'Yes, and the tests always pass 100%', [Name] answers, with a wry smile."
+"'So, what's wrong about the tests then?', you ask. [paragraph break]'It's just that we don't have a dedicated test team here and everything seems to go to hell at the moment we start to integrate.' [Name] answers."
+"Nothing more to add."
+
+This is the items rule:
+say "'Anything still on the to-do list?' you ask.[paragraph break] 'I have to run the tests again. And then there's the integration. That will be a pain in the ass, AGAIN.' [Name] answers."
+
+
+Team room is a room. Markku is in the team room. [Johanna is in the team room.]
+
+[Team room north corner is a room. Team room north corner is north of the team room. Ted is in the team room north corner. Saana is in the team room north corner.]
+
+Table of Table Types (continued)
+tabname	index	tabtype
+Table of Markku's board	0	stop-list
+Table of Markku's tests	0	stop-list
+Table of Markku's Default Quiz Responses	0	shuffled-list
+Table of Markku's Status Responses	0	stop-list
