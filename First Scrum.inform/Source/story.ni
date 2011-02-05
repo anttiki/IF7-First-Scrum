@@ -97,7 +97,7 @@ Chapter 2 The Symptom
 status is a familiar subject.
 Understand "sprint status" or "project status" or "status report" or "report" as status.
 
-team board is an unfamiliar subject.
+[team board is an unfamiliar subject.]
 Understand "board" or "scrum board" or "team wall" or "wall" as team board.
 
 tests is an unfamiliar subject.
@@ -126,7 +126,7 @@ subject	response rule	response table	suggest
 Markku	markku2 rule	--	1
 status	a rule	Table of Markku's Status Responses	3
 team board	a rule	Table of Markku's board 	2
-tests	a rule	Table of Markku's tests	
+tests	a rule	Table of Markku's tests	3
 unfinished items	items rule	--	1
 
 This is the markku2 rule:
@@ -165,15 +165,55 @@ response
 This is the items rule:
 say "'Anything still on the to-do list?' [PlrQuestion]'I have to run the tests again. And then there's the integration. That will be a pain in the ass, AGAIN.' [Answers for frustrated]"
 
-
-Team room is a room. Markku is in the team room. [Johanna is in the team room.]
-
-[Team room north corner is a room. Team room north corner is north of the team room. Ted is in the team room north corner. Saana is in the team room north corner.]
-
 Table of Table Types (continued)
 tabname	index	tabtype
 Table of Markku's board	0	stop-list
 Table of Markku's tests	0	stop-list
 Table of Markku's Default Quiz Responses	0	shuffled-list
 Table of Markku's Status Responses	0	stop-list
+
+Chapter 3 Research
+
+Chapter 4 Actions
+
+Chapter 5 Effects
+
+Chapter 6 Scenery
+
+Section 1 Rooms
+
+By the door is a room. "You are in the team's open office. There's a door to the corridor to the south. There's an empty desk by the door." 
+
+The empty desk is scenery in By the door. "There's an empty desk by the door. There are some cables at the back of the desk. [Team board narrative]" 
+
+By Markku's desk is a room. By Markku's desk is northwest from By the door. The description is "You are in the team's open office, by Markku's desk." Markku is in a room called the By Markku's desk.
+
+North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here." North end of the office is north from a room called By the door.
+
+By Saana's desk is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk." By Saana's desk is northeast from by the door.
+
+By the board is a room. "You are by the south wall of the team's open office, west of the door. There's the marker board filled with post-its here." By the board is west from By the door.
+
+Southeast corner of the office is a room. "You are in the southeast corner of the open office. There's a supply closet here." Supply closet is scenery in the Southeast corner of the office. Southeast corner of the office is east from By the door.
+
+Open office is a region. By Markku's desk, by the door, North end of office, Southeast corner of the office, by saana's desk and By the board are in the Open office. 
+
+The team board is a backdrop. "On the west end of the south wall there's a marker board with colored post-it notes. You are unable to see the much more from here." The team board is in the open office.
+
+Team board narrative is some text which varies. Team board narrative is "On the west end of the south wall there's a marker board."
+
+Section 2 Directions
+
+By Markku's desk is north from By the board.
+
+North end of the office is east from By Markku's desk.
+
+By Saana's desk is east from North end of office.
+
+Southeast corner of the office is south from By Saana's desk.
+
+Southeast corner of the office is southeast from North end of the office.
+
+North end of the office is northeast from By the board.
+
 
