@@ -182,19 +182,19 @@ Chapter 6 Scenery
 
 Section 1 Rooms
 
-By the door is a room. "You are in the team's open office. There's a door to the corridor to the south. There's an empty desk by the door." 
+By the door is a room. "You are in the team's open office. There's a door to the corridor to the south. There's an empty desk by the door. [Team board narrative]".
 
-The empty desk is scenery in By the door. "There's an empty desk by the door. There are some cables at the back of the desk. [Team board narrative]" 
+The empty desk is scenery in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
 
-By Markku's desk is a room. By Markku's desk is northwest from By the door. The description is "You are in the team's open office, by Markku's desk." Markku is in a room called the By Markku's desk.
+By Markku's desk is a room. By Markku's desk is northwest from By the door. The description is "You are in the team's open office, by Markku's desk. [Team board narrative]". Markku is in a room called the By Markku's desk.
 
-North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here." North end of the office is north from a room called By the door.
+North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". North end of the office is north from a room called By the door.
 
-By Saana's desk is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk." By Saana's desk is northeast from by the door.
+By Saana's desk is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative]". By Saana's desk is northeast from by the door.
 
 By the board is a room. "You are by the south wall of the team's open office, west of the door. There's the marker board filled with post-its here." By the board is west from By the door.
 
-Southeast corner of the office is a room. "You are in the southeast corner of the open office. There's a supply closet here." Supply closet is scenery in the Southeast corner of the office. Southeast corner of the office is east from By the door.
+Southeast corner of the office is a room. "You are in the southeast corner of the open office. There's a supply closet here. [Team board narrative]". Supply closet is scenery in the Southeast corner of the office. Southeast corner of the office is east from By the door.
 
 Open office is a region. By Markku's desk, by the door, North end of office, Southeast corner of the office, by saana's desk and By the board are in the Open office. 
 
