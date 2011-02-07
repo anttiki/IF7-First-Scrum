@@ -4,7 +4,19 @@
 [This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 http://creativecommons.org/licenses/by-nc-sa/3.0/]
 
+The story description is "This is a work-in-progress. 
+
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License (http://creativecommons.org/licenses/by-nc-sa/3.0/)."
+
+When play begins: say "This is a work-in-progress. 
+
+This work is licensed under a <a href=[quotation mark]http://creativecommons.org/licenses/by-nc-sa/3.0/[quotation mark]>Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.".
+
 Include Conversation Rules by Eric Eve.
+
+Use no scoring.
+
+Use BRIEF room descriptions.
 
 Book 1 Bug Fix
 
@@ -174,6 +186,57 @@ Table of Markku's Status Responses	0	stop-list
 
 Chapter 3 Research
 
+A book is a kind of thing. Understand "book" as a book. A book has a table name called the contents. Book can be identified or unidentified. Book is usually identified.
+
+A book has some text called U-name. The u-name of a book is usually "a book".
+
+A book has some text called I-name. The i-name of a book is usually "a blank book with no name on the cover".
+
+Rule for printing the name of a book when the book is unidentified: 
+    say "[U-name]".
+
+Rule for printing the name of a book when the book is identified: 
+    say "[I-name]".
+
+After examining an unidentified book:
+	now the noun is identified.
+	now the noun is proper-named.
+	
+Instead of consulting a book about a topic listed in the contents of the noun: 
+    say "[reply entry][paragraph break]".
+
+A thing has some text called printing. The printing of a thing is usually "blank".
+
+Understand the command "read" as something new. Understand "read [something]" as reading. Reading is an action applying to one thing, requiring light. Check reading: if the printing of the noun is "blank", say "Nothing is written on [the noun]." instead. Carry out reading: say "You read: [printing of the noun][line break]". Report reading: do nothing.    
+
+Instead of reading a book:
+	say "You don't have the time now to read the entire book. Instead, you can consult it on specific topics.".
+ 
+Report consulting a book about: 
+    say "You flip through [the noun], but find no reference to [the topic understood]." instead.
+    
+There is a large envelope on the empty desk. Large envelope is an openable closed container. The description of the envelope is "There's your name penned on the envelope. The envelope is sealed but you can see that the contents big enough to contain a book."
+
+Scrum Book is an unidentified book. The description of Scrum Book is "The book is titled Software Development with Scrum. It is written by Ken Schwaber and Mike Beedle." The contents of Scrum Book is the Table of Scrum Book. The U-name of Scrum book is "a black paperback book". The I-name of the Scrum book is "Software Development with Scrum".
+
+Understand "Software Development with Scrum" as Scrum Book.
+
+Scrum Book is in the large envelope. 
+
+There is a small note in the large envelope. The description of the small note is "The note is from Frank. He wishes me the best and hopes this book will prove helpful." The printing of the note is "Best wishes on your assignment as the Scrum Master of the PRODUCT team. I hope that this book will prove helpful on your assignment. [paragraph break]Yours,[paragraph break]your coach Frank".
+
+Table of Scrum Book
+topic	reply
+"practices" or "scrum practices"	"According to the book (Chapter 3), the practices of Scrum are: the role of [italic type]Scrum Master, Sprint[roman type] iterations, the [italic type]Daily Scrum[roman type] and [italic type]Sprint Planning[roman type] meetings, [italic type]End-of-Sprint Review[roman type], the [italic type]Product Backlog[roman type] and the [italic type]Product Owner[roman type] role, [italic type]the Scrum Team[roman type] and the [italic type]Sprint Backlog[roman type]. (You can read about Scrum practices by consulting each practice individually)"
+"team board" or "team wall" or "information radiator"	"You flip through the book and finally find the chapter about team boards."	
+"Sprint"	"According to the book, sprints are kind of iterations..."
+"Scrum Master" or "ScrumMaster" or "Scrum Master role" or "SM"	"The chapter on Scrum Master (3.1) begins with this sentence:'The Scrum Master is responsible for the success of Scrum'.[paragraph break]The SM (Scrum Master) is a new management role introduced by Scrum. The responsibility of the SM is to link the team with the management. The Scrum Master forms a [italic type]Scrum team[roman type] and identifies and institutes a [italic type]Product Owner[roman type] for the team.[paragraph break]The SM keeps the team productive by making decisions and removing [italic type]impediments[roman type]. Important personality traits for a Scrum Master are focus, determination and initiative." 
+"Product Backlog"	"The quotation in the beginning of the Product Backlog chapter (3.2): 'Product Backlog is an evolving, prioritized queue of business and technical functionality that needs to be developed into a system.'[paragraph break]Product Backlog contains every item of work that will be made to the product. It is sorted in order of priority. The Backlog is incomplete at the beginning and it can be made more complete during development. Higher priority items are more complete than the lower priority items.[paragraph break]The Product Backlog is controlled by [italic type]Product Owner[roman type]. There must be only a single Product Backlog for a given product. Multiple lists make it impossible for a team to decide what to work on. Backlog items are [italic type]estimated[roman type] as they become more detailed."
+"Product Owner" or "PO"	"Product Owner is another role introduced by Scrum. The product owner is the person responsible for managing and controlling the [italic type]Product backlog[roman type]. A product manager, project manager or department manager can serve as the Product Owner.[paragraph break]There must be single Product Owner for a given product. A committee cannot serve as Product Owner.[paragraph break]To succeed the Product Owner must has the respect for his/her decisions in the organization. The role is a highly visible one as the priorization decisions are visible for all in the Product Backlog and the product itself."
+"backlog" or "backlogs"	"The book mantions two kinds of backlogs, the [italic type]Product Backlog[roman type] and the [italic type]Sprint Backlog[roman type]."
+"Daily Scrum" or "Daily Scrum meeting"	"There's this quotation straight after the heading of the chapter on Daily Scrum Meetings (3.4): 'Software development is a complex process that requires lots of communications. The Daily Scrum meeting is where the team comes to communicate.'[paragraph break]Daily Scrum meeting is a daily status meeting for the Scrum team that lasts 15 minutes. In the meeting the team explains what it has accomplished since the last meeting, what its is going to do before the next meeting and what obstacles (or [italic type]impediments[roman type]) are in its way.[paragraph break]The [italic type]Scrum Master[roman type] is responsible for conducting the Daily Scrums. He makes sure that the meeting stays short and on the topic. By listening the meeting carefully a manager can get a sense of the work and the state of the team. According to the book, attending Daily Scrum is easier and more informative than reading a status report.[paragraph break]The authors suggest that there should be a dedicated room for Daily Scrum meetings. Only Scrum team members are allowed to speak during Daily Scrums. The Scrum Master (SM) is instructed to ask three questions of the team members: 1) What have you done since last Scrum? 2) What will you do between now and the next Scrum? and 3) What got in your way of doing work?[paragraph break]The SM is instructed to identify impediments and take notes on them. He/She is instructed to work on overcoming them after the meeting. The SM must also make decisions and establish follow-up meetings if there are things to be discussed in the team."
+ 
+
 Chapter 4 Actions
 
 Chapter 5 Effects
@@ -182,9 +245,9 @@ Chapter 6 Scenery
 
 Section 1 Rooms
 
-By the door is a room. "You are in the team's open office. There's a door to the corridor to the south. There's an empty desk by the door. [Team board narrative]".
+By the door is a room. "You are in the team's open office. There's a door to the corridor to the south. The open office opens to the west, north and east. The other desks are to the northwest and north and to the northeast there's a makeshift cubicle. The supply cabinet is to the east.
 
-The empty desk is scenery in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
+There's an empty desk by the door. [Team board narrative]". The empty desk is scenery in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
 
 By Markku's desk is a room. By Markku's desk is northwest from By the door. The description is "You are in the team's open office, by Markku's desk. [Team board narrative]". Markku is in a room called the By Markku's desk.
 
