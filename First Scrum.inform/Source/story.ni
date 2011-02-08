@@ -263,8 +263,8 @@ Rule for printing the name of a book when the book is identified:
     say "[I-name]".
 
 After examining an unidentified book:
-	now the noun is identified.
-	now the noun is proper-named.
+	now the noun is identified;
+	now the noun is proper-named;
 	
 Instead of consulting a book about a topic listed in the contents of the noun: 
     say "[reply entry][paragraph break]".
