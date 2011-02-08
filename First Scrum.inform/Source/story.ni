@@ -188,6 +188,28 @@ response
 "'One cannot know everything, especially at this particular project', [Answers for cynical]"
 "'Sorry, I cannot help you with that', [Answers for neutral]"
 
+Saana is a female team member. The quizzing table is the Table of Saana's Answers. The Name is "Saana". The unknown quizzing rule is the Saana-no-quiz rule.
+
+This is the Saana-no-quiz rule: 
+	show the next response from the Table of Markku's Default Quiz Responses.
+
+After saying hello to Saana:
+     say "'Hello, [Name],' you greet him.
+
+    'Hi,' [Answers for Frustrated]";
+    if the greeting type is explicit, consider the standard list suggested topics rule.
+
+Table of Saana's Answers
+subject	response rule	response table	suggest
+Ted	saana2 rule	--	1
+status	a rule	Table of Saana's Status Responses	3
+team board	a rule	Table of Saana's board 	1
+unfinished items	--	Table of Team member's items	1
+tests	a rule	Table of Saana's tests	2
+
+This is the saana2 rule:
+	say "'How are things with you, [Name]?' [PlrQuestion]'Well, I was just trying to figure out this open source library when you came to talk to me', [Answers for Frustrated]".
+
 Section 3 Specific Conversation
 
 Table of Markku's Status Responses
@@ -200,6 +222,12 @@ Table of Ted's Status Responses
 response
 "'What's the sitch?' [PlrQuestion]'All right. I've done all my tasks', [Answers for neutral]." 
 
+Table of Saana's Status Responses
+response
+"'What's the status of the project?' [PlrQuestion]<Saana looks up at the Team board> 'Well, most of the tasks seem to be done, but I'm sure that something will come up and screw our schedule at the last minute', [Answers for cynical]." 
+"'What do you mean, is there anything that might screw us?' [PlrQuestion]'Everything seems ok, but it has been the same for couple of sprints already with not so promising results', [Answers for cynical]."
+"'So you are worried?' [PlrQuestion]'Maybe I'm just a pessimist, but I have a bad feeling about this again', [Answers for cynical]." 
+
 Table of Markku's board
 response
 "'What are your thoughts about the team board?' [PlrQuestion]'I don't know. There are a lot of items marked done that I haven't heard that they have been tested at all. [Make tests familiar]Seems a bit strange, although I may be mistaken about that ...' [Answers for neutral]"
@@ -209,6 +237,10 @@ Table of Ted's board
 response
 "'What do you think about the team wall?' [PlrQuestion]'Oh, yeah, that. Hang on... In fact, a couple of items are in progress, still. I've looked them up on the UI and there are some problems with the layout. No worries, they will be done soon.[Make unfinished items familiar]' [Answers for neutral]"
 
+Table of Saana's board
+response
+"'What are your thougths about the team wall?' [PlrQuestion]'Dunno. Doesn't everyone see when I'm done by looking at my commits to the version control system?' [Answers for frustrated]"
+
 Table of Markku's tests
 response
 "'So, there are items that have been implemented but not tested at all, is that right?' [PlrQuestion]'Well, I'm not sure. There's no way to tell, is there.', [Answers for frustrated]" 
@@ -216,6 +248,16 @@ response
 "'So, what's wrong about the tests then?', [PlrQuestion]'It's just that we don't have a dedicated test team here and everything seems to go to hell at the moment we start to integrate.' [Answers for neutral]"
 "Nothing more to add."
 "'Anything else come to your mind about the tests?' [PlrQuestion]'Not at the moment, no', [Answers for neutral]"
+
+Table of Ted's tests
+response
+"'What about testing the tasks in development?' [PlrQuestion]'Taken care of. I've had my changes deployed on the system running on my dev machine for two days now', [Answers for Neutral]" 
+"'So you've tested everything?' [PlrQuestion]'Yeah, I've been clicking at it ever since, no problems found. Nothing more than the two layout problems related to the two unfinished tasks I have. But no problems[Make unfinished items familiar]', [Answers for Neutral]" 
+
+Table of Saana's tests
+response
+"'So is every item tested?' [PlrQuestion]'Well, most of the items were small changes to existing backend services so no need to make new tests. So we're okay', [Answers for Neutral]" 
+"'So no new tests this Sprint?' [PlrQuestion]'Well, as I said, there's really no need, ok?' [Answers for Frustrated]" 
 
 This is the items rule:
 say "'Anything still on the to-do list?' [PlrQuestion]'I have to run the tests again. And then there's the integration. That will be a pain in the ass, AGAIN.' [Answers for frustrated]"
@@ -225,10 +267,9 @@ response
 "'What about those unfinished tasks?' [PlrQuestion]'Don't worry, there are only the two glitches in the UI layout', [Answers for helpful]" 
 "'Will the tasks still on progress be finished on time?' [PlrQuestion]'I'll make the tweaks ASAP and have these done by the end of the sprint', [Answers for helpful]"
 
-Table of Ted's tests
+Table of Team member's items
 response
-"'What about testing the tasks in development?' [PlrQuestion]'Taken care of. I've had my changes deployed on the system running on my dev machine for two days now', [Answers for Neutral]" 
-"'So you've tested everything?' [PlrQuestion]'Yeah, I've been clicking at it ever since, no problems found. Nothing more than the two layout problems related to the two unfinished tasks I have. But no problems[Make unfinished items familiar]', [Answers for Neutral]" 
+"'Anything left to do in this sprint?' [PlrQuestion]'Nope, everything is done.', [Answers for neutral]" 
 
 Table of Table Types (continued)
 tabname	index	tabtype
@@ -241,12 +282,18 @@ Table of Ted's Default Quiz Responses	0	shuffled-list
 Table of Ted's Status Responses	0	stop-list
 Table of Ted's items	0	stop-list
 Table of Ted's tests	0	stop-list
+Table of Saana's board	0	stop-list
+Table of Saana's Status Responses	0	stop-list
+Table of Team member's items	0	stop-list
+Table of Saana's tests	0	stop-list
 
 test markkuconv with "say hello to markku / ask markku about team board / ask markku about status / ask markku about team board / ask markku about status / a tests / ask markku about tests "
 
 test tedconv with "say hello to ted / ask ted about status / a status / ask ted about team board / ask ted about status / a tests / ask ted about tests / ask ted about unfinished items / ask ted about unfinished items "
 
 test teduconv with "say hello to ted / ask ted about unfinished items "
+
+test saanaconv with "say hello to saana / ask saana about status / a status / ask saana about team board / ask saana about status / ask saana about status / a tests / ask saana about tests / ask saana about unfinished items "
 
 Chapter 3 Research
 
@@ -328,7 +375,7 @@ By Markku's desk is a room. By Markku's desk is northwest from By the door. The 
 
 North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". North end of the office is north from a room called By the door. Ted is in north end of the office.
 
-By Saana's desk is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative]". By Saana's desk is northeast from by the door.
+By Saana's desk is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative]". By Saana's desk is northeast from by the door. Saana is in the room called By Saana's desk.
 
 By the board is a room. "You are by the south wall of the team's open office, west of the door. There's the marker board filled with post-its here." By the board is west from By the door.
 
