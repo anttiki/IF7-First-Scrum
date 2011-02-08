@@ -38,7 +38,7 @@ quizzing report rule in the report quizzing it about rulebook.
 Instead of asking someone about something:
      consider the unknown quizzing rule of the noun.
 
-    Instead of telling someone about something:
+Instead of telling someone about something:
      consider the unknown informing rule of the noun.
      
 Book 2 The Game itself
@@ -47,7 +47,7 @@ Volume 1 Problem Missed Deadlines
 
 Chapter 1 Typical Phrases for NPCs
 
-Mood is a kind of value. Moods are Neutral, Frustrated, Angry, Cynical, and Tired. 
+Mood is a kind of value. Moods are Neutral, Frustrated, Angry, Cynical, Helpful and Tired. 
 
 Table of plr-question phrases
 response
@@ -80,6 +80,11 @@ response
 "[Name] grunts in reply."
 "[Name] sighs and yawns."
 
+Table of helpful general answer phrases
+response
+"[Name] answers, smiling reassuringly."
+"[Name] replies with a smile."
+
 Table of Table Types (continued)
 tabname	index	tabtype
 Table of neutral general answer phrases	0	shuffled-list
@@ -87,6 +92,7 @@ Table of angry general answer phrases	0	shuffled-list
 Table of cynical general answer phrases	0	shuffled-list
 Table of tired general answer phrases	0	shuffled-list
 Table of frustrated general answer phrases	0	shuffled-list
+Table of helpful general answer phrases	0	shuffled-list
 Table of plr-question phrases	0	shuffled-list
 
 To say PlrQuestion:
@@ -102,9 +108,13 @@ To say Answers for (M - a Mood):
 	if M is Frustrated: 
 		show the next response from Table of frustrated general answer phrases;		
 	if M is Angry: 
-		show the next response from Table of angry general answer phrases;	
-			
+		show the next response from Table of angry general answer phrases;
+	if M is helpful:	
+		show the next response from Table of helpful general answer phrases;
+		
 Chapter 2 The Symptom
+
+Section 1 Subjects
 
 status is a familiar subject.
 Understand "sprint status" or "project status" or "status report" or "report" as status.
@@ -117,9 +127,9 @@ Understand "testing" or "test" or "system test" as tests.
 
 unfinished items is an unfamiliar subject.
 
-team member is a kind of person. Team member has some text called Name. Name is usually "That guy".
+Section 2 People
 
-[Markku-start-node is a convnode. The next-node is Markku-start-node. Ask-suggestions are {status, team board, tests, unfinished items}.]
+team member is a kind of person. Team member has some text called Name. Name is usually "That guy".
 
 Markku is a male team member. The quizzing table is the Table of Markku's Answers. The Name is "Markku". The unknown quizzing rule is the Markku-no-quiz rule.
 
@@ -127,11 +137,10 @@ This is the Markku-no-quiz rule:
 	show the next response from the Table of Markku's Default Quiz Responses.
 
 After saying hello to Markku:
-     say "'Good morning, [Name],' you greet him.
+     say "'Hello, [Name],' you greet him.
 
-    'I don't know what's good about it, boss,' [Answers for Tired]";
+    'Well hello there, boss,' [Answers for Neutral]";
     if the greeting type is explicit, consider the standard list suggested topics rule.
-
 
 Table of Markku's Answers
 subject	response rule	response table	suggest
@@ -144,8 +153,6 @@ unfinished items	items rule	--	1
 This is the markku2 rule:
 say "'How are you?' [PlrQuestion]'Well, a little, hmm, tired... I played Gran Turismo X until 2 am.' [Answers for Tired]"
 
-
-
 Table of Markku's Default Quiz Responses
 response
 "'Yeah, I think I know what you are talking about... Sorry, I don't know anything about that', [Name] replies apologetically."
@@ -153,6 +160,35 @@ response
 "'Sorry, I cannot help you with that', [Answers for neutral]"
 "'Sorry, but what has that got to do with anything?' [Answers for frustrated]"
 
+Ted is a male team member. The quizzing table is the Table of Ted's Answers. The Name is "Ted". The unknown quizzing rule is the Ted-no-quiz rule.
+
+This is the Ted-no-quiz rule: 
+	show the next response from the Table of Ted's Default Quiz Responses.
+
+After saying hello to Ted:
+     say "'Hello, [Name],' you greet him.
+
+    'Hullo, o master of scrums,' [Answers for Neutral]";
+    if the greeting type is explicit, consider the standard list suggested topics rule.
+
+Table of Ted's Answers
+subject	response rule	response table	suggest
+Ted	ted2 rule	--	1
+status	a rule	Table of Ted's Status Responses	1
+team board	a rule	Table of Ted's board 	1
+unfinished items	--	Table of Ted's items	2
+tests	a rule	Table of Ted's tests	2
+
+This is the ted2 rule:
+	say "'Everything all right, [Name]?' [PlrQuestion]'Yes, fit as a fiddle, boss, how are you?' [Answers for Helpful]".
+
+Table of Ted's Default Quiz Responses
+response
+"'Yeah, I think I know what you are talking about... Sorry, I don't know anything about that', [Name] replies apologetically."
+"'One cannot know everything, especially at this particular project', [Answers for cynical]"
+"'Sorry, I cannot help you with that', [Answers for neutral]"
+
+Section 3 Specific Conversation
 
 Table of Markku's Status Responses
 response
@@ -160,11 +196,18 @@ response
 "'So you do think that everything is at it stands on the team board?' [PlrQuestion]'I just hope that nothing comes up in the next 3 days. Like it did in the previous sprint. Or the one before that. Or the one before that. Or... You get my point.' [Answers for cynical]"
 "'Anything else come to your mind about the status?' [PlrQuestion]'I think that about covers it, sir', [Answers for neutral]"
 
+Table of Ted's Status Responses
+response
+"'What's the sitch?' [PlrQuestion]'All right. I've done all my tasks', [Answers for neutral]." 
+
 Table of Markku's board
 response
 "'What are your thoughts about the team board?' [PlrQuestion]'I don't know. There are a lot of items marked done that I haven't heard that they have been tested at all. [Make tests familiar]Seems a bit strange, although I may be mistaken about that ...' [Answers for neutral]"
 "'Anything else come to your mind about the team board?' [PlrQuestion]'I think that about covers it, sir', [Answers for neutral]"
 
+Table of Ted's board
+response
+"'What do you think about the team wall?' [PlrQuestion]'Oh, yeah, that. Hang on... In fact, a couple of items are in progress, still. I've looked them up on the UI and there are some problems with the layout. No worries, they will be done soon.[Make unfinished items familiar]' [Answers for neutral]"
 
 Table of Markku's tests
 response
@@ -177,12 +220,33 @@ response
 This is the items rule:
 say "'Anything still on the to-do list?' [PlrQuestion]'I have to run the tests again. And then there's the integration. That will be a pain in the ass, AGAIN.' [Answers for frustrated]"
 
+Table of Ted's items
+response
+"'What about those unfinished tasks?' [PlrQuestion]'Don't worry, there are only the two glitches in the UI layout', [Answers for helpful]" 
+"'Will the tasks still on progress be finished on time?' [PlrQuestion]'I'll make the tweaks ASAP and have these done by the end of the sprint', [Answers for helpful]"
+
+Table of Ted's tests
+response
+"'What about testing the tasks in development?' [PlrQuestion]'Taken care of. I've had my changes deployed on the system running on my dev machine for two days now', [Answers for Neutral]" 
+"'So you've tested everything?' [PlrQuestion]'Yeah, I've been clicking at it ever since, no problems found. Nothing more than the two layout problems related to the two unfinished tasks I have. But no problems[Make unfinished items familiar]', [Answers for Neutral]" 
+
 Table of Table Types (continued)
 tabname	index	tabtype
 Table of Markku's board	0	stop-list
 Table of Markku's tests	0	stop-list
 Table of Markku's Default Quiz Responses	0	shuffled-list
 Table of Markku's Status Responses	0	stop-list
+Table of Ted's board	0	stop-list
+Table of Ted's Default Quiz Responses	0	shuffled-list
+Table of Ted's Status Responses	0	stop-list
+Table of Ted's items	0	stop-list
+Table of Ted's tests	0	stop-list
+
+test markkuconv with "say hello to markku / ask markku about team board / ask markku about status / ask markku about team board / ask markku about status / a tests / ask markku about tests "
+
+test tedconv with "say hello to ted / ask ted about status / a status / ask ted about team board / ask ted about status / a tests / ask ted about tests / ask ted about unfinished items / ask ted about unfinished items "
+
+test teduconv with "say hello to ted / ask ted about unfinished items "
 
 Chapter 3 Research
 
@@ -246,6 +310,8 @@ topic	reply
 "sprint management"	"TBD"
 "sprint progress"	"TBD"
 
+test book with "open envelope / x scrum book / read scrum book / consult scrum book on practices / consult scrum book on practices / consult scrum book on scrum master / consult scrum book on sprint backlog / consult scrum book on backlog / consult scrum book on sprint / consult scrum book on product backlog / consult scrum book on release backlog / consult scrum book on sprint goal / consult scrum book on estimation / consult scrum book on daily scrum / consult scrum book on scrum team / consult scrum book on horoscope"
+
 Chapter 4 Actions
 
 Chapter 5 Effects
@@ -260,7 +326,7 @@ There's an empty desk by the door. [Team board narrative]". The empty desk is sc
 
 By Markku's desk is a room. By Markku's desk is northwest from By the door. The description is "You are in the team's open office, by Markku's desk. [Team board narrative]". Markku is in a room called the By Markku's desk.
 
-North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". North end of the office is north from a room called By the door.
+North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". North end of the office is north from a room called By the door. Ted is in north end of the office.
 
 By Saana's desk is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative]". By Saana's desk is northeast from by the door.
 
@@ -288,4 +354,4 @@ Southeast corner of the office is southeast from North end of the office.
 
 North end of the office is northeast from By the board.
 
-
+test openoffice with " w / n / e / e / s / nw / sw / e"
