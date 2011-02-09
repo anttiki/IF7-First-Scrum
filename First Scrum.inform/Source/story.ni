@@ -330,6 +330,39 @@ Table of Team member's items
 response
 "'Anything left to do in this sprint?' [PlrQuestion]'Nope, everything is done.', [Answers for neutral]" 
 
+Table of Table Types (continued)
+tabname	index	tabtype
+Table of Markku's board	0	stop-list
+Table of Markku's tests	0	stop-list
+Table of Markku's Default Quiz Responses	0	shuffled-list
+Table of Markku's Status Responses	0	stop-list
+Table of Ted's board	0	stop-list
+Table of Ted's Default Quiz Responses	0	shuffled-list
+Table of Ted's Status Responses	0	stop-list
+Table of Ted's items	0	stop-list
+Table of Ted's tests	0	stop-list
+Table of Saana's board	0	stop-list
+Table of Saana's Status Responses	0	stop-list
+Table of Team member's items	0	stop-list
+Table of Saana's tests	0	stop-list
+Table of Johanna's board	0	stop-list
+Table of Johanna's Status Responses	0	stop-list
+Table of Johanna's tests	0	stop-list
+
+test markkuconv with "say hello to markku / ask markku about team board / ask markku about status / a status / ask markku about team board / ask markku about status / a tests / ask markku about tests "
+
+test tedconv with "say hello to ted / ask ted about status / a status / ask ted about team board / ask ted about status / a tests / ask ted about tests / ask ted about unfinished items / ask ted about unfinished items "
+
+test teduconv with "say hello to ted / ask ted about unfinished items "
+
+test saanaconv with "say hello to saana / ask saana about status / a status / ask saana about team board / ask saana about status / ask saana about status / a tests / ask saana about tests / ask saana about unfinished items "
+
+test johannaconv with "say hello to johanna / ask johanna about status / a status / ask johanna about team board / a tests / ask johanna about tests / ask johanna about unfinished items "
+
+Chapter 3 Research
+
+Section 1 Conversation
+
 Table of Markku's sprints
 response
 "'You said that you had some problems in the previous sprints?' [PlrQuestion]'All I know is that we had a bunch of new features in the last Sprint that did not work at all when we did a test run of the Sprint Review demonstration on the integration server. The previous SM had to ask the PO to give us a couple of days more time to fix the bugs so we got everything done by the end of the Sprint' [Answers for neutral]"
@@ -364,22 +397,6 @@ response
 
 Table of Table Types (continued)
 tabname	index	tabtype
-Table of Markku's board	0	stop-list
-Table of Markku's tests	0	stop-list
-Table of Markku's Default Quiz Responses	0	shuffled-list
-Table of Markku's Status Responses	0	stop-list
-Table of Ted's board	0	stop-list
-Table of Ted's Default Quiz Responses	0	shuffled-list
-Table of Ted's Status Responses	0	stop-list
-Table of Ted's items	0	stop-list
-Table of Ted's tests	0	stop-list
-Table of Saana's board	0	stop-list
-Table of Saana's Status Responses	0	stop-list
-Table of Team member's items	0	stop-list
-Table of Saana's tests	0	stop-list
-Table of Johanna's board	0	stop-list
-Table of Johanna's Status Responses	0	stop-list
-Table of Johanna's tests	0	stop-list
 Table of Markku's sprints	0	stop-list
 Table of Ted's sprints	0	stop-list
 Table of Johanna's sprints	0	stop-list
@@ -388,20 +405,10 @@ Table of team's db	0	stop-list
 Table of Saana's db	0	stop-list
 Table of Johanna's db	0	stop-list
 
-
-test markkuconv with "say hello to markku / ask markku about team board / ask markku about status / a status / ask markku about team board / ask markku about status / a tests / ask markku about tests "
-
-test tedconv with "say hello to ted / ask ted about status / a status / ask ted about team board / ask ted about status / a tests / ask ted about tests / ask ted about unfinished items / ask ted about unfinished items "
-
-test teduconv with "say hello to ted / ask ted about unfinished items "
-
-test saanaconv with "say hello to saana / ask saana about status / a status / ask saana about team board / ask saana about status / ask saana about status / a tests / ask saana about tests / ask saana about unfinished items "
-
-test johannaconv with "say hello to johanna / ask johanna about status / a status / ask johanna about team board / a tests / ask johanna about tests / ask johanna about unfinished items "
-
 test sprintsconv with " nw / a previous sprints / a db specs / a status / a status / a status / a previous sprints / a previous sprints / a previous sprints / e / ask ted about  previous sprints / ask johanna about previous sprints / ask johanna about previous sprints / e / a previous sprints / a previous sprints / a db specs / w / ask johanna about database specs / s "
 
-Chapter 3 Research
+
+Section 2 Books
 
 A book is a kind of thing. Understand "book" as a book. A book has a table name called the contents. Book can be identified or unidentified. Book is usually identified.
 
