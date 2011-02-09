@@ -132,11 +132,14 @@ Understand "testing" or "test" or "system test" as tests.
 unfinished items is an unfamiliar subject.
 
 previous sprints is an unfamiliar subject.
+Understand "project history" or "previous" or "previous sprint" as previous sprints.
+
+database specifications is an unfamiliar subject.
+Understand "db specs" or "db specifications" or "database specs" or "db problem" as database specifications.
 
 Section 2 People
 
 team member is a kind of person. Team member has some text called Name. Name is usually "That guy".
-
 
 Rule for writing a paragraph about a team member: 
     say "[Name] is here, [activity description]."
@@ -159,6 +162,8 @@ status	a rule	Table of Markku's Status Responses	4
 team board	a rule	Table of Markku's board 	2
 tests	a rule	Table of Markku's tests	3
 unfinished items	items rule	--	1
+previous sprints	a rule	Table of Markku's sprints	3
+database specifications	a rule	Table of team's db	-1
 
 This is the markku2 rule:
 say "'How are you?' [PlrQuestion]'Well, a little, hmm, tired... I played Gran Turismo X until 2 am.' [Answers for Tired]"
@@ -188,6 +193,8 @@ status	a rule	Table of Ted's Status Responses	1
 team board	a rule	Table of Ted's board 	1
 unfinished items	--	Table of Ted's items	2
 tests	a rule	Table of Ted's tests	2
+previous sprints	a rule	Table of Ted's sprints	1
+database specifications	a rule	Table of team's db	-1
 
 This is the ted2 rule:
 	say "'Everything all right, [Name]?' [PlrQuestion]'Yes, fit as a fiddle, boss, how are you?' [Answers for Helpful]".
@@ -198,7 +205,7 @@ response
 "'One cannot know everything, especially at this particular project', [Answers for cynical]"
 "'Sorry, I cannot help you with that', [Answers for neutral]"
 
-Saana is a female team member. The quizzing table is the Table of Saana's Answers. The Name is "Saana". The unknown quizzing rule is the Saana-no-quiz rule.  The description of Saana is "You see a woman in her late 20[apostrophe]s with a striking purple spiky top hair and a serious expression on her face.She wears black gargo trousers and a purple sweater. [Name] is [activity description]."
+Saana is a female team member. The quizzing table is the Table of Saana's Answers. The Name is "Saana". The unknown quizzing rule is the Saana-no-quiz rule.  The description of Saana is "You see a woman in her late 20[apostrophe]s with a striking purple spiky top hair and a serious expression on her face.She wears black gargo trousers and a purple sweater. [Name] is [activity description].".
 
 This is the Saana-no-quiz rule: 
 	show the next response from the Table of Markku's Default Quiz Responses.
@@ -216,11 +223,13 @@ status	a rule	Table of Saana's Status Responses	3
 team board	a rule	Table of Saana's board 	1
 unfinished items	--	Table of Team member's items	1
 tests	a rule	Table of Saana's tests	2
+previous sprints	a rule	Table of Saana's sprints	2
+database specifications	a rule	Table of Saana's db	1
 
 This is the saana2 rule:
 	say "'How are things with you, [Name]?' [PlrQuestion]'Well, I was just trying to figure out this open source library when you came to talk to me', [Answers for Frustrated]".
 
-Johanna is a female team member. The quizzing table is the Table of Johanna's Answers. The Name is "Johanna". The unknown quizzing rule is the Johanna-no-quiz rule.  The description of Johanna is "You see a woman in her early 40[apostrophe]s with intelligent eyes and blond hair on a pony tail. She wears light gray trouser suit with a white blouse. [Name] is [activity description]."
+Johanna is a female team member. The quizzing table is the Table of Johanna's Answers. The Name is "Johanna". The unknown quizzing rule is the Johanna-no-quiz rule.  The description of Johanna is "You see a woman in her early 40[apostrophe]s with intelligent eyes and blond hair on a pony tail. She wears light gray trouser suit with a white blouse. [Name] is [activity description].".
 
 This is the Johanna-no-quiz rule: 
 	show the next response from the Table of Markku's Default Quiz Responses.
@@ -238,6 +247,8 @@ status	a rule	Table of Johanna's Status Responses	1
 team board	a rule	Table of Johanna's board 	1
 unfinished items	--	Table of Team member's items	1
 tests	a rule	Table of Johanna's tests	2
+previous sprints	a rule	Table of Johanna's sprints	2
+database specifications	a rule	Table of Johanna's db	1
 
 This is the johanna2 rule:
 	say "'How are things with you, [Name]?' [PlrQuestion]'Fine, thank you', [Answers for Neutral]".
@@ -319,6 +330,38 @@ Table of Team member's items
 response
 "'Anything left to do in this sprint?' [PlrQuestion]'Nope, everything is done.', [Answers for neutral]" 
 
+Table of Markku's sprints
+response
+"'You said that you had some problems in the previous sprints?' [PlrQuestion]'All I know is that we had a bunch of new features in the last Sprint that did not work at all when we did a test run of the Sprint Review demonstration on the integration server. The previous SM had to ask the PO to give us a couple of days more time to fix the bugs so we got everything done by the end of the Sprint' [Answers for neutral]"
+"'But were there more missed deadlines earlier?' [PlrQuestion]'The Sprint before that we had some problems with the DB and the backend code[make database specifications familiar]. Saana or Johanna might remember what it was', [Answers for neutral]"
+"'Did we miss the deadline that time?' [PlrQuestion]'Yeah, we had to ask more time to do all the work on that Sprint, too', [Answers for neutral]"
+
+Table of Ted's sprints
+response
+"'I've heard we've had some problems in the previous sprints, anything I should know?' [PlrQuestion]'Yeah, we’ve had some trouble, but there’s bound to be some unexpected things when you try to deliver a release, isn’t there?' [Answers for neutral]"
+
+Table of Johanna's sprints
+response
+"'I've heard we've had some problems in the previous sprints, anything I should know?' [PlrQuestion]'Well, a couple of sprints ago there was a big problem with a new DB table and DB specs[make database specifications familiar]. We didn’t get good specs so we missed the original Sprint deadline,' [Answers for neutral]"
+"'Was the backend code part of that Sprint's work?' [PlrQuestion]'Yeah, the backend code was developed on that Sprint, too. Saana will know more about that,' [Answers for neutral]"
+
+Table of Saana's sprints
+response
+"'I've heard we've had some problems in the previous sprints, anything I should know?' [PlrQuestion]'Yeah, someone usually screws something up. Or, they say that they meant some other thing instead of the thing they originally asked for, so we have to do something all over again,' [Answers for neutral]"
+"'But you think that this isn't something to worry about?' [PlrQuestion]'Well, if we could get better thought-of specs or a chance to write our own specs, then yes, but if not, then I guess it's just the shitty part of this job, ain't it?' [Answers for frustrated]"
+
+Table of team's db
+response
+"'I've heard about a problem with DB specs a couple of Sprints ago, do you remember anything about it?' [PlrQuestion]'No, sorry, Johanna might, though, as she usually handles the Db stuff,' [Answers for neutral]"
+
+Table of Saana's db
+response
+"'I've heard about a problem with DB specs a couple of Sprints ago, do you remember anything about it?' [PlrQuestion]'Yeah, but it was a long time ago. We got pretty simple specs for a new table and a service to use it. I implemented the services, it took just a day or two. But Johanna must have understood the DB specs way wrong, because when e replaced my mock DB with the one she made for the release version, everything went to hell. We didn’t have time to get it right in time, so the SM had to ask for more time to fix her screw-up. So that made us be late that time.,' [Answers for Tired]"
+
+Table of Johanna's db
+response
+"'I've heard about a problem with DB specs we had previously, could you tell me more about it?' [PlrQuestion]'The specs were really vague and I had to make some decisions about the data formats and so on. And somehow the DB tables were incompatible with the backend code using them when we tried to get the product out. It’s nice to have some coherent specs for a change.,' [Answers for neutral]"
+
 Table of Table Types (continued)
 tabname	index	tabtype
 Table of Markku's board	0	stop-list
@@ -337,6 +380,14 @@ Table of Saana's tests	0	stop-list
 Table of Johanna's board	0	stop-list
 Table of Johanna's Status Responses	0	stop-list
 Table of Johanna's tests	0	stop-list
+Table of Markku's sprints	0	stop-list
+Table of Ted's sprints	0	stop-list
+Table of Johanna's sprints	0	stop-list
+Table of Saana's sprints	0	stop-list
+Table of team's db	0	stop-list
+Table of Saana's db	0	stop-list
+Table of Johanna's db	0	stop-list
+
 
 test markkuconv with "say hello to markku / ask markku about team board / ask markku about status / a status / ask markku about team board / ask markku about status / a tests / ask markku about tests "
 
@@ -347,6 +398,8 @@ test teduconv with "say hello to ted / ask ted about unfinished items "
 test saanaconv with "say hello to saana / ask saana about status / a status / ask saana about team board / ask saana about status / ask saana about status / a tests / ask saana about tests / ask saana about unfinished items "
 
 test johannaconv with "say hello to johanna / ask johanna about status / a status / ask johanna about team board / a tests / ask johanna about tests / ask johanna about unfinished items "
+
+test sprintsconv with " nw / a previous sprints / a db specs / a status / a status / a status / a previous sprints / a previous sprints / a previous sprints / e / ask ted about  previous sprints / ask johanna about previous sprints / ask johanna about previous sprints / e / a previous sprints / a previous sprints / a db specs / w / ask johanna about database specs / s "
 
 Chapter 3 Research
 
