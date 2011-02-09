@@ -486,7 +486,7 @@ There's an empty desk by the door. [Team board narrative]". Printed name of by t
 
 Northwest corner is a room. "You are in the team's open office, Northwest corner. [Team board narrative]". Northwest corner is northwest from By the door. Printed name of Northwest corner is "Northwest corner of the open office". Markku is in a room called the Northwest corner.
 
-North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". Printed name of North end of the office is "North end of the open office". North end of the office is north from a room called By the door. Ted and Johanna are in north end of the office.
+North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". Printed name of North end of the office is "North end of the open office". North end of the office is north from a room called By the door. Ted is in north end of the office.
 
 Northeast corner is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative] ". Printed name of Northeast corner is "Northeast corner of the open office".  Northeast corner is northeast from by the door. Saana is in the room called Northeast corner.
 
@@ -535,3 +535,30 @@ To say open office activity:
 			if the culprit is not in location:
 				say "[Name of the culprit] is [activity description of culprit] at a desk at [location of the culprit].[line break]"
 	
+Section 4 Scenes
+
+Morning is a scene. Morning begins when play begins.
+
+Every turn during Morning:
+	repeat through Table of Morning Events: 
+		say "[event entry][paragraph break]"; 
+		blank out the whole row; 
+		rule succeeds.
+        
+Table of Morning Events
+event
+"[move Markku to corridor]"
+"[move Markku to By the door]"
+"[move Johanna to corridor][move Markku to southwest corner]"
+"[move Johanna to By the door]"
+"[move Markku to northwest corner]"
+"[move Johanna to north end of the office]"
+
+To say move (p - a person) to (l - a room):
+	if p can be seen by the player, say "[Name of p] heads to the [l].";
+	move p to l;
+	if p can be seen by the player, say "[Name of p] arrives here. 'Good morning,' [Name of p] says to you." 
+	
+test morning with " z / z / z / z / w / e / z "
+
+Morning ends when the number of filled rows in the Table of Morning Events is 0.
