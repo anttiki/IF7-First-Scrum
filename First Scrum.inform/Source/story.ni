@@ -283,9 +283,11 @@ response
 "'What are your thoughts about the team board?' [PlrQuestion]'I don't know. There are a lot of items marked done that I haven't heard that they have been tested at all. [Make tests familiar]Seems a bit strange, although I may be mistaken about that ...' [Answers for neutral]"
 "'Anything else come to your mind about the team board?' [PlrQuestion]'I think that about covers it, sir', [Answers for neutral]"
 
+A unfinished item finding1 is some text that varies. Unfinished item finding1 is usually "Ted told you that some items are still in progress even though they are marked done on the team board."
+
 Table of Ted's board
 response
-"'What do you think about the team wall?' [PlrQuestion]'Oh, yeah, that. Hang on... In fact, a couple of items are in progress, still. I've looked them up on the UI and there are some problems with the layout. No worries, they will be done soon.[Make unfinished items familiar]' [Answers for neutral]"
+"'What do you think about the team wall?' [PlrQuestion]'Oh, yeah, that. Hang on... In fact, a couple of items are in progress, still. I've looked them up on the UI and there are some problems with the layout. No worries, they will be done soon.[Make unfinished items familiar][Report finding on unfinished items with unfinished item finding1]' [Answers for neutral]"
 
 Table of Saana's board
 response
@@ -471,6 +473,39 @@ topic	reply
 "sprint progress"	"TBD"
 
 test book with "open envelope / x scrum book / read scrum book / consult scrum book on practices / consult scrum book on practices / consult scrum book on scrum master / consult scrum book on sprint backlog / consult scrum book on backlog / consult scrum book on sprint / consult scrum book on product backlog / consult scrum book on release backlog / consult scrum book on sprint goal / consult scrum book on estimation / consult scrum book on daily scrum / consult scrum book on scrum team / consult scrum book on horoscope"
+
+Section 3 Reflecting Findings
+
+Table of Problem Findings
+area	finding
+a thing	text
+--	--
+--	--
+--	--
+
+
+To say Findings made:
+	say "You have made [number of filled rows in Table of Problem Findings] of total of [number of rows in Table of Problem Findings] possible findings for the current problem.[paragraph break]";
+	if number of filled rows in Table of Problem Findings > 0:
+		sort Table of Problem Findings in area order;
+		say "Your findings so far:[line break]";
+		repeat through Table of Problem Findings:
+			say "Area: [area entry], Your note: [finding entry][line break]";
+
+To say Report finding on (t - a thing) with (note - a text):
+	if number of blank rows in Table of Problem Findings > 0:
+		choose a blank row in Table of Problem Findings;
+		now the area entry is t;
+		now the finding entry is note;
+	otherwise:
+		say "Error: No rows in Table of problem Findings. Please file a bug report. Thanks!".
+	
+Understand "reflect" as reflecting.
+
+Reflecting is an action applying to nothing.
+
+Report reflecting:
+	say "[Findings made]".
 
 Chapter 4 Actions
 
