@@ -131,6 +131,8 @@ Understand "testing" or "test" or "system test" as tests.
 
 unfinished items is an unfamiliar subject.
 
+previous sprints is an unfamiliar subject.
+
 Section 2 People
 
 team member is a kind of person. Team member has some text called Name. Name is usually "That guy".
@@ -139,7 +141,7 @@ team member is a kind of person. Team member has some text called Name. Name is 
 Rule for writing a paragraph about a team member: 
     say "[Name] is here, [activity description]."
 
-Markku is a male team member. The quizzing table is the Table of Markku's Answers. The Name is "Markku". The unknown quizzing rule is the Markku-no-quiz rule. The description of Markku is "You see a tall heavy-set man with bowl cut brown hair and a friendly face. He wears jeans and a t-shirt of an obscure heavy metal band. Markku is [activity description]."
+Markku is a male team member. The quizzing table is the Table of Markku's Answers. The Name is "Markku". The unknown quizzing rule is the Markku-no-quiz rule. The description of Markku is "You see a tall heavy-set man with bowl cut brown hair and a friendly face. He wears jeans and a t-shirt of an obscure heavy metal band. [Name] is [activity description]."
 
 This is the Markku-no-quiz rule: 
 	show the next response from the Table of Markku's Default Quiz Responses.
@@ -153,7 +155,7 @@ After saying hello to Markku:
 Table of Markku's Answers
 subject	response rule	response table	suggest
 Markku	markku2 rule	--	1
-status	a rule	Table of Markku's Status Responses	3
+status	a rule	Table of Markku's Status Responses	4
 team board	a rule	Table of Markku's board 	2
 tests	a rule	Table of Markku's tests	3
 unfinished items	items rule	--	1
@@ -168,7 +170,7 @@ response
 "'Sorry, I cannot help you with that', [Answers for neutral]"
 "'Sorry, but what has that got to do with anything?' [Answers for frustrated]"
 
-Ted is a male team member. The quizzing table is the Table of Ted's Answers. The Name is "Ted". The unknown quizzing rule is the Ted-no-quiz rule. The description of Ted is "You see a slender man in his late 30[apostrophe]s with caesar cut dark hair and impressive sideburns. He wears dark slacks and a teal shirt. Ted is [activity description]."
+Ted is a male team member. The quizzing table is the Table of Ted's Answers. The Name is "Ted". The unknown quizzing rule is the Ted-no-quiz rule. The description of Ted is "You see a slender man in his late 30[apostrophe]s with caesar cut dark hair and impressive sideburns. He wears dark slacks and a teal shirt. [Name] is [activity description]."
 
 This is the Ted-no-quiz rule: 
 	show the next response from the Table of Ted's Default Quiz Responses.
@@ -196,7 +198,7 @@ response
 "'One cannot know everything, especially at this particular project', [Answers for cynical]"
 "'Sorry, I cannot help you with that', [Answers for neutral]"
 
-Saana is a female team member. The quizzing table is the Table of Saana's Answers. The Name is "Saana". The unknown quizzing rule is the Saana-no-quiz rule.  The description of Saana is "You see a woman in her late 20[apostrophe]s with a striking purple spiky top hair and a seirous expression on her face.She wears black gargo trousers and a purple sweater. Saana is [activity description]."
+Saana is a female team member. The quizzing table is the Table of Saana's Answers. The Name is "Saana". The unknown quizzing rule is the Saana-no-quiz rule.  The description of Saana is "You see a woman in her late 20[apostrophe]s with a striking purple spiky top hair and a serious expression on her face.She wears black gargo trousers and a purple sweater. [Name] is [activity description]."
 
 This is the Saana-no-quiz rule: 
 	show the next response from the Table of Markku's Default Quiz Responses.
@@ -217,15 +219,38 @@ tests	a rule	Table of Saana's tests	2
 
 This is the saana2 rule:
 	say "'How are things with you, [Name]?' [PlrQuestion]'Well, I was just trying to figure out this open source library when you came to talk to me', [Answers for Frustrated]".
+
+Johanna is a female team member. The quizzing table is the Table of Johanna's Answers. The Name is "Johanna". The unknown quizzing rule is the Johanna-no-quiz rule.  The description of Johanna is "You see a woman in her early 40[apostrophe]s with intelligent eyes and blond hair on a pony tail. She wears light gray trouser suit with a white blouse. [Name] is [activity description]."
+
+This is the Johanna-no-quiz rule: 
+	show the next response from the Table of Markku's Default Quiz Responses.
+
+After saying hello to Johanna:
+     say "'Hello, [Name],' you greet him.
+
+    'Hello, how can I help you?' [Answers for helpful]";
+    if the greeting type is explicit, consider the standard list suggested topics rule.
+
+Table of Johanna's Answers
+subject	response rule	response table	suggest
+Johanna	johanna2 rule	--	1
+status	a rule	Table of Johanna's Status Responses	1
+team board	a rule	Table of Johanna's board 	1
+unfinished items	--	Table of Team member's items	1
+tests	a rule	Table of Johanna's tests	2
+
+This is the johanna2 rule:
+	say "'How are things with you, [Name]?' [PlrQuestion]'Fine, thank you', [Answers for Neutral]".
 	
-test teamdescs with " nw / x markku / e / x ted / e /x saana "
+test teamdescs with " nw / x markku / e / x ted / x johanna / e /x saana "
 
 Section 3 Specific Conversation
 
 Table of Markku's Status Responses
 response
-"'What does the status look like?' [PlrQuestion]'Great on paper, as usual', [Answers for neutral][Name] nods at the team board, half-smiling.[make team board familiar]." 
-"'So you do think that everything is at it stands on the team board?' [PlrQuestion]'I just hope that nothing comes up in the next 3 days. Like it did in the previous sprint. Or the one before that. Or the one before that. Or... You get my point.' [Answers for cynical]"
+"'What does the status look like?' [PlrQuestion]'Great on paper, as usual', [Answers for neutral][Name]nods at the marker board, half-smiling.[make team board familiar]" 
+"'So we have the status of work on that marker board?' [PlrQuestion]'Yeah, that was the idea. Your predecessor set that up. 'Team board', he called it. All the tasks are there and the column they are in correspond to their status. Take a look if you like', [Answers for neutral][Name]points at the team board in the southwest corner of the office." 
+"'So you do think that everything is at it stands on the team board?' [PlrQuestion]'I just hope that nothing comes up in the next 3 days. Like it did in the previous sprint.[make previous sprints familiar] Or the one before that. Or the one before that. Or... You get my point.' [Answers for cynical]"
 "'Anything else come to your mind about the status?' [PlrQuestion]'I think that about covers it, sir', [Answers for neutral]"
 
 Table of Ted's Status Responses
@@ -235,8 +260,12 @@ response
 Table of Saana's Status Responses
 response
 "'What's the status of the project?' [PlrQuestion]<Saana looks up at the Team board> 'Well, most of the tasks seem to be done, but I'm sure that something will come up and screw our schedule at the last minute', [Answers for cynical]." 
-"'What do you mean, is there anything that might screw us?' [PlrQuestion]'Everything seems ok, but it has been the same for couple of sprints already with not so promising results', [Answers for cynical]."
+"'What do you mean, is there anything that might screw us?' [PlrQuestion]'Everything seems ok, but it has been the same for couple of sprints already[make previous sprints familiar] with not so promising results', [Answers for cynical]."
 "'So you are worried?' [PlrQuestion]'Maybe I'm just a pessimist, but I have a bad feeling about this again', [Answers for cynical]." 
+
+Table of Johanna's Status Responses
+response
+"'What's your take on the project's status?' [PlrQuestion]'It seems we're on schedule at the moment. I'm glad we got those DB specs in good time this sprint[make previous sprints familiar]', [Answers for neutral]." 
 
 Table of Markku's board
 response
@@ -250,6 +279,10 @@ response
 Table of Saana's board
 response
 "'What are your thougths about the team wall?' [PlrQuestion]'Dunno. Doesn't everyone see when I'm done by looking at my commits to the version control system?' [Answers for frustrated]"
+
+Table of Johanna's board
+response
+"'What do you think about the team wall?' [PlrQuestion]'It's a shame we don't have it online. It's a bit of a drag getting up and moving the items there.' [Answers for neutral]"
 
 Table of Markku's tests
 response
@@ -268,6 +301,11 @@ Table of Saana's tests
 response
 "'So is every item tested?' [PlrQuestion]'Well, most of the items were small changes to existing backend services so no need to make new tests. So we're okay', [Answers for Neutral]" 
 "'So no new tests this Sprint?' [PlrQuestion]'Well, as I said, there's really no need, ok?' [Answers for Frustrated]" 
+
+Table of Johanna's tests
+response
+"'So is every item tested?' [PlrQuestion]'Well the changes were mostly new fields into database tables. I made sure that the new fields exist and are as they are specified', [Answers for Neutral]" 
+"'So tests got good coverage?' [PlrQuestion]'Well, as I said, there was only some checks into the db after running the alter statements, nothing more complicated than that,' [Answers for Neutral]" 
 
 This is the items rule:
 say "'Anything still on the to-do list?' [PlrQuestion]'I have to run the tests again. And then there's the integration. That will be a pain in the ass, AGAIN.' [Answers for frustrated]"
@@ -296,14 +334,19 @@ Table of Saana's board	0	stop-list
 Table of Saana's Status Responses	0	stop-list
 Table of Team member's items	0	stop-list
 Table of Saana's tests	0	stop-list
+Table of Johanna's board	0	stop-list
+Table of Johanna's Status Responses	0	stop-list
+Table of Johanna's tests	0	stop-list
 
-test markkuconv with "say hello to markku / ask markku about team board / ask markku about status / ask markku about team board / ask markku about status / a tests / ask markku about tests "
+test markkuconv with "say hello to markku / ask markku about team board / ask markku about status / a status / ask markku about team board / ask markku about status / a tests / ask markku about tests "
 
 test tedconv with "say hello to ted / ask ted about status / a status / ask ted about team board / ask ted about status / a tests / ask ted about tests / ask ted about unfinished items / ask ted about unfinished items "
 
 test teduconv with "say hello to ted / ask ted about unfinished items "
 
 test saanaconv with "say hello to saana / ask saana about status / a status / ask saana about team board / ask saana about status / ask saana about status / a tests / ask saana about tests / ask saana about unfinished items "
+
+test johannaconv with "say hello to johanna / ask johanna about status / a status / ask johanna about team board / a tests / ask johanna about tests / ask johanna about unfinished items "
 
 Chapter 3 Research
 
@@ -383,19 +426,23 @@ There's an empty desk by the door. [Team board narrative]". Printed name of by t
 
 Northwest corner is a room. "You are in the team's open office, Northwest corner. [Team board narrative]". Northwest corner is northwest from By the door. Printed name of Northwest corner is "Northwest corner of the open office". Markku is in a room called the Northwest corner.
 
-North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". Printed name of North end of the office is "North end of the open office". North end of the office is north from a room called By the door. Ted is in north end of the office.
+North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". Printed name of North end of the office is "North end of the open office". North end of the office is north from a room called By the door. Ted and Johanna are in north end of the office.
 
 Northeast corner is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative] ". Printed name of Northeast corner is "Northeast corner of the open office".  Northeast corner is northeast from by the door. Saana is in the room called Northeast corner.
 
 Southwest corner is a room. "You are by the south wall of the team's open office, west of the door. There's the marker board filled with post-its here. ". Printed name of Southwest corner is "Southwest corner of the open office".  Southwest corner is west from By the door.
 
+The team board is scenery in the southwest corner. "On the south wall there is a marker board filled with post-it notes. There are three columns drawn on the board: 'TODO', 'In Progress' and 'DONE'. All the post-its are in the 'DONE' column." 
+
 Southeast corner is a room. "You are in the southeast corner of the open office. There's a supply closet here. [Team board narrative] ". Printed name of southeast corner is "Southeast corner of the open office". Supply closet is scenery in the Southeast corner. Southeast corner is east from By the door.
 
-Open office is a region. Northwest corner, By the door, North end of office, Southeast corner, Northeast corner and Southwest corner are in the Open office. 
+Work area is a region. Northwest corner, By the door, North end of office, Southeast corner and Northeast corner are in the Work area. 
 
-The team board is a backdrop. "On the west end of the south wall there's a marker board with colored post-it notes. You are unable to see the much more from here." The team board is in the open office.
+Open office is a region. Work area and Southwest corner are in the Open office. 
 
-Team board narrative is some text which varies. Team board narrative is "On the west end of the south wall there's a marker board."
+The marker board backdrop is a backdrop. "On the west end of the south wall there's a marker board with colored post-it notes. You are unable to see the much more from here." The marker board backdrop is in the work area.
+
+Team board narrative is some text which varies. Team board narrative is "On the southwest corner of the office, there's a marker board attached to the south wall."
 
 The corridor is a room. Corridor is south from the room called By the door. "You are in the corridor."
 
@@ -415,10 +462,9 @@ North end of the office is northeast from Southwest corner.
 
 test openoffice with " w / n / e / e / s / nw / sw / e"
 
-Section 3 Open office Descriptions
+test teamboard with " x board / w / x board / n / ask markku about team board "
 
-[After going to open office when player was not in the open office:
-	say "[open office activity]";]
+Section 3 Open office Descriptions
 
 After printing the locale description when the player is in the open office:
 	say "[open office activity]".
