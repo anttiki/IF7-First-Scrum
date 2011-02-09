@@ -47,6 +47,8 @@ Volume 1 Problem Missed Deadlines
 
 Chapter 1 Typical Phrases for NPCs
 
+A person has some text called activity description. The activity description is usually "[one of]working in deep concentration[or]cheerfully humming while working[or]staring into nothingness[or]checking a manual and programming away[purely at random]".
+
 Mood is a kind of value. Moods are Neutral, Frustrated, Angry, Cynical, Helpful and Tired. 
 
 Table of plr-question phrases
@@ -367,38 +369,55 @@ Chapter 6 Scenery
 
 Section 1 Rooms
 
-By the door is a room. "You are in the team's open office. There's a door to the corridor to the south. The open office opens to the west, north and east. The other desks are to the northwest and north and to the northeast there's a makeshift cubicle. The supply cabinet is to the east.
+By the door is a room. "You are in the team's open office, by the south wall. There's a door to the corridor to the south. The open office opens to the west, north and east. The other desks are to the northwest and north and to the northeast there's a makeshift cubicle. The supply cabinet is to the east.
 
-There's an empty desk by the door. [Team board narrative]". The empty desk is scenery in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
+There's an empty desk by the door. [Team board narrative]". Printed name of by the door is "Open office, by the door". The empty desk is scenery in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
 
-By Markku's desk is a room. By Markku's desk is northwest from By the door. The description is "You are in the team's open office, by Markku's desk. [Team board narrative]". Markku is in a room called the By Markku's desk.
+Northwest corner is a room. "You are in the team's open office, Northwest corner. [Team board narrative]". Northwest corner is northwest from By the door. Printed name of Northwest corner is "Northwest corner of the open office". Markku is in a room called the Northwest corner.
 
-North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". North end of the office is north from a room called By the door. Ted is in north end of the office.
+North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". Printed name of North end of the office is "North end of the open office". North end of the office is north from a room called By the door. Ted is in north end of the office.
 
-By Saana's desk is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative]". By Saana's desk is northeast from by the door. Saana is in the room called By Saana's desk.
+Northeast corner is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative] ". Printed name of Northeast corner is "Northeast corner of the open office".  Northeast corner is northeast from by the door. Saana is in the room called Northeast corner.
 
-By the board is a room. "You are by the south wall of the team's open office, west of the door. There's the marker board filled with post-its here." By the board is west from By the door.
+Southwest corner is a room. "You are by the south wall of the team's open office, west of the door. There's the marker board filled with post-its here. ". Printed name of Southwest corner is "Southwest corner of the open office".  Southwest corner is west from By the door.
 
-Southeast corner of the office is a room. "You are in the southeast corner of the open office. There's a supply closet here. [Team board narrative]". Supply closet is scenery in the Southeast corner of the office. Southeast corner of the office is east from By the door.
+Southeast corner is a room. "You are in the southeast corner of the open office. There's a supply closet here. [Team board narrative] ". Printed name of southeast corner is "Southeast corner of the open office". Supply closet is scenery in the Southeast corner. Southeast corner is east from By the door.
 
-Open office is a region. By Markku's desk, by the door, North end of office, Southeast corner of the office, by saana's desk and By the board are in the Open office. 
+Open office is a region. Northwest corner, By the door, North end of office, Southeast corner, Northeast corner and Southwest corner are in the Open office. 
 
 The team board is a backdrop. "On the west end of the south wall there's a marker board with colored post-it notes. You are unable to see the much more from here." The team board is in the open office.
 
 Team board narrative is some text which varies. Team board narrative is "On the west end of the south wall there's a marker board."
 
+The corridor is a room. Corridor is south from the room called By the door. "You are in the corridor."
+
 Section 2 Directions
 
-By Markku's desk is north from By the board.
+Northwest corner is north from Southwest corner.
 
-North end of the office is east from By Markku's desk.
+North end of the office is east from Northwest corner.
 
-By Saana's desk is east from North end of office.
+Northeast corner is east from North end of office.
 
-Southeast corner of the office is south from By Saana's desk.
+Southeast corner is south from Northeast corner.
 
-Southeast corner of the office is southeast from North end of the office.
+Southeast corner is southeast from North end of the office.
 
-North end of the office is northeast from By the board.
+North end of the office is northeast from Southwest corner.
 
 test openoffice with " w / n / e / e / s / nw / sw / e"
+
+Section 3 Open office Descriptions
+
+[After going to open office when player was not in the open office:
+	say "[open office activity]";]
+
+After printing the locale description when the player is in the open office:
+	say "[open office activity]".
+			
+To say open office activity:
+	repeat with culprit running through people who are not the player: 
+		if the culprit is in the open office: 
+			if the culprit is not in location:
+				say "[Name of the culprit] is [activity description of culprit] at a desk at [location of the culprit].[line break]"
+	
