@@ -439,7 +439,7 @@ Instead of reading a book:
 Report consulting a book about: 
     say "You flip through [the noun], but find no reference to [the topic understood]." instead.
     
-There is a large envelope on the empty desk. Large envelope is an openable closed container. The description of the envelope is "There's your name penned on the envelope. The envelope is sealed but you can see that the contents big enough to contain a book."
+[There is a large envelope on the empty desk. ]The large envelope is an openable closed container. The description of the envelope is "There's your name penned on the envelope. The envelope is sealed but you can see that the contents big enough to contain a book."
 
 Scrum Book is an unidentified book. The description of Scrum Book is "The book is titled Software Development with Scrum. It is written by Ken Schwaber and Mike Beedle." The contents of Scrum Book is the Table of Scrum Book. The U-name of Scrum book is "a black paperback book". The I-name of the Scrum book is "Software Development with Scrum".
 
@@ -482,7 +482,7 @@ Section 1 Rooms
 
 By the door is a room. "You are in the team's open office, by the south wall. There's a door to the corridor to the south. The open office opens to the west, north and east. The other desks are to the northwest and north and to the northeast there's a makeshift cubicle. The supply cabinet is to the east.
 
-There's an empty desk by the door. [Team board narrative]". Printed name of by the door is "Open office, by the door". The empty desk is scenery in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
+[Team board narrative]". Printed name of by the door is "Open office, by the door". The empty desk is a supporter in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
 
 Northwest corner is a room. "You are in the team's open office, Northwest corner. [Team board narrative]". Northwest corner is northwest from By the door. Printed name of Northwest corner is "Northwest corner of the open office". Markku is in a room called the Northwest corner.
 
@@ -505,6 +505,10 @@ The marker board backdrop is a backdrop. "On the west end of the south wall ther
 Team board narrative is some text which varies. Team board narrative is "On the southwest corner of the office, there's a marker board attached to the south wall."
 
 The corridor is a room. Corridor is south from the room called By the door. "You are in the corridor."
+
+The courier is a male person. The courier has some text called name. The name of courier is "courier". The large envelope is carried by the courier.
+
+Outsideroom is a room. Printed name of outsideroom is "outside".
 
 Section 2 Directions
 
@@ -553,11 +557,27 @@ event
 "[move Johanna to By the door]"
 "[move Markku to northwest corner]"
 "[move Johanna to north end of the office]"
+""
+"[move courier to corridor]"
+"[move courier to By the door]"
+"[courier puts large envelope to the empty desk][delivery message]"
+"[move courier to corridor]"
+"[move courier to outsideroom]"
 
 To say move (p - a person) to (l - a room):
 	if p can be seen by the player, say "[Name of p] heads to the [l].";
 	move p to l;
 	if p can be seen by the player, say "[Name of p] arrives here. 'Good morning,' [Name of p] says to you." 
+
+To say delivery message:
+	if player is in the open office:
+		say "'You've got a delivery, I'll put it on the desk by the door as I don't see a mail box here', exclaims the delivery boy from the door of the office.[paragraph break]"
+
+To say (p - a person) puts (t - a thing) to (sup - a supporter):
+	if t is carried by p:
+		if sup is in the location of p:
+			if p can be seen by the player, say "[Name of p] puts [t] on [sup].";
+			now t is on sup.
 	
 test morning with " z / z / z / z / w / e / z "
 
