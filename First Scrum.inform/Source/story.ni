@@ -47,7 +47,9 @@ Volume 1 Problem Missed Deadlines
 
 Chapter 1 Typical Phrases for NPCs
 
-A person has some text called activity description. The activity description is usually "[one of]working in deep concentration[or]cheerfully humming while working[or]staring into nothingness[or]checking a manual and programming away[purely at random]".
+A default activity description is some text that varies. The default activity description is usually "[one of]working in deep concentration[or]cheerfully humming while working[or]staring into nothingness[or]checking a manual and programming away[purely at random]".
+
+A person has some text called activity description. The activity description is usually "[default activity description]".
 
 Mood is a kind of value. Moods are Neutral, Frustrated, Angry, Cynical, Helpful and Tired. 
 
@@ -133,7 +135,11 @@ Section 2 People
 
 team member is a kind of person. Team member has some text called Name. Name is usually "That guy".
 
-Markku is a male team member. The quizzing table is the Table of Markku's Answers. The Name is "Markku". The unknown quizzing rule is the Markku-no-quiz rule.
+
+Rule for writing a paragraph about a team member: 
+    say "[Name] is here, [activity description]."
+
+Markku is a male team member. The quizzing table is the Table of Markku's Answers. The Name is "Markku". The unknown quizzing rule is the Markku-no-quiz rule. The description of Markku is "You see a tall heavy-set man with bowl cut brown hair and a friendly face. He wears jeans and a t-shirt of an obscure heavy metal band. Markku is [activity description]."
 
 This is the Markku-no-quiz rule: 
 	show the next response from the Table of Markku's Default Quiz Responses.
@@ -162,7 +168,7 @@ response
 "'Sorry, I cannot help you with that', [Answers for neutral]"
 "'Sorry, but what has that got to do with anything?' [Answers for frustrated]"
 
-Ted is a male team member. The quizzing table is the Table of Ted's Answers. The Name is "Ted". The unknown quizzing rule is the Ted-no-quiz rule.
+Ted is a male team member. The quizzing table is the Table of Ted's Answers. The Name is "Ted". The unknown quizzing rule is the Ted-no-quiz rule. The description of Ted is "You see a slender man in his late 30[apostrophe]s with caesar cut dark hair and impressive sideburns. He wears dark slacks and a teal shirt. Ted is [activity description]."
 
 This is the Ted-no-quiz rule: 
 	show the next response from the Table of Ted's Default Quiz Responses.
@@ -190,7 +196,7 @@ response
 "'One cannot know everything, especially at this particular project', [Answers for cynical]"
 "'Sorry, I cannot help you with that', [Answers for neutral]"
 
-Saana is a female team member. The quizzing table is the Table of Saana's Answers. The Name is "Saana". The unknown quizzing rule is the Saana-no-quiz rule.
+Saana is a female team member. The quizzing table is the Table of Saana's Answers. The Name is "Saana". The unknown quizzing rule is the Saana-no-quiz rule.  The description of Saana is "You see a woman in her late 20[apostrophe]s with a striking purple spiky top hair and a seirous expression on her face.She wears black gargo trousers and a purple sweater. Saana is [activity description]."
 
 This is the Saana-no-quiz rule: 
 	show the next response from the Table of Markku's Default Quiz Responses.
@@ -211,6 +217,8 @@ tests	a rule	Table of Saana's tests	2
 
 This is the saana2 rule:
 	say "'How are things with you, [Name]?' [PlrQuestion]'Well, I was just trying to figure out this open source library when you came to talk to me', [Answers for Frustrated]".
+	
+test teamdescs with " nw / x markku / e / x ted / e /x saana "
 
 Section 3 Specific Conversation
 
