@@ -10,13 +10,47 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 
 When play begins: say "This is a work-in-progress. 
 
-This work is licensed under a <a href=[quotation mark]http://creativecommons.org/licenses/by-nc-sa/3.0/[quotation mark]>Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.".
+This work is licensed under a [Link for CC_link].".
 
 Include Conversation Rules by Eric Eve.
 
 Use no scoring.
 
 Use BRIEF room descriptions.
+
+A weblink is a kind of thing. 
+A weblink has some text called link_url. 
+The link_url of a weblink is usually "". 
+The description of a weblink is usually "".
+
+To say Link for (W - a weblink):
+	let URL be the link_url of W; 
+	if URL is not "": 
+		say "JQ:LINK:[URL]:[description of W]:"; 
+
+CC_link is a weblink. The link_url of CC_link is "creativecommons.org/licenses/by-nc-sa/3.0/". The description of CC_link is "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License".
+
+SA_link is a weblink. The link_url of SA_link is "www.scrumalliance.org/". The description of SA_link is "Scrum Alliance".
+
+The large note is in the By the door. 
+
+Instead of examining the large note:
+	say "Link [Link for SA_link]";
+	
+
+[pictures] 
+A picture is a kind of thing. 
+A picture has some text called image_name. 
+The image_name of a picture is usually "". 
+
+Instead of examining a picture: 
+	let IMG be the image_name of the noun; 
+	if IMG is not "": 
+		say "JQ:IMAGE:[IMG]:"; 
+	say "[the description of the noun][line break]"; 
+
+The Mona Lisa is a picture. Mona Lisa is in the room called By the door. 
+The image_name of the Mona Lisa is "monalisa.jpg". 
 
 Book 1 Bug Fix
 
@@ -51,7 +85,61 @@ A default activity description is some text that varies. The default activity de
 
 A person has some text called activity description. The activity description is usually "[default activity description]".
 
-Mood is a kind of value. Moods are Neutral, Frustrated, Angry, Cynical, Helpful and Tired. 
+Mood is a kind of value. Moods are Neutral, Frustrated, Angry, Cynical, Helpful, Enthusiastic, Reserved, Scared and Tired. 
+
+Table of Moods
+commitment	safety	mood
+-3	-3	Scared
+-3	-2	Scared
+-3	-1	Reserved	
+-3	0	Reserved	
+-3	1	Cynical
+-3	2	Cynical
+-2	3	Cynical
+-2	-3	Scared
+-2	-2	Scared
+-2	-1	Reserved
+-2	0	Reserved
+-2	1	Cynical
+-2	2	Cynical
+-2	3	Cynical
+-1	-3	Scared
+-1	-2	Reserved
+-1	-1	Reserved
+-1	0	Neutral
+-1	1	Helpful
+-1	2	Helpful
+-1	3	Helpful
+0	-3	Scared
+0	-2	Scared
+0	-1	Neutral
+0	0	Neutral
+0	1	Neutral
+0	2	Helpful
+0	3	Helpful
+1	-3	Angry
+1	-2	Reserved
+1	-1	Reserved
+1	0	Neutral
+1	1	Helpful
+1	2	Helpful
+1	3	Helpful
+2	-3	Angry
+2	-2	Frustrated
+2	-1	Frustrated
+2	0	Helpful
+2	1	Enthusiastic
+2	2	Enthusiastic
+2	3	Enthusiastic
+3	-3	Angry
+3	-2	Frustrated
+3	-1	Frustrated
+3	0	Enthusiastic
+3	1	Enthusiastic
+3	2	Enthusiastic
+3	3	Enthusiastic
+
+
 
 Table of plr-question phrases
 response
@@ -266,13 +354,13 @@ response
 
 Table of Ted's Status Responses
 response
-"'What's the sitch?' [PlrQuestion]'All right. I've done all my tasks', [Answers for neutral]." 
+"'What's the sitch?' [PlrQuestion]'All right. I've done all my tasks', [Answers for neutral]" 
 
 Table of Saana's Status Responses
 response
 "'What's the status of the project?' [PlrQuestion]<Saana looks up at the Team board> 'Well, most of the tasks seem to be done, but I'm sure that something will come up and screw our schedule at the last minute', [Answers for cynical]." 
-"'What do you mean, is there anything that might screw us?' [PlrQuestion]'Everything seems ok, but it has been the same for couple of sprints already[make previous sprints familiar] with not so promising results', [Answers for cynical]."
-"'So you are worried?' [PlrQuestion]'Maybe I'm just a pessimist, but I have a bad feeling about this again', [Answers for cynical]." 
+"'What do you mean, is there anything that might screw us?' [PlrQuestion]'Everything seems ok, but it has been the same for couple of sprints already[make previous sprints familiar] with not so promising results', [Answers for cynical]"
+"'So you are worried?' [PlrQuestion]'Maybe I'm just a pessimist, but I have a bad feeling about this again', [Answers for cynical]" 
 
 Table of Johanna's Status Responses
 response
