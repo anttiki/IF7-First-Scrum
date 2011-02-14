@@ -4,15 +4,24 @@
 [This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 http://creativecommons.org/licenses/by-nc-sa/3.0/]
 
+[The story title is "First Scrum".]
+[The story author is "Antti Kirjavainen".]
+The story genre is "Drama".
+The release number is 1.
+The story creation year is 2011.
 The story description is "This is a work-in-progress. 
 
 This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License (http://creativecommons.org/licenses/by-nc-sa/3.0/)."
 
 When play begins: say "This is a work-in-progress. 
 
-This work is licensed under a [Link for CC_link].".
+This work is licensed under a [Link for CC_link].[paragraph break]".
 
+After printing the banner text: say "[paragraph break][backstory][tutorial for General info][paragraph break]".
+ 
 Include Conversation Rules by Eric Eve.
+
+Include Basic Screen Effects by Emily Short.
 
 Use no scoring.
 
@@ -89,9 +98,38 @@ Volume 1 General Stuff
 
 Chapter 1 Backstory
 
+Table of Backstory
+area	response
+project	"You were assigned to this project the day before yesterday. The company was in a hurry to find a replacement for the team lead in this project that was dubbed as crucial for securing future projects with the same client.[paragraph break]It didn't matter that you had very little knowledge of Scrum and that the project had been going for several iterations by now. After a short meeting with the sales rep of the project yesterday you were basically tossed head in into the client's office. Your predecessor had left for a more lucrative opportunity elsewhere and the client had become anxious about the situation so they wanted you to be there to calm things down.[paragraph break]The team is supposed to be top notch and why not if this is a crucial project. You just hope that you can figure out the project as fast as possible and be of some help to the team. So, here you are in a corridor in your client's office building, heading for the room where your new team is located."
+
+To say backstory:
+	if number of filled rows in Table of Backstory > 0:
+		choose row 1 in the Table of Backstory;
+		say "[blue letters][response entry][default letters]";
+		blank out the whole row;
+		
+
+Table of Table Types (continued)
+tabname	index	tabtype
+Table of Backstory	1	stop-list
+
+
 Chapter 2 Tutorial
 
+General info is a familiar subject.
 
+Movement is a familiar subject.
+
+Table of Tutorial
+area	response
+Movement	"You can move in [story title] the same way as in the classical text adventure games. Just type a compass direction (e.g. [bold type]south[roman type]) and you are on your way. You can also use abbreviations of the compass directions such as [bold type]n[roman type] for north and [bold type]sw[roman type] for southwest.[paragraph break]Type [bold type]north[roman type] or [bold type]n[roman type] to go into your team's office now."
+General info	"Hello, this is the guide of '[story title]', giving you pointers on how to play. In future versions I might get a mute button but as of now you just have to bear with me a while. My job is to get you acquinted to the world of [story title] so that you can explore and interact with the story on your own.[paragraph break]The blue text above is the backstory. You'll continue to have moments of past events flash back for a while to get a picture of your current situation. This tutorial text, as you can see, is in green. All the future text in green will also be the in-game tutorial.[paragraph break]You act in the game by typing commands, such as moving, manipulating game objects (examine, get, open etc.) and conversing with people (say hello, ask about etc.). If you want more info on the game commands you can reach the help function by typing help (subject). [paragraph break]So, that was the first lesson. Have fun with [story title]!"
+
+To say tutorial for (T - a thing):
+	if there is a response corresponding to an area of T in Table of Tutorial:
+		choose row with area of T in the Table of Tutorial;
+		say "[paragraph break][green letters][response entry][default letters]";
+		blank out the whole row;
 
 Volume 2 Problem Missed Deadlines
 
@@ -222,6 +260,8 @@ To say Answers for (M - a Mood):
 Chapter 2 The Symptom
 
 Section 1 Subjects
+
+project is a familiar subject.
 
 status is a familiar subject.
 Understand "sprint status" or "project status" or "status report" or "report" as status.
@@ -630,6 +670,8 @@ Chapter 6 Scenery
 
 Section 1 Rooms
 
+The corridor is a room. Corridor is south from the room called By the door. "This is the corridor that leads to the open office where your team is located. The open office is to the north. The meeting room assigned to your team is to the south, behind a locked door.[tutorial for Movement]"
+
 By the door is a room. "You are in the team's open office, by the south wall. There's a door to the corridor to the south. The open office opens to the west, north and east. The other desks are to the northwest and north and to the northeast there's a makeshift cubicle. The supply cabinet is to the east.
 
 [Team board narrative]". Printed name of by the door is "Open office, by the door". The empty desk is a supporter in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
@@ -653,8 +695,6 @@ Open office is a region. Work area and Southwest corner are in the Open office.
 The marker board backdrop is a backdrop. "On the west end of the south wall there's a marker board with colored post-it notes. You are unable to see the much more from here." The marker board backdrop is in the work area.
 
 Team board narrative is some text which varies. Team board narrative is "On the southwest corner of the office, there's a marker board attached to the south wall."
-
-The corridor is a room. Corridor is south from the room called By the door. "You are in the corridor."
 
 The courier is a male person. The courier has some text called name. The name of courier is "courier". The large envelope is carried by the courier.
 
