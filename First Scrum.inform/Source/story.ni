@@ -36,7 +36,7 @@ To say Link for (W - a weblink):
 CC_link is a weblink. The link_url of CC_link is "creativecommons.org/licenses/by-nc-sa/3.0/". The description of CC_link is "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License".
 
 [for debugging the web link hack for parchment]
-SA_link is a weblink. The link_url of SA_link is "www.scrumalliance.org/". The description of SA_link is "Scrum Alliance".
+[SA_link is a weblink. The link_url of SA_link is "www.scrumalliance.org/". The description of SA_link is "Scrum Alliance".
 
 The large note is in the By the door. 
 
@@ -56,7 +56,7 @@ Instead of examining a picture:
 	say "[the description of the noun][line break]"; 
 
 The Mona Lisa is a picture. Mona Lisa is in the room called By the door. 
-The image_name of the Mona Lisa is "monalisa.jpg". 
+The image_name of the Mona Lisa is "monalisa.jpg". ]
 [end for debugging the web link hack for parchment]
 
 
