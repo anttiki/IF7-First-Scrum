@@ -18,6 +18,11 @@ Use no scoring.
 
 Use BRIEF room descriptions.
 
+
+Book 1 Generic Stuff
+
+Volume 1 Web Links
+
 A weblink is a kind of thing. 
 A weblink has some text called link_url. 
 The link_url of a weblink is usually "". 
@@ -30,6 +35,7 @@ To say Link for (W - a weblink):
 
 CC_link is a weblink. The link_url of CC_link is "creativecommons.org/licenses/by-nc-sa/3.0/". The description of CC_link is "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License".
 
+[for debugging the web link hack for parchment]
 SA_link is a weblink. The link_url of SA_link is "www.scrumalliance.org/". The description of SA_link is "Scrum Alliance".
 
 The large note is in the By the door. 
@@ -51,8 +57,10 @@ Instead of examining a picture:
 
 The Mona Lisa is a picture. Mona Lisa is in the room called By the door. 
 The image_name of the Mona Lisa is "monalisa.jpg". 
+[end for debugging the web link hack for parchment]
 
-Book 1 Bug Fix
+
+Volume 2 Bug Fix
 
 Report quizzing someone about something known (this is the bugfix quizzing report rule):
 	repeat through the quizzing table of the noun:
@@ -77,7 +85,15 @@ Instead of telling someone about something:
      
 Book 2 The Game itself
 
-Volume 1 Problem Missed Deadlines
+Volume 1 General Stuff
+
+Chapter 1 Backstory
+
+Chapter 2 Tutorial
+
+
+
+Volume 2 Problem Missed Deadlines
 
 Chapter 1 Typical Phrases for NPCs
 
@@ -87,7 +103,7 @@ A person has some text called activity description. The activity description is 
 
 Mood is a kind of value. Moods are Neutral, Frustrated, Angry, Cynical, Helpful, Enthusiastic, Reserved, Scared and Tired. 
 
-Table of Moods
+[Table of Moods
 commitment	safety	mood
 -3	-3	Scared
 -3	-2	Scared
@@ -137,8 +153,7 @@ commitment	safety	mood
 3	0	Enthusiastic
 3	1	Enthusiastic
 3	2	Enthusiastic
-3	3	Enthusiastic
-
+3	3	Enthusiastic]
 
 
 Table of plr-question phrases
@@ -345,11 +360,13 @@ test teamdescs with " nw / x markku / e / x ted / x johanna / e /x saana "
 
 Section 3 Specific Conversation
 
+A previous sprints finding1 is some text that varies. Previous sprints finding1 is usually "You found out from Markku that there were some problems delivering on time on previous sprints in this project."
+
 Table of Markku's Status Responses
 response
 "'What does the status look like?' [PlrQuestion]'Great on paper, as usual', [Answers for neutral][Name]nods at the marker board, half-smiling.[make team board familiar]" 
 "'So we have the status of work on that marker board?' [PlrQuestion]'Yeah, that was the idea. Your predecessor set that up. 'Team board', he called it. All the tasks are there and the column they are in correspond to their status. Take a look if you like', [Answers for neutral][Name]points at the team board in the southwest corner of the office." 
-"'So you do think that everything is at it stands on the team board?' [PlrQuestion]'I just hope that nothing comes up in the next 3 days. Like it did in the previous sprint.[make previous sprints familiar] Or the one before that. Or the one before that. Or... You get my point.' [Answers for cynical]"
+"'So you do think that everything is at it stands on the team board?' [PlrQuestion]'I just hope that nothing comes up in the next 3 days. Like it did in the previous sprint.[make previous sprints familiar] Or the one before that. Or the one before that. Or... You get my point.' [Answers for cynical][Report finding on previous sprints with previous sprints finding1]"
 "'Anything else come to your mind about the status?' [PlrQuestion]'I think that about covers it, sir', [Answers for neutral]"
 
 Table of Ted's Status Responses
@@ -358,7 +375,7 @@ response
 
 Table of Saana's Status Responses
 response
-"'What's the status of the project?' [PlrQuestion]<Saana looks up at the Team board> 'Well, most of the tasks seem to be done, but I'm sure that something will come up and screw our schedule at the last minute', [Answers for cynical]." 
+"'What's the status of the project?' [PlrQuestion]<Saana looks up at the marker board at the southwest corner of the office>[line break] 'Well, most of the tasks seem to be done, but I'm sure that something will come up and screw our schedule at the last minute', [Answers for cynical]." 
 "'What do you mean, is there anything that might screw us?' [PlrQuestion]'Everything seems ok, but it has been the same for couple of sprints already[make previous sprints familiar] with not so promising results', [Answers for cynical]"
 "'So you are worried?' [PlrQuestion]'Maybe I'm just a pessimist, but I have a bad feeling about this again', [Answers for cynical]" 
 
@@ -453,9 +470,13 @@ Chapter 3 Research
 
 Section 1 Conversation
 
+A previous sprints finding2 is some text that varies. Previous sprints finding2 is usually "You found out from Markku that there were some problems delivering on time because of integration problems  on previous sprint in this project."
+
+A previous sprints finding3 is some text that varies. Previous sprints finding3 is usually "You found out that there were some problems with the DB specs and/or the backend code on previous sprints in this project."
+
 Table of Markku's sprints
 response
-"'You said that you had some problems in the previous sprints?' [PlrQuestion]'All I know is that we had a bunch of new features in the last Sprint that did not work at all when we did a test run of the Sprint Review demonstration on the integration server. The previous SM had to ask the PO to give us a couple of days more time to fix the bugs so we got everything done by the end of the Sprint' [Answers for neutral]"
+"'You said that you had some problems in the previous sprints?' [PlrQuestion]'All I know is that we had a bunch of new features in the last Sprint that did not work at all when we did a test run of the Sprint Review demonstration on the integration server. The previous SM had to ask the PO to give us a couple of days more time to fix the bugs so we got everything done by the end of the Sprint' [Answers for neutral][Report finding on previous sprints with previous sprints finding2]"
 "'But were there more missed deadlines earlier?' [PlrQuestion]'The Sprint before that we had some problems with the DB and the backend code[make database specifications familiar]. Saana or Johanna might remember what it was', [Answers for neutral]"
 "'Did we miss the deadline that time?' [PlrQuestion]'Yeah, we had to ask more time to do all the work on that Sprint, too', [Answers for neutral]"
 
@@ -465,7 +486,7 @@ response
 
 Table of Johanna's sprints
 response
-"'I've heard we've had some problems in the previous sprints, anything I should know?' [PlrQuestion]'Well, a couple of sprints ago there was a big problem with a new DB table and DB specs[make database specifications familiar]. We didn’t get good specs so we missed the original Sprint deadline,' [Answers for neutral]"
+"'I've heard we've had some problems in the previous sprints, anything I should know?' [PlrQuestion]'Well, a couple of sprints ago there was a big problem with a new DB table and DB specs[make database specifications familiar]. We didn’t get good specs so we missed the original Sprint deadline,' [Answers for neutral][Report finding on previous sprints with previous sprints finding3]"
 "'Was the backend code part of that Sprint's work?' [PlrQuestion]'Yeah, the backend code was developed on that Sprint, too. Saana will know more about that,' [Answers for neutral]"
 
 Table of Saana's sprints
@@ -479,7 +500,7 @@ response
 
 Table of Saana's db
 response
-"'I've heard about a problem with DB specs a couple of Sprints ago, do you remember anything about it?' [PlrQuestion]'Yeah, but it was a long time ago. We got pretty simple specs for a new table and a service to use it. I implemented the services, it took just a day or two. But Johanna must have understood the DB specs way wrong, because when e replaced my mock DB with the one she made for the release version, everything went to hell. We didn’t have time to get it right in time, so the SM had to ask for more time to fix her screw-up. So that made us be late that time.,' [Answers for Tired]"
+"'I've heard about a problem with DB specs a couple of Sprints ago, do you remember anything about it?' [PlrQuestion]'Yeah, but it was a long time ago. We got pretty simple specs for a new table and a service to use it. I implemented the services, it took just a day or two. But Johanna must have understood the DB specs way wrong, because when e replaced my mock DB with the one she made for the release version, everything went to hell. We didn’t have time to get it right in time, so the SM had to ask for more time to fix her screw-up. So that made us be late that time.,' [Answers for Tired][Report finding on previous sprints with previous sprints finding3]"
 
 Table of Johanna's db
 response
@@ -531,7 +552,9 @@ Report consulting a book about:
     
 [There is a large envelope on the empty desk. ]The large envelope is an openable closed container. The description of the envelope is "There's your name penned on the envelope. The envelope is sealed but you can see that the contents big enough to contain a book."
 
-Scrum Book is an unidentified book. The description of Scrum Book is "The book is titled Software Development with Scrum. It is written by Ken Schwaber and Mike Beedle." The contents of Scrum Book is the Table of Scrum Book. The U-name of Scrum book is "a black paperback book". The I-name of the Scrum book is "Software Development with Scrum".
+Scrum_book_link is a weblink. The link_url of Scrum_book_link is "www.amazon.com/gp/product/0130676349?ie=UTF8&tag=muodostelma-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=0130676349". The description of Scrum_book_link is "Amazon.com".
+
+Scrum Book is an unidentified book. The description of Scrum Book is "The book is titled Software Development with Scrum. It is written by Ken Schwaber and Mike Beedle. (link to the book on [Link for Scrum_book_link])". The contents of Scrum Book is the Table of Scrum Book. The U-name of Scrum book is "a black paperback book". The I-name of the Scrum book is "Software Development with Scrum".
 
 Understand "Software Development with Scrum" as Scrum Book.
 
@@ -581,12 +604,16 @@ To say Findings made:
 			say "Area: [area entry], Your note: [finding entry][line break]";
 
 To say Report finding on (t - a thing) with (note - a text):
-	if number of blank rows in Table of Problem Findings > 0:
-		choose a blank row in Table of Problem Findings;
-		now the area entry is t;
-		now the finding entry is note;
+	if there is an area corresponding to a finding of note in The Table of Problem Findings:
+		Do nothing;
+		[say "Debug message: You already have this finding. Thanks!";]
 	otherwise:
-		say "Error: No rows in Table of problem Findings. Please file a bug report. Thanks!".
+		if number of blank rows in Table of Problem Findings > 0:
+			choose a blank row in Table of Problem Findings;
+			now the area entry is t;
+			now the finding entry is note;
+		otherwise:
+			say "Error: No rows in Table of problem Findings. Please file a bug report. Thanks!".
 	
 Understand "reflect" as reflecting.
 
@@ -607,7 +634,7 @@ By the door is a room. "You are in the team's open office, by the south wall. Th
 
 [Team board narrative]". Printed name of by the door is "Open office, by the door". The empty desk is a supporter in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
 
-Northwest corner is a room. "You are in the team's open office, Northwest corner. [Team board narrative]". Northwest corner is northwest from By the door. Printed name of Northwest corner is "Northwest corner of the open office". Markku is in a room called the Northwest corner.
+Northwest corner is a room. "You are in the team's open office, Northwest corner. [Team board narrative]". Northwest corner is northwest from By the door. Printed name of Northwest corner is "Northwest corner of the open office". [Markku is in a room called the Northwest corner.]
 
 North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". Printed name of North end of the office is "North end of the open office". North end of the office is north from a room called By the door. Ted is in north end of the office.
 
