@@ -133,7 +133,7 @@ HasBeenUsed is a kind of value. HasBeenUseds are unused and used.
 
 Table of Tutorial
 area	HasBeenUsed	response
-Movement	unused	"You can move in [story title] the same way as in the classical text adventure games. Just type a compass direction (e.g. [bold type]south[roman type]) and you are on your way. You can also use abbreviations of the compass directions such as [bold type]n[roman type] for north and [bold type]sw[roman type] for southwest.[paragraph break]Type [bold type]north[roman type] or [bold type]n[roman type] to go into your team's office now."
+Movement	unused	"You can move in [story title] the same way as in the classical text adventure games. Just type a compass direction (e.g. [bold type]south[roman type]) and you are on your way. You can also use abbreviations of the compass directions such as [bold type]n[roman type] for north and [bold type]sw[roman type] for southwest.[if location is corridor][paragraph break]Type [bold type]north[roman type] or [bold type]n[roman type] to go into your team's office now.[end if]"
 Tutorial-intro	unused	"Hello, this is the guide of '[story title]', giving you pointers on how to play. In future versions I might get a mute button but as of now you just have to bear with me a while. My job is to get you acquinted to the world of [story title] so that you can explore and interact with the story on your own.[paragraph break]The blue text above is the backstory. You'll continue to have moments of past events flash back for a while to get a picture of your current situation. This tutorial text, as you can see, is in green. All the future text in green will also be the in-game tutorial."
 Tutorial-outro	unused	"So, that was the first lesson. Have fun with [story title]!"
 General info	unused	"You act in the game by typing commands, such as moving, manipulating game objects (examine, get, open etc.) and conversing with people (say hello, ask about etc.). If you want more info on the game commands you can reach the help function by typing help (subject)."
@@ -180,6 +180,8 @@ Chapter 1 Typical Phrases for NPCs
 A default activity description is some text that varies. The default activity description is usually "[one of]working in deep concentration[or]cheerfully humming while working[or]staring into nothingness[or]checking a manual and programming away[purely at random]".
 
 A person has some text called activity description. The activity description is usually "[default activity description]".
+
+A person has some text called integrate-opinion. The integrate-opinion is usually "I think it would be best to carry on with how things were in the past".
 
 Mood is a kind of value. Moods are Neutral, Frustrated, Angry, Cynical, Helpful, Enthusiastic, Reserved, Scared and Tired. 
 
@@ -241,36 +243,42 @@ response
 "you ask."
 "you inquire."
 
+Table of plr-answer phrases
+response
+"you answer."
+"you reply."
+"you say in reply."
+
 Table of neutral general answer phrases
 response
-"[Name] answers."
-"[Name] replies."
-"[Name] says in reply."
+"[Name of current interlocutor] answers."
+"[Name of current interlocutor] replies."
+"[Name of current interlocutor] says in reply."
 
 Table of frustrated general answer phrases
 response
-"[Name] quips back."
-"[Name] retorts."
+"[Name of current interlocutor] quips back."
+"[Name of current interlocutor] retorts."
 
 Table of cynical general answer phrases
 response
-"[Name] replies with a sly smile."
-"[Name] remarks, with a dry smile."
-"[Name] answers, with a wry smile."
+"[Name of current interlocutor] replies with a sly smile."
+"[Name of current interlocutor] remarks, with a dry smile."
+"[Name of current interlocutor] answers, with a wry smile."
 
 Table of angry general answer phrases
 response
-"[Name] shouts back."
+"[Name of current interlocutor] shouts back."
 
 Table of tired general answer phrases
 response
-"[Name] grunts in reply."
-"[Name] sighs and yawns."
+"[Name of current interlocutor] grunts in reply."
+"[Name of current interlocutor] sighs and yawns."
 
 Table of helpful general answer phrases
 response
-"[Name] answers, smiling reassuringly."
-"[Name] replies with a smile."
+"[Name of current interlocutor] answers, smiling reassuringly."
+"[Name of current interlocutor] replies with a smile."
 
 Table of Table Types (continued)
 tabname	index	tabtype
@@ -281,9 +289,13 @@ Table of tired general answer phrases	0	shuffled-list
 Table of frustrated general answer phrases	0	shuffled-list
 Table of helpful general answer phrases	0	shuffled-list
 Table of plr-question phrases	0	shuffled-list
+Table of plr-answer phrases	0	shuffled-list
 
 To say PlrQuestion:
 	show the next response from Table of plr-question phrases.
+
+To say PlrAnswer:
+	show the next response from Table of plr-answer phrases.
 	
 To say Answers for (M - a Mood):
 	if M is Neutral: 
@@ -348,7 +360,8 @@ team board	a rule	Table of Markku's board 	2
 tests	a rule	Table of Markku's tests	3
 unfinished items	items rule	--	1
 previous sprints	a rule	Table of Markku's sprints	3
-database specifications	a rule	Table of team's db	-1
+database specifications	a rule	Table of team's db	1
+integration	a rule	Table of Markku's integration	2
 
 This is the markku2 rule:
 say "'How are you?' [PlrQuestion]'Well, a little, hmm, tired... I played Gran Turismo X until 2 am.' [Answers for Tired]"
@@ -379,7 +392,8 @@ team board	a rule	Table of Ted's board 	1
 unfinished items	--	Table of Ted's items	2
 tests	a rule	Table of Ted's tests	2
 previous sprints	a rule	Table of Ted's sprints	1
-database specifications	a rule	Table of team's db	-1
+database specifications	a rule	Table of team's db	1
+integration	a rule	Table of Ted's integration	1
 
 This is the ted2 rule:
 	say "'Everything all right, [Name]?' [PlrQuestion]'Yes, fit as a fiddle, boss, how are you?' [Answers for Helpful]".
@@ -396,7 +410,7 @@ This is the Saana-no-quiz rule:
 	show the next response from the Table of Markku's Default Quiz Responses.
 
 After saying hello to Saana:
-     say "'Hello, [Name],' you greet him.
+     say "'Hello, [Name],' you greet her.
 
     'Hi,' [Answers for Frustrated]";
     if the greeting type is explicit, consider the standard list suggested topics rule.
@@ -410,6 +424,7 @@ unfinished items	--	Table of Team member's items	1
 tests	a rule	Table of Saana's tests	2
 previous sprints	a rule	Table of Saana's sprints	2
 database specifications	a rule	Table of Saana's db	1
+integration	a rule	Table of Saana's integration	2
 
 This is the saana2 rule:
 	say "'How are things with you, [Name]?' [PlrQuestion]'Well, I was just trying to figure out this open source library when you came to talk to me', [Answers for Frustrated]".
@@ -420,7 +435,7 @@ This is the Johanna-no-quiz rule:
 	show the next response from the Table of Markku's Default Quiz Responses.
 
 After saying hello to Johanna:
-     say "'Hello, [Name],' you greet him.
+     say "'Hello, [Name],' you greet her.
 
     'Hello, how can I help you?' [Answers for helpful]";
     if the greeting type is explicit, consider the standard list suggested topics rule.
@@ -434,6 +449,7 @@ unfinished items	--	Table of Team member's items	1
 tests	a rule	Table of Johanna's tests	2
 previous sprints	a rule	Table of Johanna's sprints	2
 database specifications	a rule	Table of Johanna's db	1
+integration	a rule	Table of Markku's integration	2
 
 This is the johanna2 rule:
 	say "'How are things with you, [Name]?' [PlrQuestion]'Fine, thank you', [Answers for Neutral]".
@@ -488,7 +504,7 @@ Table of Markku's tests
 response
 "'So, there are items that have been implemented but not tested at all, is that right?' [PlrQuestion]'Well, I'm not sure. There's no way to tell, is there.', [Answers for frustrated]" 
 "'Don't you do a report on test results?' [PlrQuestion]'Yes, and the tests always pass 100%', [Answers for cynical]"
-"'So, what's wrong about the tests then?', [PlrQuestion]'It's just that we don't have a dedicated test team here and everything seems to go to hell at the moment we start to integrate.' [Answers for neutral]"
+"'So, what's wrong about the tests then?', [PlrQuestion]'It's just that we don't have a dedicated test team here and everything seems to go to hell at the moment we start to integrate.[make integration familiar]' [Answers for neutral]"
 "Nothing more to add."
 "'Anything else come to your mind about the tests?' [PlrQuestion]'Not at the moment, no', [Answers for neutral]"
 
@@ -508,7 +524,7 @@ response
 "'So tests got good coverage?' [PlrQuestion]'Well, as I said, there was only some checks into the db after running the alter statements, nothing more complicated than that,' [Answers for Neutral]" 
 
 This is the items rule:
-say "'Anything still on the to-do list?' [PlrQuestion]'I have to run the tests again. And then there's the integration. That will be a pain in the ass, AGAIN.' [Answers for frustrated]"
+say "'Anything still on the to-do list?' [PlrQuestion]'I have to run the tests again. And then there's the integration. That will be a pain in the ass, AGAIN[make integration familiar]', [Answers for frustrated]"
 
 Table of Ted's items
 response
@@ -552,6 +568,9 @@ Chapter 3 Research
 
 Section 1 Conversation
 
+integration is an unfamiliar subject.
+Understand "integrating" as integration.
+
 A previous sprints finding2 is some text that varies. Previous sprints finding2 is usually "You found out from Markku that there were some problems delivering on time because of integration problems  on previous sprint in this project."
 
 A previous sprints finding3 is some text that varies. Previous sprints finding3 is usually "You found out that there were some problems with the DB specs and/or the backend code on previous sprints in this project."
@@ -588,6 +607,26 @@ Table of Johanna's db
 response
 "'I've heard about a problem with DB specs we had previously, could you tell me more about it?' [PlrQuestion]'The specs were really vague and I had to make some decisions about the data formats and so on. And somehow the DB tables were incompatible with the backend code using them when we tried to get the product out. It’s nice to have some coherent specs for a change.,' [Answers for neutral]"
 
+Table of Markku's integration
+response
+"'What about the integration?' [PlrQuestion]'We have agreed a set schedule about integrating the work done on an iteration. It’s the second last day of the Sprint. That would be tomorrow', [Answers for neutral]"
+"'How did you come up with the integration schedule?' [PlrQuestion]'We agreed that schedule when there first were problems. It’s really hard to move it further because there wouldn’t be so much time left to developing the tasks in the Sprint', [Answers for neutral]"
+"'How does the integration work, in technical terms?' [PlrQuestion]'We merge our code in the version control and deploy the resulting codebase into our integration server. Takes about 30 minutes in all', [Answers for neutral]"
+"'So you could start the integration at any moment?' [PlrQuestion]'Yeah, I guess, though if there's more changes still checked in to the version control we'd have to do it all over.[line break]Are you suggesting that we start the integration now instead of waiting until tomorrow as usual?[convnode tm-integrate-now-node]', [Answers for neutral]"
+
+Table of Ted's integration
+response
+"'What about the integration?' [PlrQuestion]'I thought we would integrate tomorrow? I still have to make these tweaks to the UI to make the columns in the pages show OK', [Answers for frustrated]"
+
+A integration finding1 is some text that varies. integration finding1 is usually "You found out that there have been some problems with fixing the bugs found during the integration phase of Sprints in time and this has caused the team missing Sprint deadlines."
+
+Table of Saana's integration
+response
+"'What about the integration?' [PlrQuestion]'I don’t know what’s so hard about it, but usually someone has screwed something up in their code so it doesn’t work as specified. And then they run to fix some bugs', [Answers for cynical]"
+"'So the bugs discovered during integration have proven troublesome for the team?' [PlrQuestion]'Yeah, we have been late from the delivery deadline a number of times because somebody has screwed something and hasn't figured out how to fix things in time. Luckily the previous SM has succeeded in extending the Sprints so we have been able to fix most of the bugs and document the rest', [Answers for neutral][Report finding on integration with integration finding1]"
+
+
+
 Table of Table Types (continued)
 tabname	index	tabtype
 Table of Markku's sprints	0	stop-list
@@ -597,6 +636,9 @@ Table of Saana's sprints	0	stop-list
 Table of team's db	0	stop-list
 Table of Saana's db	0	stop-list
 Table of Johanna's db	0	stop-list
+Table of Markku's integration	0	stop-list
+Table of Ted's integration	0	stop-list
+Table of Saana's integration	0	stop-list
 
 test sprintsconv with " nw / a previous sprints / a db specs / a status / a status / a status / a previous sprints / a previous sprints / a previous sprints / e / ask ted about  previous sprints / ask johanna about previous sprints / ask johanna about previous sprints / e / a previous sprints / a previous sprints / a db specs / w / ask johanna about database specs / s "
 
@@ -675,6 +717,7 @@ a thing	text
 --	--
 --	--
 --	--
+--	--
 
 
 To say Findings made:
@@ -705,6 +748,37 @@ Report reflecting:
 	say "[Findings made]".
 
 Chapter 4 Actions
+
+Section 1 Integration
+
+The tm-integrate-now-node is a Conversation node. The suggestions is "say yes or no, or say that you don't know".
+
+The tm-integrate-now rules is a rulebook. The node rule of tm-integrate-now-node is tm-integrate-now rules.
+
+A tm-integrate-now rule when saying no: say "'No, let's wait until tomorrow', [PlrAnswer].[line break][convnode null-node]";
+
+A tm-integrate-now rule when saying yes: say "'Yes, we've waited long enough. Let's find out now what problems we still have to fix', [PlrAnswer][line break][convnode null-node]";
+
+The last tm-integrate-now rule: say "'I asked you if we should start integrating now', [Name] reminds you.";
+
+Understand "you don't/dont know" or "i don't/dont know" or "don't know" or "dont know" as "[dont know]".
+
+Understand "[dont know]" as Xspcing when the current convnode is the tm-integrate-now-node.
+
+A tm-integrate-now rule when Xspcing:	
+	[if the command matches "[dont know]" begin;]
+		say "[dont know integrate].";
+		rule succeeds;
+[	end if;]
+
+
+A tm-integrate-now rule when answering and the topic understood matches "[dont know]": 
+	say "[dont know integrate].";
+	rule succeeds;
+	
+To say dont know integrate:
+	say "'I don't know, I've not been here for too long. What do you think?', [PlrAnswer] '[integrate-opinion of current interlocutor]', [Answers for neutral][convnode null-node]"
+
 
 Chapter 5 Effects
 
