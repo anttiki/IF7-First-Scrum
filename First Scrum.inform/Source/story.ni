@@ -17,7 +17,7 @@ When play begins: say "This is a work-in-progress.
 
 This work is licensed under a [Link for CC_link].[paragraph break]".
 
-After printing the banner text: say "[paragraph break][backstory][tutorial for General info][paragraph break]".
+After printing the banner text: say "[paragraph break][backstory][tutorial for Tutorial-Intro][tutorial for General info][tutorial for Tutorial-Outro][paragraph break]".
  
 Include Conversation Rules by Eric Eve.
 
@@ -119,17 +119,59 @@ Chapter 2 Tutorial
 General info is a familiar subject.
 
 Movement is a familiar subject.
+Understand "move" or "moving" or "getting around" as Movement.
+
+Tutorial-intro is a familiar subject.
+
+Tutorial-outro is a familiar subject.
+
+Conversation is a familiar subject.
+
+[Understand "help talk" or "help ask" or "help tell" or "help talking" as help conversation.]
+
+HasBeenUsed is a kind of value. HasBeenUseds are unused and used. 
 
 Table of Tutorial
-area	response
-Movement	"You can move in [story title] the same way as in the classical text adventure games. Just type a compass direction (e.g. [bold type]south[roman type]) and you are on your way. You can also use abbreviations of the compass directions such as [bold type]n[roman type] for north and [bold type]sw[roman type] for southwest.[paragraph break]Type [bold type]north[roman type] or [bold type]n[roman type] to go into your team's office now."
-General info	"Hello, this is the guide of '[story title]', giving you pointers on how to play. In future versions I might get a mute button but as of now you just have to bear with me a while. My job is to get you acquinted to the world of [story title] so that you can explore and interact with the story on your own.[paragraph break]The blue text above is the backstory. You'll continue to have moments of past events flash back for a while to get a picture of your current situation. This tutorial text, as you can see, is in green. All the future text in green will also be the in-game tutorial.[paragraph break]You act in the game by typing commands, such as moving, manipulating game objects (examine, get, open etc.) and conversing with people (say hello, ask about etc.). If you want more info on the game commands you can reach the help function by typing help (subject). [paragraph break]So, that was the first lesson. Have fun with [story title]!"
+area	HasBeenUsed	response
+Movement	unused	"You can move in [story title] the same way as in the classical text adventure games. Just type a compass direction (e.g. [bold type]south[roman type]) and you are on your way. You can also use abbreviations of the compass directions such as [bold type]n[roman type] for north and [bold type]sw[roman type] for southwest.[paragraph break]Type [bold type]north[roman type] or [bold type]n[roman type] to go into your team's office now."
+Tutorial-intro	unused	"Hello, this is the guide of '[story title]', giving you pointers on how to play. In future versions I might get a mute button but as of now you just have to bear with me a while. My job is to get you acquinted to the world of [story title] so that you can explore and interact with the story on your own.[paragraph break]The blue text above is the backstory. You'll continue to have moments of past events flash back for a while to get a picture of your current situation. This tutorial text, as you can see, is in green. All the future text in green will also be the in-game tutorial."
+Tutorial-outro	unused	"So, that was the first lesson. Have fun with [story title]!"
+General info	unused	"You act in the game by typing commands, such as moving, manipulating game objects (examine, get, open etc.) and conversing with people (say hello, ask about etc.). If you want more info on the game commands you can reach the help function by typing help (subject)."
+Conversation	unused	"TBD."
 
 To say tutorial for (T - a thing):
 	if there is a response corresponding to an area of T in Table of Tutorial:
 		choose row with area of T in the Table of Tutorial;
-		say "[paragraph break][green letters][response entry][default letters]";
-		blank out the whole row;
+		if HasBeenUsed entry is unused:
+			say "[paragraph break][green letters][response entry][default letters]";
+			now the HasBeenUsed entry is used;
+			
+Understand "help" as helping-general.
+
+Understand "help [any thing]" as helping.
+
+Helping-general is an action applying to nothing.
+
+Helping is an action applying to one visible thing.
+
+Report Helping-general:
+		choose row with area of General info in the Table of Tutorial;
+		say "[green letters][response entry][default letters][paragraph break]";
+			now the HasBeenUsed entry is used;
+
+Instead of helping something unseen: 
+	if the noun is known: 
+		now the noun is seen; 
+		continue the action; 
+        
+Report helping:
+	if there is a response corresponding to an area of the noun in Table of Tutorial:
+		choose row with area of the noun in the Table of Tutorial;
+		say "[green letters][response entry][default letters][paragraph break]";
+		now the HasBeenUsed entry is used;
+	otherwise:
+		say "No help on [the noun] found. Type 'help' to get the basic help information.";
+
 
 Volume 2 Problem Missed Deadlines
 
