@@ -15,7 +15,7 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 
 When play begins: say "This is a work-in-progress. 
 
-This work is licensed under a [Link for CC_link].[paragraph break]".
+This work is licensed under a [Link for CC_link].[paragraph break]Please visit [Link for Gamepagelink] for more information."
 
 After printing the banner text: say "[paragraph break][backstory][tutorial for Tutorial-Intro][tutorial for General info][tutorial for Tutorial-Outro][paragraph break]".
  
@@ -41,6 +41,8 @@ To say Link for (W - a weblink):
 	let URL be the link_url of W; 
 	if URL is not "": 
 		say "JQ:LINK:[URL]:[description of W]:"; 
+
+Gamepagelink is a weblink. The link_url of Gamepagelink is "http://learninggamedev.wordpress.com/first-scrum/". The description of Gamepagelink is "The web page of First Scrum".
 
 CC_link is a weblink. The link_url of CC_link is "creativecommons.org/licenses/by-nc-sa/3.0/". The description of CC_link is "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License".
 
@@ -107,6 +109,13 @@ Instead of asking someone about something:
 Instead of telling someone about something:
      consider the unknown informing rule of the noun.
      
+Volume 3 Generics
+
+Feedbacklink is a weblink. The link_url of feedbacklink is "learninggamedev.wordpress.com/first-scrum/feedback/". The description of feedbacklink is "The feedback page of First Scrum".
+
+After printing a parser error: 
+	say "[line break][green letters]Was this something you'd like implemented on future versions of the game? Drop a comment on [Link for feedbacklink] and I'll get on it.[default letters]".
+
 Book 2 The Game itself
 
 Volume 1 General Stuff
@@ -774,12 +783,14 @@ a thing	text
 
 
 To say Findings made:
-	say "You have made [number of filled rows in Table of Problem Findings] of total of [number of rows in Table of Problem Findings] possible findings for the current problem.[paragraph break]";
+[	say "You have made [number of filled rows in Table of Problem Findings] of total of [number of rows in Table of Problem Findings] possible findings for the current problem.[paragraph break]";]
+	say "[green letters]You have made [number of filled rows in Table of Problem Findings] findings for the current problem.[paragraph break][default letters]";	
 	if number of filled rows in Table of Problem Findings > 0:
 		sort Table of Problem Findings in area order;
-		say "Your findings so far:[line break]";
+		say "[green letters]Your findings so far:[line break]";
 		repeat through Table of Problem Findings:
 			say "Area: [area entry], Your note: [finding entry][line break]";
+		say "[default letters]";
 
 To say Report finding on (t - a thing) with (note - a text):
 	if there is an area corresponding to a finding of note in The Table of Problem Findings:
@@ -792,13 +803,42 @@ To say Report finding on (t - a thing) with (note - a text):
 			now the finding entry is note;
 		otherwise:
 			say "Error: No rows in Table of problem Findings. Please file a bug report. Thanks!".
+
+Table of Past Actions
+area	action
+a thing	text
+--	--
+--	--
+--	--
+--	--
+
+To say Actions performed:
+	say "[green letters]You have made [number of filled rows in Table of Past Actions] major actions to influence the project and team in the current game.[paragraph break][default letters]";
+	if number of filled rows in Table of Past Actions > 0:
+		sort Table of Past Actions in area order;
+		say "[green letters]Your actions so far:[line break]";
+		repeat through Table of Past Actions:
+			say "Area: [area entry], Your action: [action entry][line break]";
+		say "[default letters]";
+
+To say Report action on (t - a thing) with (note - a text):
+	if there is an area corresponding to a finding of note in The Table of Past Actions:
+		Do nothing;
+		[say "Debug message: You already have this finding. Thanks!";]
+	otherwise:
+		if number of blank rows in Table of Past Actions > 0:
+			choose a blank row in Table of Past Actions;
+			now the area entry is t;
+			now the action entry is note;
+		otherwise:
+			say "Error: No rows in Table of Past Actions. Please file a bug report. Thanks!".
 	
 Understand "reflect" as reflecting.
 
 Reflecting is an action applying to nothing.
 
 Report reflecting:
-	say "[Findings made]".
+	say "[Findings made][line break][Actions performed]".
 
 Chapter 4 Actions
 
@@ -851,12 +891,14 @@ A tm-integrate-proceed rule when saying no:
 	rule succeeds;
 
 A tm-integrate-proceed rule when saying yes: 
-	say "'Yes, please do that', [PlrAnswer]'Ok, I'll get right on it', [Answers for helpful][line break][convnode null-node]";
+	say "'Yes, please do that', [PlrAnswer]'Ok, I'll get right on it', [Answers for helpful][line break][Report action on integration with integration-action-note1][convnode null-node]";
 	rule succeeds;
 
 The last tm-integrate-proceed rule: 
 	say "'I asked you if I should inform the other guys about checking in their changes and deploy the new version to the integration server', [Name of the current interlocutor] reminds you.";
 	rule succeeds;
+
+A integration-action-note1 is some text that varies. integration-action-note1 is usually "You made the decision to start the integration testing phase today instead of waiting another day to see what the potential problems with integration would be in this Sprint."
 
 Table of Markku's intgr orders
 response
