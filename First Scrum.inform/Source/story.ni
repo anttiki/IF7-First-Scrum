@@ -15,7 +15,9 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 
 When play begins: say "This is a work-in-progress. 
 
-This work is licensed under a [Link for CC_link].[paragraph break]Please visit [Link for Gamepagelink] for more information."
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+
+Please visit [Link for Gamepagelink] for more information about the game."
 
 After printing the banner text: say "[paragraph break][backstory][tutorial for Tutorial-Intro][tutorial for General info][tutorial for Tutorial-Outro][paragraph break]".
  
@@ -42,7 +44,7 @@ To say Link for (W - a weblink):
 	if URL is not "": 
 		say "JQ:LINK:[URL]:[description of W]:"; 
 
-Gamepagelink is a weblink. The link_url of Gamepagelink is "http://learninggamedev.wordpress.com/first-scrum/". The description of Gamepagelink is "The web page of First Scrum".
+Gamepagelink is a weblink. The link_url of Gamepagelink is "learninggamedev.wordpress.com/first-scrum/". The description of Gamepagelink is "The web page of First Scrum".
 
 CC_link is a weblink. The link_url of CC_link is "creativecommons.org/licenses/by-nc-sa/3.0/". The description of CC_link is "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License".
 
