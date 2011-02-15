@@ -86,6 +86,21 @@ Report quizzing someone about something known (this is the bugfix quizzing repor
 The bugfix quizzing report rule is listed instead of the standard
 quizzing report rule in the report quizzing it about rulebook.
 
+Report informing someone about something known (this is the bugfix informing report rule):
+	repeat through the informing table of the noun:
+		if the subject entry is the second noun:
+			if there is a suggest entry and the suggest entry is -1, continue the action;
+			if there is a response rule entry, consider the response rule entry;
+			if there is a response table entry, show the next response from the response table entry;
+			if there is a suggest entry and the suggest entry > 0:
+				let sug be the suggest entry;
+				decrease sug by 1;
+				now the suggest entry is sug;
+			stop the action.
+
+The bugfix informing report rule is listed instead of the standard
+informing report rule in the report informing it about rulebook.
+
 Instead of asking someone about something:
      consider the unknown quizzing rule of the noun.
 
@@ -181,7 +196,7 @@ A default activity description is some text that varies. The default activity de
 
 A person has some text called activity description. The activity description is usually "[default activity description]".
 
-A person has some text called integrate-opinion. The integrate-opinion is usually "I think it would be best to carry on with how things were in the past".
+A person has some text called integrate-opinion. The integrate-opinion is usually "'I think it would be best to carry on with how things were in the past', [Answers for Neutral][convnode null-node]".
 
 Mood is a kind of value. Moods are Neutral, Frustrated, Angry, Cynical, Helpful, Enthusiastic, Reserved, Scared and Tired. 
 
@@ -249,6 +264,13 @@ response
 "you reply."
 "you say in reply."
 
+
+Table of plr-statement phrases
+response
+"you tell [Name of the current interlocutor]."
+"you inform [Name of the current interlocutor]."
+
+
 Table of neutral general answer phrases
 response
 "[Name of current interlocutor] answers."
@@ -290,12 +312,16 @@ Table of frustrated general answer phrases	0	shuffled-list
 Table of helpful general answer phrases	0	shuffled-list
 Table of plr-question phrases	0	shuffled-list
 Table of plr-answer phrases	0	shuffled-list
+Table of plr-statement phrases	0	shuffled-list
 
 To say PlrQuestion:
 	show the next response from Table of plr-question phrases.
 
 To say PlrAnswer:
 	show the next response from Table of plr-answer phrases.
+
+To say PlrStatement:
+	show the next response from Table of plr-statement phrases.
 	
 To say Answers for (M - a Mood):
 	if M is Neutral: 
@@ -373,6 +399,13 @@ response
 "'Sorry, I cannot help you with that', [Answers for neutral]"
 "'Sorry, but what has that got to do with anything?' [Answers for frustrated]"
 
+The informing table of Markku is the Table of Markku's orders.
+
+Table of Markku's Orders
+subject	response rule	response table	suggest
+integration	a rule	Table of Markku's intgr orders	5
+
+
 Ted is a male team member. The quizzing table is the Table of Ted's Answers. The Name is "Ted". The unknown quizzing rule is the Ted-no-quiz rule. The description of Ted is "You see a slender man in his late 30[apostrophe]s with caesar cut dark hair and impressive sideburns. He wears dark slacks and a teal shirt. [Name] is [activity description]."
 
 This is the Ted-no-quiz rule: 
@@ -404,6 +437,13 @@ response
 "'One cannot know everything, especially at this particular project', [Answers for cynical]"
 "'Sorry, I cannot help you with that', [Answers for neutral]"
 
+The informing table of Ted is the Table of Ted's orders.
+
+Table of Ted's Orders
+subject	response rule	response table	suggest
+integration	a rule	Table of Ted's intgr orders	5
+	
+
 Saana is a female team member. The quizzing table is the Table of Saana's Answers. The Name is "Saana". The unknown quizzing rule is the Saana-no-quiz rule.  The description of Saana is "You see a woman in her late 20[apostrophe]s with a striking purple spiky top hair and a serious expression on her face.She wears black gargo trousers and a purple sweater. [Name] is [activity description].".
 
 This is the Saana-no-quiz rule: 
@@ -429,6 +469,13 @@ integration	a rule	Table of Saana's integration	2
 This is the saana2 rule:
 	say "'How are things with you, [Name]?' [PlrQuestion]'Well, I was just trying to figure out this open source library when you came to talk to me', [Answers for Frustrated]".
 
+The informing table of Saana is the Table of Saana's orders.
+
+Table of Saana's Orders
+subject	response rule	response table	suggest
+integration	a rule	Table of Saana's intgr orders	5
+
+
 Johanna is a female team member. The quizzing table is the Table of Johanna's Answers. The Name is "Johanna". The unknown quizzing rule is the Johanna-no-quiz rule.  The description of Johanna is "You see a woman in her early 40[apostrophe]s with intelligent eyes and blond hair on a pony tail. She wears light gray trouser suit with a white blouse. [Name] is [activity description].".
 
 This is the Johanna-no-quiz rule: 
@@ -453,6 +500,12 @@ integration	a rule	Table of Markku's integration	2
 
 This is the johanna2 rule:
 	say "'How are things with you, [Name]?' [PlrQuestion]'Fine, thank you', [Answers for Neutral]".
+
+The informing table of Johanna is the Table of Johanna's orders.
+
+Table of Johanna's Orders
+subject	response rule	response table	suggest
+integration	a rule	Table of Johanna's intgr orders	5
 	
 test teamdescs with " nw / x markku / e / x ted / x johanna / e /x saana "
 
@@ -612,7 +665,7 @@ response
 "'What about the integration?' [PlrQuestion]'We have agreed a set schedule about integrating the work done on an iteration. It’s the second last day of the Sprint. That would be tomorrow', [Answers for neutral]"
 "'How did you come up with the integration schedule?' [PlrQuestion]'We agreed that schedule when there first were problems. It’s really hard to move it further because there wouldn’t be so much time left to developing the tasks in the Sprint', [Answers for neutral]"
 "'How does the integration work, in technical terms?' [PlrQuestion]'We merge our code in the version control and deploy the resulting codebase into our integration server. Takes about 30 minutes in all', [Answers for neutral]"
-"'So you could start the integration at any moment?' [PlrQuestion]'Yeah, I guess, though if there's more changes still checked in to the version control we'd have to do it all over.[line break]Are you suggesting that we start the integration now instead of waiting until tomorrow as usual?[convnode tm-integrate-now-node]', [Answers for neutral]"
+"'So you could start the integration at any moment?' [PlrQuestion]'Yeah, I guess, though if there's more changes still checked in to the version control we'd have to do it all over.[line break]Are you suggesting that we start the integration now instead of waiting until tomorrow as usual?', [Answers for neutral][convnode tm-integrate-now-node]"
 
 Table of Ted's integration
 response
@@ -755,11 +808,17 @@ The tm-integrate-now-node is a Conversation node. The suggestions is "say yes or
 
 The tm-integrate-now rules is a rulebook. The node rule of tm-integrate-now-node is tm-integrate-now rules.
 
-A tm-integrate-now rule when saying no: say "'No, let's wait until tomorrow', [PlrAnswer].[line break][convnode null-node]";
+A tm-integrate-now rule when saying no: 
+	say "'No, let's wait until tomorrow', [PlrAnswer].[line break][convnode null-node]";
+	rule succeeds;
 
-A tm-integrate-now rule when saying yes: say "'Yes, we've waited long enough. Let's find out now what problems we still have to fix', [PlrAnswer][line break][convnode null-node]";
+A tm-integrate-now rule when saying yes: 
+	say "'Yes, we've waited long enough. Let's find out now what problems we still have to fix', [PlrAnswer][line break][convnode null-node]";
+	rule succeeds;
 
-The last tm-integrate-now rule: say "'I asked you if we should start integrating now', [Name] reminds you.";
+The last tm-integrate-now rule: 
+	say "'I asked you if we should start integrating now', [Name of the current interlocutor] reminds you.";
+	rule succeeds;
 
 Understand "you don't/dont know" or "i don't/dont know" or "don't know" or "dont know" as "[dont know]".
 
@@ -777,8 +836,55 @@ A tm-integrate-now rule when answering and the topic understood matches "[dont k
 	rule succeeds;
 	
 To say dont know integrate:
-	say "'I don't know, I've not been here for too long. What do you think?', [PlrAnswer] '[integrate-opinion of current interlocutor]', [Answers for neutral][convnode null-node]"
+	say "'I don't know, I've not been here for too long. What do you think?', [PlrAnswer][integrate-opinion of current interlocutor]"
 
+The integrate-opinion of Markku is "'I don't suppose the other devs would like to shorten the time to polish their code this Sprint. Maybe we could try it out next Sprint?' [Answers for Frustrated][convnode null-node]".
+
+The integrate-opinion of Saana is "'In fact, that would probably make a lot of sense. Shall I tell the rest of the guys that they should check in their changes and start the deployment to the integration server?' [Name of current interlocutor] asks. [convnode tm-integrate-proceed-node]" 
+
+The tm-integrate-proceed-node is a Conversation node. The suggestions is "say yes or no".
+
+The tm-integrate-proceed rules is a rulebook. The node rule of tm-integrate-proceed-node is tm-integrate-proceed rules.
+
+A tm-integrate-proceed rule when saying no: 
+	say "'No, I'm going to tell myself later, I've got a couple of things to check before we can proceed', [PlrAnswer]'Ok, you're the boss', [Answers for Neutral][line break][convnode null-node]";
+	rule succeeds;
+
+A tm-integrate-proceed rule when saying yes: 
+	say "'Yes, please do that', [PlrAnswer]'Ok, I'll get right on it', [Answers for helpful][line break][convnode null-node]";
+	rule succeeds;
+
+The last tm-integrate-proceed rule: 
+	say "'I asked you if I should inform the other guys about checking in their changes and deploy the new version to the integration server', [Name of the current interlocutor] reminds you.";
+	rule succeeds;
+
+Table of Markku's intgr orders
+response
+"'I'd like you to start the preparations to start the integration testing', [PlrStatement][integrate-opinion of the current interlocutor]"
+"'I think next Sprint is too late. Could you to start the preparations for the integration testing', [PlrStatement]'Ok, shall I tell Saana to start prepping the deployment to the integration server?' [Answers for Frustrated][convnode tm-integrate-proceed-node]"
+
+Table of Saana's intgr orders
+response
+"'I'd like you to start the preparations to start the integration testing', [PlrStatement][integrate-opinion of the current interlocutor]"
+
+Table of Ted's intgr orders
+response
+"'I'd like you to start the preparations to start the integration testing', [PlrStatement][integrate-opinion of the current interlocutor]"
+"'Today would be better for the integration, don't you agree? Let's start now.'  [PlrStatement]'I still have those couple of bugs to fix on the UI, we'll have to do this all over again after I've checked those changes in', [Answers for Frustrated]"
+"'Still, they sound like minor changes. Let's start the integration now.'  [PlrStatement]'Ok, I guess you know what you're doing, shall I ask Saana to start prepping the deployment to the integration server?' [Answers for Frustrated][convnode tm-integrate-proceed-node]"
+
+Table of Johanna's intgr orders
+response
+"'I'd like you to start the preparations to start the integration testing', [PlrStatement][integrate-opinion of the current interlocutor]"
+"'Today would be better for the integration, don't you agree? Let's start now.', [PlrStatement]'Saana is normally the one to do it, you should probably talk to her instead', [Answers for Tired]"
+
+
+Table of Table Types (continued)
+tabname	index	tabtype
+Table of Saana's intgr orders	0	stop-list
+Table of Markku's intgr orders	0	stop-list
+Table of Ted's intgr orders	0	stop-list
+Table of Johanna's intgr orders	0	stop-list
 
 Chapter 5 Effects
 
