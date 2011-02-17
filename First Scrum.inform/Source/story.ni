@@ -19,7 +19,7 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 
 Please visit [Link for Gamepagelink] for more information about the game."
 
-After printing the banner text: say "[paragraph break][backstory][tutorial for Tutorial-Intro][tutorial for General info][tutorial for Tutorial-Outro][paragraph break]".
+After printing the banner text: say "[backstory][tutorial for Tutorial-Intro][tutorial for General info][tutorial for Tutorial-Outro][paragraph break]".
  
 Include Conversation Rules by Eric Eve.
 
@@ -126,13 +126,19 @@ Chapter 1 Backstory
 
 Table of Backstory
 area	response
-project	"You were assigned to this project the day before yesterday. The company was in a hurry to find a replacement for the team lead in this project that was dubbed as crucial for securing future projects with the same client.[paragraph break]It didn't matter that you had very little knowledge of Scrum and that the project had been going for several iterations by now. After a short meeting with the sales rep of the project yesterday you were basically tossed head in into the client's office. Your predecessor had left for a more lucrative opportunity elsewhere and the client had become anxious about the situation so they wanted you to be there to calm things down.[paragraph break]The team is supposed to be top notch and why not if this is a crucial project. You just hope that you can figure out the project as fast as possible and be of some help to the team. So, here you are in a corridor in your client's office building, heading for the room where your new team is located."
+project	"You were assigned to this project the day before yesterday. Your role was to be the team's new ScrumMaster.[paragraph break]It didn't matter that you had very little knowledge of Scrum and that the project had been going for several iterations by now. Your predecessor had left for a more lucrative opportunity elsewhere and the client had become anxious about the situation so they wanted you to be there to calm things down.[paragraph break]So, here you are in a corridor in your client's office building, heading for the room where your new team is located."
+project	"The company was in a hurry to find a replacement for the team lead in this project that was dubbed as crucial for securing future projects with the same client. After a short meeting with the sales rep of the project yesterday you were basically tossed head in into the client's office."
+team	"The team is supposed to be top notch -- and why not if this project is as crucial as the sales rep convinced. You just hope that you can figure out the project as fast as possible and be of some help to the team. "
+Frank	"Funny thing is that the sales rep specifically told you not to call you as he is in the middle of very important contract negotiations elsewhere. The one helping hand you have is a coach that your company has provided you. His name is Frank and he is some kind of Scrum evangelist in your company."
+Frank	"The first thing Frank did was enroll you to a Certified ScrumMaster course which is taking place next weekend, three days from now. His only advice to you was to hang tight until the weekend and try to get a feel of the status of the project and the mood of the team. And he said something about sending you a gift to the office."
+Frank 	"Frank even asked the address of the client's office you are going to work in..."
 
 To say backstory:
 	if number of filled rows in Table of Backstory > 0:
-		choose row 1 in the Table of Backstory;
-		say "[blue letters][response entry][default letters]";
-		blank out the whole row;
+		repeat through Table of Backstory: 
+			say "[conditional paragraph break][blue letters][response entry][default letters]";
+			blank out the whole row;
+			rule succeeds.
 		
 
 Table of Table Types (continued)
@@ -389,6 +395,8 @@ Understand "db specs" or "db specifications" or "database specs" or "db problem"
 Section 2 People
 
 team member is a kind of person. Team member has some text called Name. Name is usually "That guy".
+
+Frank is a person.
 
 Rule for writing a paragraph about a team member: 
     say "[Name] is here, [activity description]."
@@ -1153,14 +1161,14 @@ Table of Morning Events
 event
 "[move Markku to corridor][tutorial for Movement]"
 "[move Markku to By the door]"
-"[move Johanna to corridor][move Markku to southwest corner]"
+"[move Johanna to corridor][move Markku to southwest corner][backstory]"
 "[move Johanna to By the door]"
-"[move Markku to northwest corner]"
-"[move Johanna to north end of the office]"
+"[move Markku to northwest corner][backstory]"
+"[move Johanna to north end of the office][backstory]"
 ""
 "[move courier to corridor]"
-"[move courier to By the door]"
-"[courier puts large envelope to the empty desk][delivery message]"
+"[move courier to By the door][backstory]"
+"[courier puts large envelope to the empty desk][delivery message][backstory]"
 "[move courier to corridor]"
 "[move courier to outsideroom][tutorial for Self-reflection]"
 
