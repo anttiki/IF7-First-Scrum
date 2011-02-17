@@ -15,7 +15,9 @@ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 
 When play begins: say "This is a work-in-progress. 
 
-This work is licensed under a [Link for CC_link].[paragraph break]Please visit [Link for Gamepagelink] for more information."
+This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
+
+Please visit [Link for Gamepagelink] for more information about the game."
 
 After printing the banner text: say "[paragraph break][backstory][tutorial for Tutorial-Intro][tutorial for General info][tutorial for Tutorial-Outro][paragraph break]".
  
@@ -42,7 +44,7 @@ To say Link for (W - a weblink):
 	if URL is not "": 
 		say "JQ:LINK:[URL]:[description of W]:"; 
 
-Gamepagelink is a weblink. The link_url of Gamepagelink is "http://learninggamedev.wordpress.com/first-scrum/". The description of Gamepagelink is "The web page of First Scrum".
+Gamepagelink is a weblink. The link_url of Gamepagelink is "learninggamedev.wordpress.com/first-scrum/". The description of Gamepagelink is "The web page of First Scrum".
 
 CC_link is a weblink. The link_url of CC_link is "creativecommons.org/licenses/by-nc-sa/3.0/". The description of CC_link is "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License".
 
@@ -389,8 +391,8 @@ After saying hello to Markku:
 
 Table of Markku's Answers
 subject	response rule	response table	suggest
-Markku	markku2 rule	--	1
 status	a rule	Table of Markku's Status Responses	4
+Markku	markku2 rule	--	1
 team board	a rule	Table of Markku's board 	2
 tests	a rule	Table of Markku's tests	3
 unfinished items	items rule	--	1
@@ -891,7 +893,7 @@ A tm-integrate-proceed rule when saying no:
 	rule succeeds;
 
 A tm-integrate-proceed rule when saying yes: 
-	say "'Yes, please do that', [PlrAnswer]'Ok, I'll get right on it', [Answers for helpful][line break][Report action on integration with integration-action-note1][convnode null-node]";
+	say "'Yes, please do that', [PlrAnswer]'Ok, I'll get right on it', [Answers for helpful][line break][Report action on integration with integration-action-note1][update integration quizzing topics][convnode null-node]";
 	rule succeeds;
 
 The last tm-integrate-proceed rule: 
@@ -920,6 +922,27 @@ response
 "'I'd like you to start the preparations to start the integration testing', [PlrStatement][integrate-opinion of the current interlocutor]"
 "'Today would be better for the integration, don't you agree? Let's start now.', [PlrStatement]'Saana is normally the one to do it, you should probably talk to her instead', [Answers for Tired]"
 
+Table of Ted's integration2
+response
+"'Any worries now that we have started to integrate?' [PlrQuestion]'I seriously thought we would integrate tomorrow. I still have to make these tweaks to the UI to make the columns in the pages show OK', [Answers for frustrated]"
+"'But are the changes so big that the others have to make fixes after you've checked them in?' [PlrQuestion]'Well, how would one know? ... Hmm, I guess that's not that probable', [Answers for Neutral]"
+
+Table of Markku's integration2
+response
+"'Any worries now that we have started to integrate?' [PlrQuestion]'Well, not more than if we would have done this tomorrow', [Answers for cynical]"
+
+Table of Johanna's integration2
+response
+"'Any worries now that we have started to integrate?' [PlrQuestion]'I'm just wondering how the others are coping with this thing. For me getting the feedback earlier is just a bonus', [Answers for neutral]"
+
+Table of Saana's integration2
+response
+"'How is the integration testing going?' [PlrQuestion]'Still haven't finished, but hold on. I'll let you know as soon as we have the results', [Answers for neutral]"
+
+To say update integration quizzing topics:
+	now the response table in row 8 of the quizzing table of Markku is Table of Markku's integration2;
+	now the suggest in row 8 of the quizzing table of Markku is 1;
+
 
 Table of Table Types (continued)
 tabname	index	tabtype
@@ -927,6 +950,11 @@ Table of Saana's intgr orders	0	stop-list
 Table of Markku's intgr orders	0	stop-list
 Table of Ted's intgr orders	0	stop-list
 Table of Johanna's intgr orders	0	stop-list
+Table of Ted's integration2	0	stop-list
+Table of Markku's integration2	0	stop-list
+Table of Johanna's integration2	0	stop-list
+Table of Saana's integration2	0	stop-list
+
 
 Chapter 5 Effects
 
