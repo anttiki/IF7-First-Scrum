@@ -468,7 +468,7 @@ After saying hello to Saana:
 
 Table of Saana's Answers
 subject	response rule	response table	suggest
-Ted	saana2 rule	--	1
+Saana	saana2 rule	--	1
 status	a rule	Table of Saana's Status Responses	3
 team board	a rule	Table of Saana's board 	1
 unfinished items	--	Table of Team member's items	1
@@ -922,6 +922,19 @@ response
 "'I'd like you to start the preparations to start the integration testing', [PlrStatement][integrate-opinion of the current interlocutor]"
 "'Today would be better for the integration, don't you agree? Let's start now.', [PlrStatement]'Saana is normally the one to do it, you should probably talk to her instead', [Answers for Tired]"
 
+
+Table of Table Types (continued)
+tabname	index	tabtype
+Table of Saana's intgr orders	0	stop-list
+Table of Markku's intgr orders	0	stop-list
+Table of Ted's intgr orders	0	stop-list
+Table of Johanna's intgr orders	0	stop-list
+
+
+Chapter 5 Effects
+
+Section 1 Start Integration
+
 Table of Ted's integration2
 response
 "'Any worries now that we have started to integrate?' [PlrQuestion]'I seriously thought we would integrate tomorrow. I still have to make these tweaks to the UI to make the columns in the pages show OK', [Answers for frustrated]"
@@ -942,22 +955,112 @@ response
 To say update integration quizzing topics:
 	now the response table in row 8 of the quizzing table of Markku is Table of Markku's integration2;
 	now the suggest in row 8 of the quizzing table of Markku is 1;
-
+	now the response table in row 8 of the quizzing table of Ted is Table of Ted's integration2;
+	now the suggest in row 8 of the quizzing table of Ted is 2;
+	now the response table in row 8 of the quizzing table of Saana is Table of Saana's integration2;
+	now the suggest in row 8 of the quizzing table of Saana is 1;
+	now the response table in row 8 of the quizzing table of Johanna is Table of Johanna's integration2;
+	now the suggest in row 8 of the quizzing table of Johanna is 1;
+	now the suggest in row 1 of the informing table of Johanna is -1;
+	now the suggest in row 1 of the informing table of Markku is -1;
+	now the suggest in row 1 of the informing table of Ted is -1;
+	now the suggest in row 1 of the informing table of Saana is -1;
 
 Table of Table Types (continued)
 tabname	index	tabtype
-Table of Saana's intgr orders	0	stop-list
-Table of Markku's intgr orders	0	stop-list
-Table of Ted's intgr orders	0	stop-list
-Table of Johanna's intgr orders	0	stop-list
 Table of Ted's integration2	0	stop-list
 Table of Markku's integration2	0	stop-list
 Table of Johanna's integration2	0	stop-list
-Table of Saana's integration2	0	stop-list
+Table of Saana's integration2	0	stop-list	
+
+Integration-events is a scene. Integration-events begins when the suggest in row 1 of the informing table of Saana is -1.
+
+Every turn during Integration-events:
+	repeat through Table of Integration Events: 
+		say "[event entry][paragraph break]"; 
+		blank out the whole row; 
+		rule succeeds.
+		
+Table of Integration Events
+event
+a text
+--
+--
+--
+--
+--
+"[change activity of Saana to walking-around-office-act-text]"
+"[move Saana to north end of the office]"
+"[Saana speaking to Johanna saying start-integration-text]"
+"[Saana speaking to Ted saying start-integration-text][change activity of Johanna to checking-screen-act-text]"
+"[move Saana to northwest corner][change activity of Ted to typing-cursing-act-text]"
+"[Saana speaking to Markku saying start-integration-text][change activity of Markku to working-cheerful-act-text]"
+"[move Saana to north end][Johanna speaking to Saana saying all-done-comment][change activity of Johanna to default activity description]"
+"[move Saana to northeast corner][Ted speaking to Saana saying takes-some-time-comment]"
+"[change activity of Saana to checking-screen-act-text]"
+"[change activity of Markku to walking-around-office-act-text]"
+"[move Markku to north end]"
+"[move markku to northeast corner]"
+"[Markku speaking to Saana saying all-done-comment]"
+"[move Markku to north end]"
+"[move markku to northwest corner]"
+"[change activity of Markku to default activity description]"
+"[change activity of Ted to default activity description]"
+"[change activity of Saana to working-cheerful-act-text]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
 
 
-Chapter 5 Effects
+walking-around-office-act-text is some text that varies. walking-around-office-act-text is "walking around".
 
+checking-screen-act-text is some text that varies. checking-screen-act-text is "checking something on her screen deep in concentration".
+
+typing-cursing-act-text is some text that varies. typing-cursing-act-text is "typing noisily on his keyboard, muttering something under his breath".
+
+working-cheerful-act-text is some text that varies. working-cheerful-act-text is "working on his computer and whistling cheerfully". 
+
+all-done-comment is some text that varies. all-done-comment is "I've checked my work in. You can proceed with deploy as far as I'm concerned".
+
+takes-some-time-comment is some text that varies. takes-some-time-comment is "It's gonna take a while as I've got these local copies that I've worked on and I've got to double-check them. I'll IM you when I'm done".
+
+
+start-integration-text is some text that varies. start-integration-text is "[one of]Come on,[or]Could you please[or]Please[at random] check in your work, we're about to start the integration testing soon".
+
+To say change activity of (p - a person) to (t - a text):
+	now activity description of p is t;
+
+To say (talker - a person) speaking to (talkee - a person) saying (t - a text):
+	if location is the location of talker:
+		say "'[t]', [Name of talker] says to [Name of talkee].";
+	otherwise:
+		if location is in the map region of location of talker:
+			say "[Name of talker] speaks something with [Name of talkee].";
+			
+
+Integration-events ends when the number of filled rows in the Table of Integration Events is 0.
+
+Integration-fails is a scene. Integration-fails begins when Integration-events ends.
+
+Every turn during Integration-fails:
+	repeat through Table of Integration Fails: 
+		say "[event entry][paragraph break]"; 
+		blank out the whole row; 
+		rule succeeds.
+
+Table of Integration Fails
+event
+"[Name of Saana] curses loudly and very creatively."
+"'Okay everybody, THE INTEGRATION BUILD HAS FAILED', [Name of Saana] yells."
+"'The WHOLE **CKING PIECE OF **IT doesn't even install', [Name of Saana] exclaims."
+"'Check out the logs everybody and find out WHICH ONE IS GUILTY of **cking up the build', [Name of Saana] exclaims."
+
+Integration-fails ends when the number of filled rows in the Table of Integration Fails is 0.
+	
 Chapter 6 Scenery
 
 Section 1 Rooms
@@ -1019,7 +1122,7 @@ To say open office activity:
 	repeat with culprit running through people who are not the player: 
 		if the culprit is in the open office: 
 			if the culprit is not in location:
-				say "[Name of the culprit] is [activity description of culprit] at a desk at [location of the culprit].[line break]"
+				say "[Name of the culprit] is [activity description of culprit] in [location of the culprit].[line break]"
 	
 Section 4 Scenes
 
@@ -1049,7 +1152,7 @@ event
 To say move (p - a person) to (l - a room):
 	if p can be seen by the player, say "[Name of p] heads to the [l].";
 	move p to l;
-	if p can be seen by the player, say "[Name of p] arrives here. 'Good morning,' [Name of p] says to you." 
+	if p can be seen by the player, say "[Name of p] arrives here. [if Morning is happening]'Good morning,' [Name of p] says to you.[end if]" 
 
 To say delivery message:
 	if player is in the open office:
