@@ -13,7 +13,7 @@ The story description is "This is a work-in-progress.
 
 This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License (http://creativecommons.org/licenses/by-nc-sa/3.0/)."
 
-When play begins: say "This is a work-in-progress. 
+When play begins: say "This is a work-in-progress, an early proposal of a future game-to-be. Please treat it as such.
 
 This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
@@ -142,6 +142,9 @@ Table of Backstory	1	stop-list
 
 Chapter 2 Tutorial
 
+Commands is a familiar subject.
+Understand "command" as commands.
+
 General info is a familiar subject.
 
 Movement is a familiar subject.
@@ -153,6 +156,11 @@ Tutorial-outro is a familiar subject.
 
 Conversation is a familiar subject.
 
+Looking-tutorial is a familiar subject.
+Understand "Looking" as looking-tutorial.
+
+Self-reflection is a familiar subject.
+
 [Understand "help talk" or "help ask" or "help tell" or "help talking" as help conversation.]
 
 HasBeenUsed is a kind of value. HasBeenUseds are unused and used. 
@@ -163,7 +171,10 @@ Movement	unused	"You can move in [story title] the same way as in the classical 
 Tutorial-intro	unused	"Hello, this is the guide of '[story title]', giving you pointers on how to play. In future versions I might get a mute button but as of now you just have to bear with me a while. My job is to get you acquinted to the world of [story title] so that you can explore and interact with the story on your own.[paragraph break]The blue text above is the backstory. You'll continue to have moments of past events flash back for a while to get a picture of your current situation. This tutorial text, as you can see, is in green. All the future text in green will also be the in-game tutorial."
 Tutorial-outro	unused	"So, that was the first lesson. Have fun with [story title]!"
 General info	unused	"You act in the game by typing commands, such as moving, manipulating game objects (examine, get, open etc.) and conversing with people (say hello, ask about etc.). If you want more info on the game commands you can reach the help function by typing help (subject)."
-Conversation	unused	"TBD."
+Conversation	unused	"Much of this game is spent in conversation with other characters in the game, as is fitting for a game where the protagonist is a Scrum Master.[line break]The conversation is initiated with a greeting, [bold type]say hello to X[roman type] which can be shortened to [bold type]hi[roman type] when conversing with a single character in a location.[line break]In conversation you can ask the character about various things ([bold type]ask X about Y[roman type] or [bold type]a Y[roman type] in short when you have initiated the conversation with a greeting)[line break], tell them things ([bold type]tell X about Y[roman type] or [bold type]t Y[roman type] in short).[line break]You can also get a list of suggested topics with the [bold type]topics[roman type] command.[line break]With just one person in a room with you, you can jump right into heavy conversation with an ask or tell command."
+Commands	unused	"Useful commands in First Scrum include the [bold type]movement[roman type] commands such as [bold type]north[roman type] or [bold type]northeast[roman type],[line break][bold type]looking[roman type] with commands such as [bold type]look[roman type] or [bold type]examine[roman type] or even [bold type]read[roman type] for short notes and [bold type]consult X on Y[roman type] for larger printed editions,[line break][bold type]conversation[roman type] commands such as [bold type]say hello to X[roman type], [bold type]ask X about Y[roman type] and [bold type]tell X about Y[roman type].[line break]Another useful command is  [bold type]self-reflection[roman type], with command [bold type]reflect[roman type]."
+Looking-tutorial	unused	"You can look at your surroundings with the command [bold type]look[roman type]. You can try that at any time.[line break]To look at something or somebody closely, you can use the [bold type]examine[roman type] command, which can be abbreviated [bold type]x[roman type]. For readable material you can use commands [bold type]read[roman type] for short notes and [bold type]consult X on Y[roman type] for larger printed editions"
+Self-reflection	unused	"The game does not use scoring. Instead, you can reflect on your actions in the game with the command [bold type]reflect[roman type]. It shows a history of your findings about the status of the project and your major actions to affect it. You can use this command any time."
 
 To say tutorial for (T - a thing):
 	if there is a response corresponding to an area of T in Table of Tutorial:
@@ -184,6 +195,9 @@ Report Helping-general:
 		choose row with area of General info in the Table of Tutorial;
 		say "[green letters][response entry][default letters][paragraph break]";
 			now the HasBeenUsed entry is used;
+		choose row with area of Commands in the Table of Tutorial;
+		say "[green letters][response entry][default letters][paragraph break]";
+			now the HasBeenUsed entry is used;
 
 Instead of helping something unseen: 
 	if the noun is known: 
@@ -198,6 +212,7 @@ Report helping:
 	otherwise:
 		say "No help on [the noun] found. Type 'help' to get the basic help information.";
 
+test tutorial with " help / help commands / help movement / help conversation / help looking / help self-reflection "
 
 Volume 2 Problem Missed Deadlines
 
@@ -1065,17 +1080,17 @@ Chapter 6 Scenery
 
 Section 1 Rooms
 
-The corridor is a room. Corridor is south from the room called By the door. "This is the corridor that leads to the open office where your team is located. The open office is to the north. The meeting room assigned to your team is to the south, behind a locked door.[tutorial for Movement]"
+The corridor is a room. Corridor is south from the room called By the door. "This is the corridor that leads to the open office where your team is located. The open office is to the north. The meeting room assigned to your team is to the south, behind a locked door."
 
 By the door is a room. "You are in the team's open office, by the south wall. There's a door to the corridor to the south. The open office opens to the west, north and east. The other desks are to the northwest and north and to the northeast there's a makeshift cubicle. The supply cabinet is to the east.
 
-[Team board narrative]". Printed name of by the door is "Open office, by the door". The empty desk is a supporter in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
+[Team board narrative][tutorial for Looking-tutorial]". Printed name of by the door is "Open office, by the door". The empty desk is a supporter in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
 
-Northwest corner is a room. "You are in the team's open office, Northwest corner. [Team board narrative]". Northwest corner is northwest from By the door. Printed name of Northwest corner is "Northwest corner of the open office". [Markku is in a room called the Northwest corner.]
+Northwest corner is a room. "You are in the team's open office, Northwest corner. [Team board narrative][tutorial for Conversation]". Northwest corner is northwest from By the door. Printed name of Northwest corner is "Northwest corner of the open office". [Markku is in a room called the Northwest corner.]
 
-North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". Printed name of North end of the office is "North end of the open office". North end of the office is north from a room called By the door. Ted is in north end of the office.
+North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative][tutorial for Conversation]". Printed name of North end of the office is "North end of the open office". North end of the office is north from a room called By the door. Ted is in north end of the office.
 
-Northeast corner is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative] ". Printed name of Northeast corner is "Northeast corner of the open office".  Northeast corner is northeast from by the door. Saana is in the room called Northeast corner.
+Northeast corner is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative][tutorial for Conversation]". Printed name of Northeast corner is "Northeast corner of the open office".  Northeast corner is northeast from by the door. Saana is in the room called Northeast corner.
 
 Southwest corner is a room. "You are by the south wall of the team's open office, west of the door. There's the marker board filled with post-its here. ". Printed name of Southwest corner is "Southwest corner of the open office".  Southwest corner is west from By the door.
 
@@ -1136,7 +1151,7 @@ Every turn during Morning:
         
 Table of Morning Events
 event
-"[move Markku to corridor]"
+"[move Markku to corridor][tutorial for Movement]"
 "[move Markku to By the door]"
 "[move Johanna to corridor][move Markku to southwest corner]"
 "[move Johanna to By the door]"
@@ -1147,7 +1162,7 @@ event
 "[move courier to By the door]"
 "[courier puts large envelope to the empty desk][delivery message]"
 "[move courier to corridor]"
-"[move courier to outsideroom]"
+"[move courier to outsideroom][tutorial for Self-reflection]"
 
 To say move (p - a person) to (l - a room):
 	if p can be seen by the player, say "[Name of p] heads to the [l].";
