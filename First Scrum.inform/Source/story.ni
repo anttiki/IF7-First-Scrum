@@ -13,13 +13,13 @@ The story description is "This is a work-in-progress.
 
 This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License (http://creativecommons.org/licenses/by-nc-sa/3.0/)."
 
-When play begins: say "This is a work-in-progress. 
+When play begins: say "This is a work-in-progress, an early proposal of a future game-to-be. Please treat it as such.
 
 This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.
 
 Please visit [Link for Gamepagelink] for more information about the game."
 
-After printing the banner text: say "[paragraph break][backstory][tutorial for Tutorial-Intro][tutorial for General info][tutorial for Tutorial-Outro][paragraph break]".
+After printing the banner text: say "[backstory][tutorial for Tutorial-Intro][tutorial for General info][tutorial for Tutorial-Outro][paragraph break]".
  
 Include Conversation Rules by Eric Eve.
 
@@ -111,6 +111,12 @@ Instead of asking someone about something:
 Instead of telling someone about something:
      consider the unknown informing rule of the noun.
      
+Instead of asking the other party of the player about something (this is the caller unknown quizzing rule):
+     consider the unknown quizzing rule of the noun.
+
+Instead of telling the other party of the player about something (this is the caller unknown informing rule):
+     consider the unknown informing rule of the noun.
+     
 Volume 3 Generics
 
 Feedbacklink is a weblink. The link_url of feedbacklink is "learninggamedev.wordpress.com/first-scrum/feedback/". The description of feedbacklink is "The feedback page of First Scrum".
@@ -126,13 +132,19 @@ Chapter 1 Backstory
 
 Table of Backstory
 area	response
-project	"You were assigned to this project the day before yesterday. The company was in a hurry to find a replacement for the team lead in this project that was dubbed as crucial for securing future projects with the same client.[paragraph break]It didn't matter that you had very little knowledge of Scrum and that the project had been going for several iterations by now. After a short meeting with the sales rep of the project yesterday you were basically tossed head in into the client's office. Your predecessor had left for a more lucrative opportunity elsewhere and the client had become anxious about the situation so they wanted you to be there to calm things down.[paragraph break]The team is supposed to be top notch and why not if this is a crucial project. You just hope that you can figure out the project as fast as possible and be of some help to the team. So, here you are in a corridor in your client's office building, heading for the room where your new team is located."
+project	"You were assigned to this project the day before yesterday. Your role was to be the team's new ScrumMaster.[paragraph break]It didn't matter that you had very little knowledge of Scrum and that the project had been going for several iterations by now. Your predecessor had left for a more lucrative opportunity elsewhere and the client had become anxious about the situation so they wanted you to be there to calm things down.[paragraph break]So, here you are in a corridor in your client's office building, heading for the room where your new team is located."
+project	"The company was in a hurry to find a replacement for the team lead in this project that was dubbed as crucial for securing future projects with the same client. After a short meeting with the sales rep of the project yesterday you were basically tossed head in into the client's office."
+team	"The team is supposed to be top notch -- and why not if this project is as crucial as the sales rep convinced. You just hope that you can figure out the project as fast as possible and be of some help to the team. "
+Frank	"Funny thing is that the sales rep specifically told you not to call you as he is in the middle of very important contract negotiations elsewhere. The one helping hand you have is a coach that your company has provided you. His name is Frank and he is some kind of Scrum evangelist in your company.[make Frank familiar]"
+Frank	"The first thing Frank did was enroll you to a Certified ScrumMaster course which is taking place next weekend, three days from now. His only advice to you was to hang tight until the weekend and try to get a feel of the status of the project and the mood of the team. And he said something about sending you a gift to the office."
+Frank 	"Frank even asked the address of the client's office you are going to work in..."
 
 To say backstory:
 	if number of filled rows in Table of Backstory > 0:
-		choose row 1 in the Table of Backstory;
-		say "[blue letters][response entry][default letters]";
-		blank out the whole row;
+		repeat through Table of Backstory: 
+			say "[conditional paragraph break][blue letters][bold type]Flashback[roman type][line break][response entry][default letters]";
+			blank out the whole row;
+			rule succeeds.
 		
 
 Table of Table Types (continued)
@@ -141,6 +153,9 @@ Table of Backstory	1	stop-list
 
 
 Chapter 2 Tutorial
+
+Commands is a familiar subject.
+Understand "command" as commands.
 
 General info is a familiar subject.
 
@@ -153,6 +168,11 @@ Tutorial-outro is a familiar subject.
 
 Conversation is a familiar subject.
 
+Looking-tutorial is a familiar subject.
+Understand "Looking" as looking-tutorial.
+
+Self-reflection is a familiar subject.
+
 [Understand "help talk" or "help ask" or "help tell" or "help talking" as help conversation.]
 
 HasBeenUsed is a kind of value. HasBeenUseds are unused and used. 
@@ -163,13 +183,16 @@ Movement	unused	"You can move in [story title] the same way as in the classical 
 Tutorial-intro	unused	"Hello, this is the guide of '[story title]', giving you pointers on how to play. In future versions I might get a mute button but as of now you just have to bear with me a while. My job is to get you acquinted to the world of [story title] so that you can explore and interact with the story on your own.[paragraph break]The blue text above is the backstory. You'll continue to have moments of past events flash back for a while to get a picture of your current situation. This tutorial text, as you can see, is in green. All the future text in green will also be the in-game tutorial."
 Tutorial-outro	unused	"So, that was the first lesson. Have fun with [story title]!"
 General info	unused	"You act in the game by typing commands, such as moving, manipulating game objects (examine, get, open etc.) and conversing with people (say hello, ask about etc.). If you want more info on the game commands you can reach the help function by typing help (subject)."
-Conversation	unused	"TBD."
+Conversation	unused	"Much of this game is spent in conversation with other characters in the game, as is fitting for a game where the protagonist is a Scrum Master.[line break]The conversation is initiated with a greeting, [bold type]say hello to X[roman type] which can be shortened to [bold type]hi[roman type] when conversing with a single character in a location.[line break]In conversation you can ask the character about various things ([bold type]ask X about Y[roman type] or [bold type]a Y[roman type] in short when you have initiated the conversation with a greeting)[line break], tell them things ([bold type]tell X about Y[roman type] or [bold type]t Y[roman type] in short).[line break]You can also get a list of suggested topics with the [bold type]topics[roman type] command.[line break]With just one person in a room with you, you can jump right into heavy conversation with an ask or tell command."
+Commands	unused	"Useful commands in First Scrum include the [bold type]movement[roman type] commands such as [bold type]north[roman type] or [bold type]northeast[roman type],[line break][bold type]looking[roman type] with commands such as [bold type]look[roman type] or [bold type]examine[roman type] or even [bold type]read[roman type] for short notes and [bold type]consult X on Y[roman type] for larger printed editions,[line break][bold type]conversation[roman type] commands such as [bold type]say hello to X[roman type], [bold type]ask X about Y[roman type] and [bold type]tell X about Y[roman type].[line break]Another useful command is  [bold type]self-reflection[roman type], with command [bold type]reflect[roman type]."
+Looking-tutorial	unused	"You can look at your surroundings with the command [bold type]look[roman type]. You can try that at any time.[line break]To look at something or somebody closely, you can use the [bold type]examine[roman type] command, which can be abbreviated [bold type]x[roman type]. For readable material you can use commands [bold type]read[roman type] for short notes and [bold type]consult X on Y[roman type] for larger printed editions"
+Self-reflection	unused	"The game does not use scoring. Instead, you can reflect on your actions in the game with the command [bold type]reflect[roman type]. It shows a history of your findings about the status of the project and your major actions to affect it. You can use this command any time."
 
 To say tutorial for (T - a thing):
 	if there is a response corresponding to an area of T in Table of Tutorial:
 		choose row with area of T in the Table of Tutorial;
 		if HasBeenUsed entry is unused:
-			say "[paragraph break][green letters][response entry][default letters]";
+			say "[paragraph break][green letters][bold type]Tutorial[roman type][line break][response entry][default letters]";
 			now the HasBeenUsed entry is used;
 			
 Understand "help" as helping-general.
@@ -182,6 +205,9 @@ Helping is an action applying to one visible thing.
 
 Report Helping-general:
 		choose row with area of General info in the Table of Tutorial;
+		say "[green letters][response entry][default letters][paragraph break]";
+			now the HasBeenUsed entry is used;
+		choose row with area of Commands in the Table of Tutorial;
 		say "[green letters][response entry][default letters][paragraph break]";
 			now the HasBeenUsed entry is used;
 
@@ -198,6 +224,7 @@ Report helping:
 	otherwise:
 		say "No help on [the noun] found. Type 'help' to get the basic help information.";
 
+test tutorial with " help / help commands / help movement / help conversation / help looking / help self-reflection "
 
 Volume 2 Problem Missed Deadlines
 
@@ -373,10 +400,53 @@ Understand "db specs" or "db specifications" or "database specs" or "db problem"
 
 Section 2 People
 
-team member is a kind of person. Team member has some text called Name. Name is usually "That guy".
+A person has some text called Name. Name of a person is usually "That guy".
+
+team member is a kind of person. 
 
 Rule for writing a paragraph about a team member: 
     say "[Name] is here, [activity description]."
+
+Frank is a male person. Name of Frank is "Frank". The quizzing table is the Table of Frank's Answers. The informing table is the Table of Frank's orders. The unknown quizzing rule is the Frank-no-quiz rule.
+
+This is the Frank-no-quiz rule: 
+	show the next response from the Table of Frank's Default Quiz Responses.
+
+After saying hello to Frank:
+     say "'Hello there, [Name],' you greet him.
+
+    'Hello hello, how's it going out there?' [Answers for Neutral]";
+    if the greeting type is explicit, consider the standard list suggested topics rule.
+
+Table of Frank's Answers
+subject	response rule	response table	suggest
+[status	a rule	Table of Frank's Status Responses	2]
+Frank	frank2 rule	--	2
+continuous-integration	a rule	Table of Frank's CI responses	2
+[team board	a rule	Table of Frank's board 	2
+tests	a rule	Table of Frank's tests	2
+unfinished items	items rule	--	2
+previous sprints	a rule	Table of Frank's sprints	3
+database specifications	a rule	Table of Frank's db	2
+integration	a rule	Table of Frank's integration	2]
+
+Table of Frank's Orders
+subject	response rule	response table	suggest
+integration	a rule	Table of Frank's intgr reactions	3
+[status	a rule	Table of Frank's Status Reactions	2]
+
+This is the frank2 rule:
+say "'How are you, [Name of Frank]?' [PlrQuestion]'I'm allright, thanks for asking', [Answers for Neutral]"
+
+[TODO change these]
+Table of Frank's Default Quiz Responses
+response
+"'Yeah, I think I know what you are talking about... Sorry, I don't know anything about that', [Name] replies apologetically."
+"'One cannot know everything, especially at this particular project', [Answers for cynical]"
+"'Sorry, I cannot help you with that', [Answers for neutral]"
+"'Sorry, but what has that got to do with anything?' [Answers for frustrated]"
+
+test frank with "phone frank / ask frank about frank / tell frank about integration "
 
 Markku is a male team member. The quizzing table is the Table of Markku's Answers. The Name is "Markku". The unknown quizzing rule is the Markku-no-quiz rule. The description of Markku is "You see a tall heavy-set man with bowl cut brown hair and a friendly face. He wears jeans and a t-shirt of an obscure heavy metal band. [Name] is [activity description]."
 
@@ -391,8 +461,8 @@ After saying hello to Markku:
 
 Table of Markku's Answers
 subject	response rule	response table	suggest
-Markku	markku2 rule	--	1
 status	a rule	Table of Markku's Status Responses	4
+Markku	markku2 rule	--	1
 team board	a rule	Table of Markku's board 	2
 tests	a rule	Table of Markku's tests	3
 unfinished items	items rule	--	1
@@ -468,7 +538,7 @@ After saying hello to Saana:
 
 Table of Saana's Answers
 subject	response rule	response table	suggest
-Ted	saana2 rule	--	1
+Saana	saana2 rule	--	1
 status	a rule	Table of Saana's Status Responses	3
 team board	a rule	Table of Saana's board 	1
 unfinished items	--	Table of Team member's items	1
@@ -682,6 +752,8 @@ Table of Ted's integration
 response
 "'What about the integration?' [PlrQuestion]'I thought we would integrate tomorrow? I still have to make these tweaks to the UI to make the columns in the pages show OK', [Answers for frustrated]"
 
+
+
 A integration finding1 is some text that varies. integration finding1 is usually "You found out that there have been some problems with fixing the bugs found during the integration phase of Sprints in time and this has caused the team missing Sprint deadlines."
 
 Table of Saana's integration
@@ -842,6 +914,126 @@ Reflecting is an action applying to nothing.
 Report reflecting:
 	say "[Findings made][line break][Actions performed]".
 
+Section 4 Telephone
+
+Understand "phone [any person]" as phoning.
+
+Understand "telephone [any known person]" as phoning.
+
+Phoning is an action applying to one visible thing.
+
+Report phoning:
+	say "The phone rings a couple of times and then the call is picked up. 'Hullo?' [Name of the noun] answers the call.";
+	implicitly greet the noun;
+	
+
+Connection relates a person to another (called the other party). The verb to reach (it reaches, they reach, it reached) implies the connection relation.
+
+Check phoning:
+	if the noun is in the location, say "[The noun] is right here." instead;
+	if the noun is not Frank, say "There's no answer." instead;
+	if the noun is player, say "You get a busy singal." instead.
+
+Carry out phoning:
+	now the player reaches the noun.
+	
+Before phoning  when the player reaches someone: 
+	say "(first ending your conversation with [the other party of the player])[command clarification break]"; 
+	end current conversation.
+
+Understand "hang up" as hanging up.
+
+Hanging up is an action applying to nothing.
+
+Check hanging up: 
+	if the player does not reach someone, say "You're not on the line with anyone." instead.
+	
+Carry out hanging up: 
+	try saying goodbye to the other party of the player;
+	now the player does not reach anyone.
+	
+	
+Report hanging up:
+	say "You close your phone, cutting the connection."
+
+Before going somewhere when the player reaches someone: 
+	say "(first hanging up on [the other party of the player])[command clarification break]"; 
+	end current conversation.
+
+To end current conversation: 
+	silently try hanging up.
+	
+After deciding the scope of the player while the player reaches someone: 
+	place the other party of the player in scope, but not its contents.	
+        
+[Instead of phoning someone unseen: 
+	if the noun is a person:
+		if the noun is known: 
+			now the noun is seen; 
+			continue the action;]
+
+[Before implicit-conversing when the current interlocutor is not visible and the current interlocutor is not nothing  (this is the can't converse with absent interlocutor if not on the phone rule):
+  say "[The current interlocutor] isn't here.";
+  reset the interlocutor instead.]
+
+Section 5 Frank
+
+Continuous-integration is an unfamiliar subject.
+
+Understand "continuous integration" as continuous-integration.
+
+Table of Frank's intgr reactions
+response
+"'We've had some problems with integration testing. Apparently there have been lots of problems to integrate the team's work at the end of Sprints.' [PlrQuestion]'Hmm, sounds like there really could be some problems with that. Is the team integrating their work only at the end of a Sprint?', [Answers for neutral][convnode frank-integrate-end-node]"
+
+XP_CI_link is a weblink. The link_url of XP_CI_link is "www.extremeprogramming.org/rules/integrateoften.html". The description of XP_CI_link is "link to Continuous integration on the XP pages".
+
+CI_wikipedia is a weblink. The link_url of CI_wikipedia is "en.wikipedia.org/wiki/Continuous_integration". The description of CI_wikipedia is "The Wikipedia entry for Continuous Integration".
+
+Table of Frank's CI responses
+response
+"'You mentioned continuous integration, any pointers on where to look it up and how it could help our team?' [PlrQuestion]'Well, technically it is about automating the build and the testing. It's also about delivering early and delivering often so it probably requires a change of process from the developers. It is a practice of eXtreme Programming ([Link for XP_CI_link]).[paragraph break][Link for CI_wikipedia] can be of some use.', [Answers for neutral]"
+
+Table of Table Types (continued)
+tabname	index	tabtype
+Table of Frank's intgr reactions	0	stop-list
+Table of Frank's CI responses	0	stop-list
+
+The frank-integrate-end-node is a Conversation node. The suggestions is "say yes or no, or say that you don't know".
+
+The frank-integrate-end rules is a rulebook. The node rule of frank-integrate-end-node is frank-integrate-end rules.
+
+A frank-integrate-end rule when saying no: 
+	say "'No, I think they do integrate before that, I'm just not sure about the procedures', [PlrAnswer].[line break]'Ok, maybe you should inquire a little more to see if there really is some problems there', [Answers for neutral][convnode null-node]";
+	rule succeeds;
+
+A frank-integrate-end rule when saying yes: 
+	say "'Yes, they are running the integration tests during the second last day of the Sprint', [PlrAnswer][line break]'Hm, is there a reason for that? There are many reports about [bold type]continuous integration[roman type] being a very effective practice despite the extra work it entails', [Answers for neutral][convnode null-node][make continuous-integration familiar]";
+	rule succeeds;
+
+The last frank-integrate-end rule: 
+	say "'I asked you if the team is only integrating their work at the end of Sprints because this is beginning to sound very interesting indeed', [Name of the current interlocutor] reminds you.";
+	rule succeeds;
+
+Understand "you don't/dont know" or "i don't/dont know" or "don't know" or "dont know" as "[dont know]".
+
+Understand "[dont know]" as Xspcing when the current convnode is the frank-integrate-end-node.
+
+A frank-integrate-end rule when Xspcing:	
+	[if the command matches "[dont know]" begin;]
+		say "[dont know team-integrate].";
+		rule succeeds;
+[	end if;]
+
+
+A frank-integrate-end rule when answering and the topic understood matches "[dont know]": 
+	say "[dont know team-integrate].";
+	rule succeeds;
+	
+To say dont know team-integrate:
+	say "'I don't know, maybe I have to ask about it a bit more.', [PlrAnswer]'Sounds like a good place to make your time worth the while', [Answers for neutral][convnode null-node]"
+
+
 Chapter 4 Actions
 
 Section 1 Integration
@@ -893,7 +1085,7 @@ A tm-integrate-proceed rule when saying no:
 	rule succeeds;
 
 A tm-integrate-proceed rule when saying yes: 
-	say "'Yes, please do that', [PlrAnswer]'Ok, I'll get right on it', [Answers for helpful][line break][Report action on integration with integration-action-note1][convnode null-node]";
+	say "'Yes, please do that', [PlrAnswer]'Ok, I'll get right on it', [Answers for helpful][line break][Report action on integration with integration-action-note1][update integration quizzing topics][convnode null-node]";
 	rule succeeds;
 
 The last tm-integrate-proceed rule: 
@@ -930,23 +1122,152 @@ Table of Markku's intgr orders	0	stop-list
 Table of Ted's intgr orders	0	stop-list
 Table of Johanna's intgr orders	0	stop-list
 
+
 Chapter 5 Effects
 
+Section 1 Start Integration
+
+Table of Ted's integration2
+response
+"'Any worries now that we have started to integrate?' [PlrQuestion]'I seriously thought we would integrate tomorrow. I still have to make these tweaks to the UI to make the columns in the pages show OK', [Answers for frustrated]"
+"'But are the changes so big that the others have to make fixes after you've checked them in?' [PlrQuestion]'Well, how would one know? ... Hmm, I guess that's not that probable', [Answers for Neutral]"
+
+Table of Markku's integration2
+response
+"'Any worries now that we have started to integrate?' [PlrQuestion]'Well, not more than if we would have done this tomorrow', [Answers for cynical]"
+
+Table of Johanna's integration2
+response
+"'Any worries now that we have started to integrate?' [PlrQuestion]'I'm just wondering how the others are coping with this thing. For me getting the feedback earlier is just a bonus', [Answers for neutral]"
+
+Table of Saana's integration2
+response
+"'How is the integration testing going?' [PlrQuestion]'Still haven't finished, but hold on. I'll let you know as soon as we have the results', [Answers for neutral]"
+
+To say update integration quizzing topics:
+	now the response table in row 8 of the quizzing table of Markku is Table of Markku's integration2;
+	now the suggest in row 8 of the quizzing table of Markku is 1;
+	now the response table in row 8 of the quizzing table of Ted is Table of Ted's integration2;
+	now the suggest in row 8 of the quizzing table of Ted is 2;
+	now the response table in row 8 of the quizzing table of Saana is Table of Saana's integration2;
+	now the suggest in row 8 of the quizzing table of Saana is 1;
+	now the response table in row 8 of the quizzing table of Johanna is Table of Johanna's integration2;
+	now the suggest in row 8 of the quizzing table of Johanna is 1;
+	now the suggest in row 1 of the informing table of Johanna is -1;
+	now the suggest in row 1 of the informing table of Markku is -1;
+	now the suggest in row 1 of the informing table of Ted is -1;
+	now the suggest in row 1 of the informing table of Saana is -1;
+
+Table of Table Types (continued)
+tabname	index	tabtype
+Table of Ted's integration2	0	stop-list
+Table of Markku's integration2	0	stop-list
+Table of Johanna's integration2	0	stop-list
+Table of Saana's integration2	0	stop-list	
+
+Integration-events is a scene. Integration-events begins when the suggest in row 1 of the informing table of Saana is -1.
+
+Every turn during Integration-events:
+	repeat through Table of Integration Events: 
+		say "[event entry][paragraph break]"; 
+		blank out the whole row; 
+		rule succeeds.
+		
+Table of Integration Events
+event
+a text
+--
+--
+--
+--
+--
+"[change activity of Saana to walking-around-office-act-text]"
+"[move Saana to north end of the office]"
+"[Saana speaking to Johanna saying start-integration-text]"
+"[Saana speaking to Ted saying start-integration-text][change activity of Johanna to checking-screen-act-text]"
+"[move Saana to northwest corner][change activity of Ted to typing-cursing-act-text]"
+"[Saana speaking to Markku saying start-integration-text][change activity of Markku to working-cheerful-act-text]"
+"[move Saana to north end][Johanna speaking to Saana saying all-done-comment][change activity of Johanna to default activity description]"
+"[move Saana to northeast corner][Ted speaking to Saana saying takes-some-time-comment]"
+"[change activity of Saana to checking-screen-act-text]"
+"[change activity of Markku to walking-around-office-act-text]"
+"[move Markku to north end]"
+"[move markku to northeast corner]"
+"[Markku speaking to Saana saying all-done-comment]"
+"[move Markku to north end]"
+"[move markku to northwest corner]"
+"[change activity of Markku to default activity description]"
+"[change activity of Ted to default activity description]"
+"[change activity of Saana to working-cheerful-act-text]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+"[move courier to outsideroom]"
+
+
+walking-around-office-act-text is some text that varies. walking-around-office-act-text is "walking around".
+
+checking-screen-act-text is some text that varies. checking-screen-act-text is "checking something on her screen deep in concentration".
+
+typing-cursing-act-text is some text that varies. typing-cursing-act-text is "typing noisily on his keyboard, muttering something under his breath".
+
+working-cheerful-act-text is some text that varies. working-cheerful-act-text is "working on his computer and whistling cheerfully". 
+
+all-done-comment is some text that varies. all-done-comment is "I've checked my work in. You can proceed with deploy as far as I'm concerned".
+
+takes-some-time-comment is some text that varies. takes-some-time-comment is "It's gonna take a while as I've got these local copies that I've worked on and I've got to double-check them. I'll IM you when I'm done".
+
+
+start-integration-text is some text that varies. start-integration-text is "[one of]Come on,[or]Could you please[or]Please[at random] check in your work, we're about to start the integration testing soon".
+
+To say change activity of (p - a person) to (t - a text):
+	now activity description of p is t;
+
+To say (talker - a person) speaking to (talkee - a person) saying (t - a text):
+	if location is the location of talker:
+		say "'[t]', [Name of talker] says to [Name of talkee].";
+	otherwise:
+		if location is in the map region of location of talker:
+			say "[Name of talker] speaks something with [Name of talkee].";
+			
+
+Integration-events ends when the number of filled rows in the Table of Integration Events is 0.
+
+Integration-fails is a scene. Integration-fails begins when Integration-events ends.
+
+Every turn during Integration-fails:
+	repeat through Table of Integration Fails: 
+		say "[event entry][paragraph break]"; 
+		blank out the whole row; 
+		rule succeeds.
+
+Table of Integration Fails
+event
+"[Name of Saana] curses loudly and very creatively."
+"'Okay everybody, THE INTEGRATION BUILD HAS FAILED', [Name of Saana] yells."
+"'The WHOLE **CKING PIECE OF **IT doesn't even install', [Name of Saana] exclaims."
+"'Check out the logs everybody and find out WHICH ONE IS GUILTY of **cking up the build', [Name of Saana] exclaims."
+
+Integration-fails ends when the number of filled rows in the Table of Integration Fails is 0.
+	
 Chapter 6 Scenery
 
 Section 1 Rooms
 
-The corridor is a room. Corridor is south from the room called By the door. "This is the corridor that leads to the open office where your team is located. The open office is to the north. The meeting room assigned to your team is to the south, behind a locked door.[tutorial for Movement]"
+The corridor is a room. Corridor is south from the room called By the door. "This is the corridor that leads to the open office where your team is located. The open office is to the north. The meeting room assigned to your team is to the south, behind a locked door."
 
 By the door is a room. "You are in the team's open office, by the south wall. There's a door to the corridor to the south. The open office opens to the west, north and east. The other desks are to the northwest and north and to the northeast there's a makeshift cubicle. The supply cabinet is to the east.
 
-[Team board narrative]". Printed name of by the door is "Open office, by the door". The empty desk is a supporter in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
+[Team board narrative][tutorial for Looking-tutorial]". Printed name of by the door is "Open office, by the door". The empty desk is a supporter in By the door. "There's an empty desk by the door. There are some cables at the back of the desk." 
 
-Northwest corner is a room. "You are in the team's open office, Northwest corner. [Team board narrative]". Northwest corner is northwest from By the door. Printed name of Northwest corner is "Northwest corner of the open office". [Markku is in a room called the Northwest corner.]
+Northwest corner is a room. "You are in the team's open office, Northwest corner. [Team board narrative][tutorial for Conversation]". Northwest corner is northwest from By the door. Printed name of Northwest corner is "Northwest corner of the open office". [Markku is in a room called the Northwest corner.]
 
-North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative]". Printed name of North end of the office is "North end of the open office". North end of the office is north from a room called By the door. Ted is in north end of the office.
+North end of the office is a room. "You are by the north wall in the open office. There's the desk where Johanna and Ted are located here. [Team board narrative][tutorial for Conversation]". Printed name of North end of the office is "North end of the open office". North end of the office is north from a room called By the door. Ted is in north end of the office.
 
-Northeast corner is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative] ". Printed name of Northeast corner is "Northeast corner of the open office".  Northeast corner is northeast from by the door. Saana is in the room called Northeast corner.
+Northeast corner is a room. "You are in the northeast corner of the open office. In a makeshift cubicle there's Saana's desk. [Team board narrative][tutorial for Conversation]". Printed name of Northeast corner is "Northeast corner of the open office".  Northeast corner is northeast from by the door. Saana is in the room called Northeast corner.
 
 Southwest corner is a room. "You are by the south wall of the team's open office, west of the door. There's the marker board filled with post-its here. ". Printed name of Southwest corner is "Southwest corner of the open office".  Southwest corner is west from By the door.
 
@@ -993,7 +1314,7 @@ To say open office activity:
 	repeat with culprit running through people who are not the player: 
 		if the culprit is in the open office: 
 			if the culprit is not in location:
-				say "[Name of the culprit] is [activity description of culprit] at a desk at [location of the culprit].[line break]"
+				say "[Name of the culprit] is [activity description of culprit] in [location of the culprit].[line break]"
 	
 Section 4 Scenes
 
@@ -1007,23 +1328,23 @@ Every turn during Morning:
         
 Table of Morning Events
 event
-"[move Markku to corridor]"
+"[move Markku to corridor][tutorial for Movement]"
 "[move Markku to By the door]"
-"[move Johanna to corridor][move Markku to southwest corner]"
+"[move Johanna to corridor][move Markku to southwest corner][backstory]"
 "[move Johanna to By the door]"
-"[move Markku to northwest corner]"
-"[move Johanna to north end of the office]"
+"[move Markku to northwest corner][backstory]"
+"[move Johanna to north end of the office][backstory]"
 ""
 "[move courier to corridor]"
-"[move courier to By the door]"
-"[courier puts large envelope to the empty desk][delivery message]"
+"[move courier to By the door][backstory]"
+"[courier puts large envelope to the empty desk][delivery message][backstory]"
 "[move courier to corridor]"
-"[move courier to outsideroom]"
+"[move courier to outsideroom][tutorial for Self-reflection]"
 
 To say move (p - a person) to (l - a room):
 	if p can be seen by the player, say "[Name of p] heads to the [l].";
 	move p to l;
-	if p can be seen by the player, say "[Name of p] arrives here. 'Good morning,' [Name of p] says to you." 
+	if p can be seen by the player, say "[Name of p] arrives here. [if Morning is happening]'Good morning,' [Name of p] says to you.[end if]" 
 
 To say delivery message:
 	if player is in the open office:
