@@ -111,6 +111,12 @@ Instead of asking someone about something:
 Instead of telling someone about something:
      consider the unknown informing rule of the noun.
      
+Instead of asking the other party of the player about something (this is the caller unknown quizzing rule):
+     consider the unknown quizzing rule of the noun.
+
+Instead of telling the other party of the player about something (this is the caller unknown informing rule):
+     consider the unknown informing rule of the noun.
+     
 Volume 3 Generics
 
 Feedbacklink is a weblink. The link_url of feedbacklink is "learninggamedev.wordpress.com/first-scrum/feedback/". The description of feedbacklink is "The feedback page of First Scrum".
@@ -129,14 +135,14 @@ area	response
 project	"You were assigned to this project the day before yesterday. Your role was to be the team's new ScrumMaster.[paragraph break]It didn't matter that you had very little knowledge of Scrum and that the project had been going for several iterations by now. Your predecessor had left for a more lucrative opportunity elsewhere and the client had become anxious about the situation so they wanted you to be there to calm things down.[paragraph break]So, here you are in a corridor in your client's office building, heading for the room where your new team is located."
 project	"The company was in a hurry to find a replacement for the team lead in this project that was dubbed as crucial for securing future projects with the same client. After a short meeting with the sales rep of the project yesterday you were basically tossed head in into the client's office."
 team	"The team is supposed to be top notch -- and why not if this project is as crucial as the sales rep convinced. You just hope that you can figure out the project as fast as possible and be of some help to the team. "
-Frank	"Funny thing is that the sales rep specifically told you not to call you as he is in the middle of very important contract negotiations elsewhere. The one helping hand you have is a coach that your company has provided you. His name is Frank and he is some kind of Scrum evangelist in your company."
+Frank	"Funny thing is that the sales rep specifically told you not to call you as he is in the middle of very important contract negotiations elsewhere. The one helping hand you have is a coach that your company has provided you. His name is Frank and he is some kind of Scrum evangelist in your company.[make Frank familiar]"
 Frank	"The first thing Frank did was enroll you to a Certified ScrumMaster course which is taking place next weekend, three days from now. His only advice to you was to hang tight until the weekend and try to get a feel of the status of the project and the mood of the team. And he said something about sending you a gift to the office."
 Frank 	"Frank even asked the address of the client's office you are going to work in..."
 
 To say backstory:
 	if number of filled rows in Table of Backstory > 0:
 		repeat through Table of Backstory: 
-			say "[conditional paragraph break][blue letters][response entry][default letters]";
+			say "[conditional paragraph break][blue letters][bold type]Flashback[roman type][line break][response entry][default letters]";
 			blank out the whole row;
 			rule succeeds.
 		
@@ -186,7 +192,7 @@ To say tutorial for (T - a thing):
 	if there is a response corresponding to an area of T in Table of Tutorial:
 		choose row with area of T in the Table of Tutorial;
 		if HasBeenUsed entry is unused:
-			say "[paragraph break][green letters][response entry][default letters]";
+			say "[paragraph break][green letters][bold type]Tutorial[roman type][line break][response entry][default letters]";
 			now the HasBeenUsed entry is used;
 			
 Understand "help" as helping-general.
@@ -394,12 +400,53 @@ Understand "db specs" or "db specifications" or "database specs" or "db problem"
 
 Section 2 People
 
-team member is a kind of person. Team member has some text called Name. Name is usually "That guy".
+A person has some text called Name. Name of a person is usually "That guy".
 
-Frank is a person.
+team member is a kind of person. 
 
 Rule for writing a paragraph about a team member: 
     say "[Name] is here, [activity description]."
+
+Frank is a male person. Name of Frank is "Frank". The quizzing table is the Table of Frank's Answers. The informing table is the Table of Frank's orders. The unknown quizzing rule is the Frank-no-quiz rule.
+
+This is the Frank-no-quiz rule: 
+	show the next response from the Table of Frank's Default Quiz Responses.
+
+After saying hello to Frank:
+     say "'Hello there, [Name],' you greet him.
+
+    'Hello hello, how's it going out there?' [Answers for Neutral]";
+    if the greeting type is explicit, consider the standard list suggested topics rule.
+
+Table of Frank's Answers
+subject	response rule	response table	suggest
+[status	a rule	Table of Frank's Status Responses	2]
+Frank	frank2 rule	--	2
+continuous-integration	a rule	Table of Frank's CI responses	2
+[team board	a rule	Table of Frank's board 	2
+tests	a rule	Table of Frank's tests	2
+unfinished items	items rule	--	2
+previous sprints	a rule	Table of Frank's sprints	3
+database specifications	a rule	Table of Frank's db	2
+integration	a rule	Table of Frank's integration	2]
+
+Table of Frank's Orders
+subject	response rule	response table	suggest
+integration	a rule	Table of Frank's intgr reactions	3
+[status	a rule	Table of Frank's Status Reactions	2]
+
+This is the frank2 rule:
+say "'How are you, [Name of Frank]?' [PlrQuestion]'I'm allright, thanks for asking', [Answers for Neutral]"
+
+[TODO change these]
+Table of Frank's Default Quiz Responses
+response
+"'Yeah, I think I know what you are talking about... Sorry, I don't know anything about that', [Name] replies apologetically."
+"'One cannot know everything, especially at this particular project', [Answers for cynical]"
+"'Sorry, I cannot help you with that', [Answers for neutral]"
+"'Sorry, but what has that got to do with anything?' [Answers for frustrated]"
+
+test frank with "phone frank / ask frank about frank / tell frank about integration "
 
 Markku is a male team member. The quizzing table is the Table of Markku's Answers. The Name is "Markku". The unknown quizzing rule is the Markku-no-quiz rule. The description of Markku is "You see a tall heavy-set man with bowl cut brown hair and a friendly face. He wears jeans and a t-shirt of an obscure heavy metal band. [Name] is [activity description]."
 
@@ -705,6 +752,8 @@ Table of Ted's integration
 response
 "'What about the integration?' [PlrQuestion]'I thought we would integrate tomorrow? I still have to make these tweaks to the UI to make the columns in the pages show OK', [Answers for frustrated]"
 
+
+
 A integration finding1 is some text that varies. integration finding1 is usually "You found out that there have been some problems with fixing the bugs found during the integration phase of Sprints in time and this has caused the team missing Sprint deadlines."
 
 Table of Saana's integration
@@ -864,6 +913,126 @@ Reflecting is an action applying to nothing.
 
 Report reflecting:
 	say "[Findings made][line break][Actions performed]".
+
+Section 4 Telephone
+
+Understand "phone [any person]" as phoning.
+
+Understand "telephone [any known person]" as phoning.
+
+Phoning is an action applying to one visible thing.
+
+Report phoning:
+	say "The phone rings a couple of times and then the call is picked up. 'Hullo?' [Name of the noun] answers the call.";
+	implicitly greet the noun;
+	
+
+Connection relates a person to another (called the other party). The verb to reach (it reaches, they reach, it reached) implies the connection relation.
+
+Check phoning:
+	if the noun is in the location, say "[The noun] is right here." instead;
+	if the noun is not Frank, say "There's no answer." instead;
+	if the noun is player, say "You get a busy singal." instead.
+
+Carry out phoning:
+	now the player reaches the noun.
+	
+Before phoning  when the player reaches someone: 
+	say "(first ending your conversation with [the other party of the player])[command clarification break]"; 
+	end current conversation.
+
+Understand "hang up" as hanging up.
+
+Hanging up is an action applying to nothing.
+
+Check hanging up: 
+	if the player does not reach someone, say "You're not on the line with anyone." instead.
+	
+Carry out hanging up: 
+	try saying goodbye to the other party of the player;
+	now the player does not reach anyone.
+	
+	
+Report hanging up:
+	say "You close your phone, cutting the connection."
+
+Before going somewhere when the player reaches someone: 
+	say "(first hanging up on [the other party of the player])[command clarification break]"; 
+	end current conversation.
+
+To end current conversation: 
+	silently try hanging up.
+	
+After deciding the scope of the player while the player reaches someone: 
+	place the other party of the player in scope, but not its contents.	
+        
+[Instead of phoning someone unseen: 
+	if the noun is a person:
+		if the noun is known: 
+			now the noun is seen; 
+			continue the action;]
+
+[Before implicit-conversing when the current interlocutor is not visible and the current interlocutor is not nothing  (this is the can't converse with absent interlocutor if not on the phone rule):
+  say "[The current interlocutor] isn't here.";
+  reset the interlocutor instead.]
+
+Section 5 Frank
+
+Continuous-integration is an unfamiliar subject.
+
+Understand "continuous integration" as continuous-integration.
+
+Table of Frank's intgr reactions
+response
+"'We've had some problems with integration testing. Apparently there have been lots of problems to integrate the team's work at the end of Sprints.' [PlrQuestion]'Hmm, sounds like there really could be some problems with that. Is the team integrating their work only at the end of a Sprint?', [Answers for neutral][convnode frank-integrate-end-node]"
+
+XP_CI_link is a weblink. The link_url of XP_CI_link is "www.extremeprogramming.org/rules/integrateoften.html". The description of XP_CI_link is "link to Continuous integration on the XP pages".
+
+CI_wikipedia is a weblink. The link_url of CI_wikipedia is "en.wikipedia.org/wiki/Continuous_integration". The description of CI_wikipedia is "The Wikipedia entry for Continuous Integration".
+
+Table of Frank's CI responses
+response
+"'You mentioned continuous integration, any pointers on where to look it up and how it could help our team?' [PlrQuestion]'Well, technically it is about automating the build and the testing. It's also about delivering early and delivering often so it probably requires a change of process from the developers. It is a practice of eXtreme Programming ([Link for XP_CI_link]).[paragraph break][Link for CI_wikipedia] can be of some use.', [Answers for neutral]"
+
+Table of Table Types (continued)
+tabname	index	tabtype
+Table of Frank's intgr reactions	0	stop-list
+Table of Frank's CI responses	0	stop-list
+
+The frank-integrate-end-node is a Conversation node. The suggestions is "say yes or no, or say that you don't know".
+
+The frank-integrate-end rules is a rulebook. The node rule of frank-integrate-end-node is frank-integrate-end rules.
+
+A frank-integrate-end rule when saying no: 
+	say "'No, I think they do integrate before that, I'm just not sure about the procedures', [PlrAnswer].[line break]'Ok, maybe you should inquire a little more to see if there really is some problems there', [Answers for neutral][convnode null-node]";
+	rule succeeds;
+
+A frank-integrate-end rule when saying yes: 
+	say "'Yes, they are running the integration tests during the second last day of the Sprint', [PlrAnswer][line break]'Hm, is there a reason for that? There are many reports about [bold type]continuous integration[roman type] being a very effective practice despite the extra work it entails', [Answers for neutral][convnode null-node][make continuous-integration familiar]";
+	rule succeeds;
+
+The last frank-integrate-end rule: 
+	say "'I asked you if the team is only integrating their work at the end of Sprints because this is beginning to sound very interesting indeed', [Name of the current interlocutor] reminds you.";
+	rule succeeds;
+
+Understand "you don't/dont know" or "i don't/dont know" or "don't know" or "dont know" as "[dont know]".
+
+Understand "[dont know]" as Xspcing when the current convnode is the frank-integrate-end-node.
+
+A frank-integrate-end rule when Xspcing:	
+	[if the command matches "[dont know]" begin;]
+		say "[dont know team-integrate].";
+		rule succeeds;
+[	end if;]
+
+
+A frank-integrate-end rule when answering and the topic understood matches "[dont know]": 
+	say "[dont know team-integrate].";
+	rule succeeds;
+	
+To say dont know team-integrate:
+	say "'I don't know, maybe I have to ask about it a bit more.', [PlrAnswer]'Sounds like a good place to make your time worth the while', [Answers for neutral][convnode null-node]"
+
 
 Chapter 4 Actions
 
